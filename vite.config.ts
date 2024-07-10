@@ -32,4 +32,15 @@ export default defineConfig({
       },
     },
   },
+  /*
+  if appear some issues after importing library to another project, most easiest
+  solution to use css variables
+  */
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "./src/styles/boilerplate.scss";`,
+      }
+    }
+  }
 });
