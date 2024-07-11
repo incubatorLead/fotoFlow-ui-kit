@@ -13,7 +13,7 @@ export const Checkbox = forwardRef<HTMLInputElement, Props>((props, ref) => {
 
   // Generate unique ID if it is not provided
   const generatedId = useId()
-  const inputId = id ? id : name + generatedId
+  const inputId = id ?? name + generatedId
 
   return (
     <label className={clsx(s.checkbox, className)} htmlFor={inputId}>
