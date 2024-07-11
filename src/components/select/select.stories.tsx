@@ -12,6 +12,7 @@ export default meta
 
 export const Default = {
   args: {
+    name: "Default",
     options: [
       { text: "10", value: "10" },
       { text: "50", value: "50" },
@@ -30,11 +31,13 @@ export const Open = {
       { text: "100", value: "100" }
     ],
     placeholder: "Select-box"
-  }
+  },
+  name: "Open"
 }
 export const Disabled = {
   args: {
     disabled: true,
+    name: "Disabled",
     options: [
       { text: "10", value: "10" },
       { text: "50", value: "50" },

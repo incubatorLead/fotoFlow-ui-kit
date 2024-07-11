@@ -17,16 +17,24 @@ type Props = {
 } & React.ComponentPropsWithoutRef<typeof SelectPrimitive.Root>
 
 export const Select = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Root>, Props>(
-  (
-    { children, className, disabled, onValueChange, options, placeholder, value, ...props },
-    ref
-  ) => {
+  (props, ref) => {
+    const {
+      children,
+      className,
+      disabled,
+      onValueChange,
+      options,
+      placeholder,
+      value,
+      ...restProps
+    } = props
+
     return (
       <SelectPrimitive.Root
         disabled={disabled}
         onValueChange={onValueChange}
         value={value}
-        {...props}
+        {...restProps}
       >
         <SelectPrimitive.Trigger className={clsx(s.trigger, className && className)} ref={ref}>
           <SelectPrimitive.Value placeholder={placeholder} />
