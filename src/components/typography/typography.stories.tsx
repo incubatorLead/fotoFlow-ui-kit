@@ -52,7 +52,7 @@ export const H1AsTagH1: Story = {
     children: "Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH",
     variant: "h1"
   },
-  name: "H1 as Tag h1"
+  name: "H1 as tag h1"
 }
 
 export const H2: Story = {
