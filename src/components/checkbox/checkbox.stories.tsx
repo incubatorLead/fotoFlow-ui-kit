@@ -10,7 +10,7 @@ const meta = {
 
 export default meta
 
-export const DisabledCheckboxWithoutTex = {
+export const DisabledCheckboxWithoutText = {
   args: {
     disabled: true,
     id: "test checkbox",
@@ -27,7 +27,7 @@ export const DisabledCheckboxWithText = {
   name: "Disabled Checkbox with text"
 }
 
-export const CheckboxWithoutTex = {
+export const CheckboxWithoutText = {
   args: {
     id: "test checkbox 2"
   },

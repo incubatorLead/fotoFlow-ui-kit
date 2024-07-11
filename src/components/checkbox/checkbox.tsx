@@ -5,7 +5,6 @@ import clsx from "clsx"
 import s from "./checkbox.module.scss"
 
 type Props = {
-  //labelText?: string
   labelText?: ReactElement
 } & ComponentPropsWithoutRef<"input">
 
