@@ -42,7 +42,8 @@ export const H1: Story = {
   args: {
     children: "Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH",
     variant: "h1"
-  }
+  },
+  name: "H1"
 }
 
 export const H1AsTagH1: Story = {
@@ -50,21 +51,24 @@ export const H1AsTagH1: Story = {
     as: "h1",
     children: "Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH",
     variant: "h1"
-  }
+  },
+  name: "H1 as Tag h1"
 }
 
 export const H2: Story = {
   args: {
     children: "Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH",
     variant: "h2"
-  }
+  },
+  name: "H2"
 }
 
 export const H3: Story = {
   args: {
     children: "Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH",
     variant: "h3"
-  }
+  },
+  name: "H3"
 }
 
 export const RegularText16: Story = {
