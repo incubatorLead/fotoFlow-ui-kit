@@ -23,7 +23,20 @@ export const Default = {
 
 export const Open = {
   args: {
+    name: "select",
     open: true,
+    options: [
+      { text: "10", value: "10" },
+      { text: "50", value: "50" },
+      { text: "100", value: "100" }
+    ],
+    placeholder: "Select-box"
+  }
+}
+export const selectWithLabel = {
+  args: {
+    labelText: "Select",
+    name: "select",
     options: [
       { text: "10", value: "10" },
       { text: "50", value: "50" },
@@ -35,11 +48,15 @@ export const Open = {
 export const Disabled = {
   args: {
     disabled: true,
-    options: [
-      { text: "10", value: "10" },
-      { text: "50", value: "50" },
-      { text: "100", value: "100" }
-    ],
-    placeholder: "Select-box"
+    name: "select",
+    placeholder: "Select disabled"
+  }
+}
+export const disabledWithLabel = {
+  args: {
+    disabled: true,
+    labelText: "Disabled",
+    name: "select",
+    placeholder: "Select disabled with label"
   }
 }
