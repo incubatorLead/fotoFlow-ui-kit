@@ -1,6 +1,4 @@
-@forward "../abstracts/fonts";
-
-@use "../abstracts/fonts" as *;
+@use "../abstracts/index" as *;
 
 *,
 *::before,
@@ -20,6 +18,7 @@ body {
   margin: 0;
   font-size: $font-size-m;
   font-weight: $font-weight-regular;
+  line-height: $line-height-l;
 }
 
 h1,
