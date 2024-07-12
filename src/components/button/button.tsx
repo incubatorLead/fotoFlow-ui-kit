@@ -1,28 +1,29 @@
-import type { ComponentPropsWithoutRef, ElementType } from "react"
+import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
 
 import clsx from "clsx"
 
 import s from "./button.module.scss"
 
-export type ButtonProps<T extends ElementType = "button"> = {
+type ButtonVariant = "outlined" | "primary" | "secondary" | "text"
+
+type ButtonProps<T extends ElementType = "button"> = {
   as?: T
   fullWidth?: boolean
-  variant?: "outlined" | "primary" | "secondary"
+  icon?: ReactNode
+  variant?: ButtonVariant
 } & ComponentPropsWithoutRef<T>
 
-export function Button<T extends ElementType = "button">({
-  as,
-  className,
-  fullWidth = false,
-  variant = "primary",
-  ...rest
-}: ButtonProps<T>) {
+export const Button = <T extends ElementType = "button">(props: ButtonProps<T>) => {
+  const { as, children, className, fullWidth, icon, variant = "primary", ...restProps } = props
   const Component = as ?? "button"
 
   return (
     <Component
-      {...rest}
       className={clsx(s.button, s[variant], fullWidth && s.fullWidth, className)}
-    />
+      {...restProps}
+    >
+      {icon}
+      {children && <span>{children}</span>}
+    </Component>
   )
 }
