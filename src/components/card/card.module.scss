@@ -1,0 +1,8 @@
+@use "../../styles/abstracts/index" as *;
+
+.card {
+  padding: 12px;
+  background-color: var(--color-dark-500);
+  border: 1px solid var(--color-dark-300);
+  border-radius: 2px;
+}
