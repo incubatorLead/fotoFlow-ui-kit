@@ -33,7 +33,7 @@ export const Open = {
     placeholder: "Select-box"
   }
 }
-export const selectWithLabel = {
+export const withLabel = {
   args: {
     labelText: "Select",
     name: "select",
@@ -43,6 +43,32 @@ export const selectWithLabel = {
       { text: "100", value: "100" }
     ],
     placeholder: "Select-box"
+  }
+}
+export const withIcons = {
+  args: {
+    defaultValue: "canada",
+    labelText: "Country",
+    name: "select",
+    options: [
+      { icon: "https://flagicons.lipis.dev/flags/4x3/ca.svg", text: "Canada", value: "canada" },
+      { icon: "https://flagicons.lipis.dev/flags/4x3/cn.svg", text: "China", value: "china" },
+      { icon: "https://flagicons.lipis.dev/flags/4x3/hn.svg", text: "Honduras", value: "honduras" }
+    ],
+    placeholder: "Select-box"
+  }
+}
+export const withMinWidth = {
+  args: {
+    defaultValue: "canada",
+    labelText: "Min-Width",
+    minWidth: 163,
+    name: "select",
+    options: [
+      { icon: "https://flagicons.lipis.dev/flags/4x3/ca.svg", text: "Canada", value: "canada" },
+      { icon: "https://flagicons.lipis.dev/flags/4x3/cn.svg", text: "China", value: "china" },
+      { icon: "https://flagicons.lipis.dev/flags/4x3/hn.svg", text: "Honduras", value: "honduras" }
+    ]
   }
 }
 export const Disabled = {

@@ -6,19 +6,22 @@ import clsx from "clsx"
 import s from "./select.module.scss"
 
 import { Typography } from "../typography"
+
 type Options = {
+  icon?: string
   text: string
   value: string
 }
+
 type Props = {
   className?: string
   id?: string
   labelText?: ReactElement
+  minWidth?: number
   name: string
   onValueChange?: (items: string) => void
   options: Options[]
   placeholder?: string
-  value?: string
 } & React.ComponentPropsWithoutRef<typeof SelectPrimitive.Root>
 
 export const Select = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Root>, Props>(
@@ -29,24 +32,33 @@ export const Select = React.forwardRef<React.ElementRef<typeof SelectPrimitive.R
       disabled,
       id,
       labelText,
+      minWidth,
       name,
       onValueChange,
       options,
       placeholder,
-      value,
       ...restProps
     } = props
-
     // Generate unique ID if it is not provided
     const generatedId = useId()
     const selectId = id ?? generatedId
+
+    const items = options?.map(option => {
+      return (
+        <SelectPrimitive.Item className={s.item} key={option.value} value={option.value}>
+          <SelectPrimitive.ItemText>
+            {option.icon && <img alt={option.text} src={option.icon} />}
+            {option.text}
+          </SelectPrimitive.ItemText>
+        </SelectPrimitive.Item>
+      )
+    })
 
     return (
       <SelectPrimitive.Root
         disabled={disabled}
         name={name}
         onValueChange={onValueChange}
-        value={value}
         {...restProps}
       >
         <Typography
@@ -61,6 +73,7 @@ export const Select = React.forwardRef<React.ElementRef<typeof SelectPrimitive.R
             id={selectId}
             name={name}
             ref={ref}
+            style={{ minWidth: `${minWidth}px` }}
           >
             <SelectPrimitive.Value placeholder={placeholder} />
             <SelectPrimitive.Icon className={s.icon}>
@@ -83,15 +96,7 @@ export const Select = React.forwardRef<React.ElementRef<typeof SelectPrimitive.R
         </Typography>
         <SelectPrimitive.Portal>
           <SelectPrimitive.Content className={s.content} position={"popper"}>
-            <SelectPrimitive.Viewport className={s.viewport}>
-              {options?.map(option => {
-                return (
-                  <SelectPrimitive.Item className={s.item} key={option.value} value={option.value}>
-                    <SelectPrimitive.ItemText>{option.text}</SelectPrimitive.ItemText>
-                  </SelectPrimitive.Item>
-                )
-              })}
-            </SelectPrimitive.Viewport>
+            <SelectPrimitive.Viewport className={s.viewport}>{items}</SelectPrimitive.Viewport>
           </SelectPrimitive.Content>
         </SelectPrimitive.Portal>
       </SelectPrimitive.Root>

@@ -1,6 +1,8 @@
+@use "../../styles/abstracts/index" as *;
+
 .label {
   cursor: pointer;
-  color: var(--color-light-900) !important;
+  color: var(--color-light-900);
 
   &:has(> button[data-disabled]) {
     cursor: not-allowed;
@@ -31,6 +33,14 @@
 
   & span {
     display: flex;
+
+    &:first-child {
+      gap: 12px;
+    }
+
+    img {
+      width: 20px;
+    }
   }
 
   &:disabled {
@@ -95,5 +105,16 @@
     background-color: var(--color-dark-300);
     border: none;
     outline: none;
+  }
+
+  & span {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    & img {
+      width: 20px;
+      aspect-ratio: 1/1;
+    }
   }
 }
