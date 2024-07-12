@@ -1,8 +1,11 @@
 import type { Preview } from "@storybook/react";
 import { themes } from "@storybook/theming";
 
+import '../src/styles/boilerplate.scss';
+
 const preview: Preview = {
   parameters: {
+    layout: 'centered',
     docs: {
       theme: themes.dark,
     },
