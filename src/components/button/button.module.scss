@@ -1,3 +1,5 @@
+@use "../../styles/abstracts/index" as *;
+
 .button {
   all: unset;
 
@@ -22,16 +24,16 @@
   border-radius: 2px;
 
   transition:
-    var(--transition-duration) background-color,
-    var(--transition-duration) color,
-    var(--transition-duration) border-color;
+    $transition-duration background-color ease-in-out,
+    $transition-duration color ease-in-out,
+    $transition-duration border-color ease-in-out;
 
   &:disabled {
     cursor: not-allowed;
   }
 
   &:focus-visible {
-    outline: var(--outline-focus);
+    outline: $outline-focus;
   }
 }
 
@@ -71,7 +73,7 @@
 
 .outlined {
   color: var(--color-accent-500);
-  border: 1px solid var(--outline-color);
+  border: 1px solid $outline-color;
 
   &:active {
     color: var(--color-accent-700);
