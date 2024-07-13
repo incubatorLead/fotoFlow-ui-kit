@@ -1,4 +1,4 @@
-import React, { type ReactElement, useId } from "react"
+import React, { type ComponentPropsWithoutRef, type ReactElement, forwardRef, useId } from "react"
 
 import * as SelectPrimitive from "@radix-ui/react-select"
 import clsx from "clsx"
@@ -22,9 +22,9 @@ type Props = {
   onValueChange?: (items: string) => void
   options: Options[]
   placeholder?: string
-} & React.ComponentPropsWithoutRef<typeof SelectPrimitive.Root>
+} & ComponentPropsWithoutRef<typeof SelectPrimitive.Root>
 
-export const Select = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Root>, Props>(
+export const Select = forwardRef<React.ElementRef<typeof SelectPrimitive.Root>, Props>(
   (props, ref) => {
     const {
       children,
@@ -61,15 +61,10 @@ export const Select = React.forwardRef<React.ElementRef<typeof SelectPrimitive.R
         onValueChange={onValueChange}
         {...restProps}
       >
-        <Typography
-          as={"label"}
-          className={clsx(s.label)}
-          htmlFor={selectId}
-          variant={"regular_text_14"}
-        >
+        <Typography as={"label"} className={s.label} htmlFor={selectId} variant={"regular_text_14"}>
           {labelText}
           <SelectPrimitive.Trigger
-            className={clsx(s.trigger, className && className)}
+            className={clsx(s.trigger, className)}
             id={selectId}
             name={name}
             ref={ref}
