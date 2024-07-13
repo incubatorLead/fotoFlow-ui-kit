@@ -10,39 +10,33 @@ const meta = {
 
 export default meta
 
+const defaultArgs = {
+  options: [
+    { text: "10", value: "10" },
+    { text: "50", value: "50" },
+    { text: "100", value: "100" }
+  ],
+  placeholder: "Select-box"
+}
+
 export const Default = {
   args: {
-    options: [
-      { text: "10", value: "10" },
-      { text: "50", value: "50" },
-      { text: "100", value: "100" }
-    ],
-    placeholder: "Select-box"
+    ...defaultArgs
   }
 }
 
 export const Open = {
   args: {
+    ...defaultArgs,
     name: "select",
-    open: true,
-    options: [
-      { text: "10", value: "10" },
-      { text: "50", value: "50" },
-      { text: "100", value: "100" }
-    ],
-    placeholder: "Select-box"
+    open: true
   }
 }
 export const withLabel = {
   args: {
+    ...defaultArgs,
     labelText: "Select",
-    name: "select",
-    options: [
-      { text: "10", value: "10" },
-      { text: "50", value: "50" },
-      { text: "100", value: "100" }
-    ],
-    placeholder: "Select-box"
+    name: "select"
   }
 }
 export const withIcons = {
@@ -58,26 +52,7 @@ export const withIcons = {
     placeholder: "Select-box"
   }
 }
-export const withMinWidth = {
-  args: {
-    defaultValue: "canada",
-    labelText: "Min-Width",
-    minWidth: 163,
-    name: "select",
-    options: [
-      { icon: "https://flagicons.lipis.dev/flags/4x3/ca.svg", text: "Canada", value: "canada" },
-      { icon: "https://flagicons.lipis.dev/flags/4x3/cn.svg", text: "China", value: "china" },
-      { icon: "https://flagicons.lipis.dev/flags/4x3/hn.svg", text: "Honduras", value: "honduras" }
-    ]
-  }
-}
-export const Disabled = {
-  args: {
-    disabled: true,
-    name: "select",
-    placeholder: "Select disabled"
-  }
-}
+
 export const disabledWithLabel = {
   args: {
     disabled: true,

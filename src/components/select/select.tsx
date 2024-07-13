@@ -17,7 +17,6 @@ type Props = {
   className?: string
   id?: string
   labelText?: ReactElement
-  minWidth?: number
   name: string
   onValueChange?: (items: string) => void
   options: Options[]
@@ -32,7 +31,6 @@ export const Select = forwardRef<React.ElementRef<typeof SelectPrimitive.Root>, 
       disabled,
       id,
       labelText,
-      minWidth,
       name,
       onValueChange,
       options,
@@ -68,7 +66,6 @@ export const Select = forwardRef<React.ElementRef<typeof SelectPrimitive.Root>, 
             id={selectId}
             name={name}
             ref={ref}
-            style={{ minWidth: `${minWidth}px` }}
           >
             <SelectPrimitive.Value placeholder={placeholder} />
             <SelectPrimitive.Icon className={s.icon}>
