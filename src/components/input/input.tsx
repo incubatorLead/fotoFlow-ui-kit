@@ -54,13 +54,23 @@ export const Input = forwardRef(
       inputType = type
     }
 
+    const classNames = {
+      input: clsx(
+        s.input,
+        isInputPassword && s.inputPassword,
+        isInputPassword && isPasswordHidden && s.hidePassword,
+        error && s.inputError,
+        isTextarea && s.textarea
+      ),
+      inputContainer: clsx(s.inputContainer, className),
+      inputPassword: clsx(s.hidePasswordIcon, disabled && s.disabledPasswordIcon),
+      label: clsx(s.label, required && s.labelRequired, disabled && s.disabled)
+    }
+
     return (
-      <div className={clsx(s.inputContainer, className)}>
+      <div className={classNames.inputContainer}>
         <div className={s.inputLabelWrapper}>
-          <label
-            className={clsx(s.label, required && s.labelRequired, disabled && s.disabled)}
-            htmlFor={inputId}
-          >
+          <label className={classNames.label} htmlFor={inputId}>
             {labelText}
           </label>
           <div className={s.inputIconWrapper}>
@@ -88,13 +98,7 @@ export const Input = forwardRef(
               </svg>
             )}
             <Component
-              className={clsx(
-                s.input,
-                isInputPassword && s.inputPassword,
-                isInputPassword && isPasswordHidden && s.hidePassword,
-                error && s.inputError,
-                isTextarea && s.textarea
-              )}
+              className={classNames.input}
               disabled={disabled}
               id={inputId}
               ref={ref}
@@ -103,7 +107,7 @@ export const Input = forwardRef(
             />
             {isInputPassword && (
               <svg
-                className={clsx(s.hidePasswordIcon, disabled && s.disabledPasswordIcon)}
+                className={classNames.inputPassword}
                 fill={"currentColor"}
                 height={"24"}
                 onClick={toggleHidePassword}
