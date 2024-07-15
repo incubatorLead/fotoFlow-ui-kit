@@ -9,7 +9,7 @@ type Props = {
 } & ComponentPropsWithoutRef<"input">
 
 export const Checkbox = forwardRef<HTMLInputElement, Props>((props, ref) => {
-  const { className, disabled, id, labelText, name, ...restProps } = props
+  const { className, id, labelText, name, ...restProps } = props
 
   // Generate unique ID if it is not provided
   const generatedId = useId()
