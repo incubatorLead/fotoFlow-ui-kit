@@ -13,8 +13,24 @@
   color: var(--color-light-900);
 }
 
+.labelRequired {
+  &::after {
+    content: "*";
+    color: var(--color-danger-500);
+  }
+}
+
+.inputSearchIcon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+
+  color: var(--color-light-900);
+}
+
 .input {
-  width: 280px;
+  width: 100%;
   padding: 6px 12px;
 
   color: var(--color-light-900);
@@ -26,16 +42,11 @@
 
   &[type="search"] {
     padding-left: 44px;
-    background-image: url("../../assets/icons/search.svg");
-    background-repeat: no-repeat;
-    background-position: 12px center;
   }
 
-  &:invalid,
-  &.inputError {
-    color: var(--color-light-100);
+  &:hover {
     background-color: var(--color-dark-700);
-    border-color: var(--color-danger-500);
+    border-color: var(--color-light-900);
   }
 
   &:focus-visible {
@@ -50,13 +61,15 @@
     border-color: var(--color-light-100);
   }
 
-  &:hover:not(:focus, :focus-visible, :disabled, .inputError) {
-    background-color: var(--color-dark-700);
-    border-color: var(--color-light-900);
-  }
-
   &:focus::placeholder {
     opacity: 0;
+  }
+
+  &:invalid,
+  &.inputError {
+    color: var(--color-light-100);
+    background-color: var(--color-dark-700);
+    border-color: var(--color-danger-500);
   }
 
   &:disabled {
@@ -67,25 +80,47 @@
     &::placeholder {
       color: var(--color-dark-100);
     }
-
-    + .label {
-      color: var(--color-dark-100);
-    }
   }
 }
 
-.inputWrapper {
+.textarea {
+  resize: vertical;
+  min-height: 84px;
+}
+
+.inputIconWrapper {
   position: relative;
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 6px;
 }
 
 .hidePasswordIcon {
   cursor: pointer;
+
   position: absolute;
+  top: 50%;
   right: 12px;
-  bottom: 6px;
+  transform: translateY(-50%);
+
+  color: var(--color-light-100);
+}
+
+.inputIconWrapper:has(.input:focus, .inputError) .inputSearchIcon {
+  color: var(--color-light-100);
+}
+
+.inputIconWrapper:has(.input:disabled) .hidePasswordIcon,
+.inputIconWrapper:has(.input:disabled) .inputSearchIcon {
+  color: var(--color-dark-100);
+}
+
+.inputLabelWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.disabledPasswordIcon {
+  pointer-events: none;
+  cursor: not-allowed;
 }
 
 .inputPassword {
@@ -98,4 +133,9 @@
 
 .error {
   color: var(--color-danger-500);
+}
+
+.disabled {
+  cursor: not-allowed;
+  color: var(--color-dark-100);
 }

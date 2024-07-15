@@ -1,11 +1,21 @@
-import type { Meta } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
 
 import { Input } from "./input"
 
 const meta = {
   argTypes: {
+    as: {
+      control: { type: "radio" },
+      options: ["input", "textarea"]
+    },
+    disabled: {
+      control: { type: "boolean" }
+    },
     error: {
       control: { type: "text" }
+    },
+    required: {
+      control: { type: "boolean" }
     },
     type: {
       control: { type: "radio" },
@@ -19,20 +29,33 @@ const meta = {
 
 export default meta
 
+type Story = StoryObj<typeof meta>
+
 const defaultArgs = {
+  disabled: false,
+  error: "",
   labelText: "Label",
   placeholder: "Placeholder",
+  required: false,
   type: "text"
 }
 
-export const DefaultInput = {
+export const DefaultInput: Story = {
   args: {
     ...defaultArgs
   },
   name: "Default input"
 }
 
-export const ActiveInput = {
+export const RequiredInput: Story = {
+  args: {
+    ...defaultArgs,
+    required: true
+  },
+  name: "Required input"
+}
+
+export const ActiveInput: Story = {
   args: {
     ...defaultArgs
   },
@@ -42,7 +65,7 @@ export const ActiveInput = {
   }
 }
 
-export const InputWithError = {
+export const InputWithError: Story = {
   args: {
     ...defaultArgs,
     error: "Error text"
@@ -53,7 +76,7 @@ export const InputWithError = {
   }
 }
 
-export const HoveredInput = {
+export const HoveredInput: Story = {
   args: {
     ...defaultArgs
   },
@@ -63,7 +86,7 @@ export const HoveredInput = {
   }
 }
 
-export const FocusedInput = {
+export const FocusedInput: Story = {
   args: {
     ...defaultArgs
   },
@@ -73,7 +96,7 @@ export const FocusedInput = {
   }
 }
 
-export const DisabledInput = {
+export const DisabledInput: Story = {
   args: {
     ...defaultArgs,
     disabled: true
@@ -81,7 +104,7 @@ export const DisabledInput = {
   name: "Disabled input"
 }
 
-export const SearchInput = {
+export const SearchInput: Story = {
   args: {
     ...defaultArgs,
     type: "search"
@@ -89,7 +112,7 @@ export const SearchInput = {
   name: "Search input"
 }
 
-export const EmailInput = {
+export const EmailInput: Story = {
   args: {
     ...defaultArgs,
     placeholder: "Example@mail.com",
@@ -98,11 +121,28 @@ export const EmailInput = {
   name: "Email input"
 }
 
-export const PasswordInput = {
+export const PasswordInput: Story = {
   args: {
     ...defaultArgs,
     type: "password",
     value: "Entered password, which is very long and strong"
   },
   name: "Password input"
+}
+
+export const DisabledPasswordInput: Story = {
+  args: {
+    ...defaultArgs,
+    disabled: true,
+    type: "password",
+    value: "Disabled password"
+  },
+  name: "Disabled password input"
+}
+
+export const Textarea: Story = {
+  args: {
+    ...defaultArgs,
+    as: "textarea"
+  }
 }
