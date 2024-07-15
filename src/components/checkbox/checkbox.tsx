@@ -19,7 +19,6 @@ export const Checkbox = forwardRef<HTMLInputElement, Props>((props, ref) => {
     <label className={clsx(s.checkbox, className)} htmlFor={inputId}>
       <input
         className={s.input}
-        disabled={disabled}
         id={inputId}
         name={name}
         ref={ref}
