@@ -7,7 +7,7 @@ type Color = {
   name: string
 }
 
-type ColorGroup = {
+export type ColorGroup = {
   group: string
   groupColors: Color[]
   id: number
@@ -22,7 +22,9 @@ export const ColorPalette = ({ palette }: Props) => {
     <div className={s.palette}>
       {palette.map(group => (
         <div className={s.group} key={group.id}>
-          <div className={s.title}>{group.group}</div>
+          <div className={s.title}>
+            {group.id}. {group.group}
+          </div>
           <div className={s.colors}>
             {group.groupColors.map(item => (
               <div className={s.color} key={item.name}>
