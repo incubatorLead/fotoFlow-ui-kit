@@ -7,7 +7,7 @@ import { Radio } from "./radio"
 const meta = {
   component: Radio,
   tags: ["autodocs"],
-  title: "Components/Radio"
+  title: "02. Components/Radio"
 } satisfies Meta<typeof Radio>
 
 export default meta
