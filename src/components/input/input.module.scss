@@ -73,7 +73,6 @@
   }
 
   &:disabled {
-    cursor: not-allowed;
     color: var(--color-dark-100);
     border-color: var(--color-dark-100);
 
@@ -84,7 +83,7 @@
 }
 
 .textarea {
-  resize: vertical;
+  resize: none;
   min-height: 84px;
 }
 
@@ -120,7 +119,6 @@
 
 .disabledPasswordIcon {
   pointer-events: none;
-  cursor: not-allowed;
 }
 
 .inputPassword {
@@ -136,6 +134,5 @@
 }
 
 .disabled {
-  cursor: not-allowed;
   color: var(--color-dark-100);
 }
