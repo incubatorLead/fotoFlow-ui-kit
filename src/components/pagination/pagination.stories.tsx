@@ -1,14 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { useState } from "react"
+import { type ComponentProps, useState } from "react"
 
 import { Pagination } from "./pagination"
 
 const meta = {
   component: Pagination,
-  parameters: {
-    layout: "centered"
-  },
   tags: ["autodocs"],
   title: "Components/Pagination"
 } satisfies Meta<typeof Pagination>
@@ -27,8 +24,6 @@ const defaultArgs = {
 }
 
 export default meta
-type Story = StoryObj<typeof meta>
-
 export const Control = {
   args: {
     currentPage: 1,
@@ -37,7 +32,7 @@ export const Control = {
     siblingCount: 1,
     totalCount: 1001
   },
-  render: function Render(args: any) {
+  render: function Render(args: ComponentProps<typeof Pagination>) {
     const [currentPage, setCurrentPage] = useState(args.currentPage)
     const [pageSize, setPageSize] = useState(args.pageSize)
 

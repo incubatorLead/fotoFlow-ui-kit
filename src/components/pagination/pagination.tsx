@@ -47,9 +47,10 @@ export const Pagination = (props: Props) => {
   return (
     <div className={s.pagination}>
       <Button
-        className={s.pagination__button}
+        className={s.button}
         disabled={currentPage === 1}
         onClick={prevPage}
+        title={"Previous page"}
         variant={"text"}
       >
         <svg
@@ -76,8 +77,7 @@ export const Pagination = (props: Props) => {
           return (
             <li key={index}>
               <Button
-                as={"a"}
-                className={clsx(s.pagination__link, currentPage === page && s.active)}
+                className={clsx(s.link, currentPage === page && s.active)}
                 onClick={() => onPageChange(+page)}
                 variant={"text"}
               >
@@ -88,9 +88,10 @@ export const Pagination = (props: Props) => {
         })}
       </ol>
       <Button
-        className={s.pagination__button}
+        className={s.button}
         disabled={currentPage === paginationRange[paginationRange.length - 1]}
         onClick={nextPage}
+        title={"Next page"}
         variant={"text"}
       >
         <svg
@@ -108,7 +109,7 @@ export const Pagination = (props: Props) => {
           />
         </svg>
       </Button>
-      <Typography as={"div"} className={s.pagination__select} variant={"regular_text_14"}>
+      <Typography as={"div"} className={s.selectContainer} variant={"regular_text_14"}>
         Show
         <Select
           name={"select"}

@@ -11,7 +11,7 @@
     margin: 0 16px;
   }
 
-  & .pagination__link {
+  & .link {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,7 +42,7 @@
     }
   }
 
-  &__select {
+  & .selectContainer {
     margin-left: 24px;
     display: flex;
     gap: 6px;
@@ -54,14 +54,15 @@
     }
   }
 
-  &__button {
+  & .button {
     padding: 6px 8px;
     color: var(--color-light-100);
     &:hover {
-      color: white;
+      color: var(--color-light-100);
       background-color: var(--color-dark-500);
     }
     &:disabled {
+      pointer-events: none;
       color: var(--color-light-900);
     }
     &:focus-visible {
