@@ -1,0 +1,71 @@
+@use "../../styles/abstracts/index" as *;
+
+.pagination {
+  display: flex;
+  place-items: center;
+
+  & .pagination__links {
+    display: flex;
+    gap: 12px;
+    place-items: center;
+    margin: 0 16px;
+  }
+
+  & .pagination__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 8px;
+
+    font-size: 14rem;
+    line-height: $line-height-xxl;
+    color: var(--color-light-100);
+
+    border-radius: 2px;
+
+    transition: 0.3s;
+
+    &:hover {
+      background-color: var(--color-dark-500);
+    }
+
+    &:focus-visible,
+    &:focus {
+      outline: 2px solid var(--color-accent-700);
+    }
+
+    &.active {
+      color: black;
+      background: white;
+      border-color: white;
+    }
+  }
+
+  &__select {
+    margin-left: 24px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+
+    & button {
+      padding: 0 6px;
+      background: var(--color-dark-300);
+    }
+  }
+
+  &__button {
+    padding: 6px 8px;
+    color: var(--color-light-100);
+    &:hover {
+      color: white;
+      background-color: var(--color-dark-500);
+    }
+    &:disabled {
+      color: var(--color-light-900);
+    }
+    &:focus-visible {
+      outline: 2px solid var(--color-accent-700);
+    }
+  }
+}
