@@ -2,14 +2,14 @@ import type { Meta, StoryObj } from "@storybook/react"
 
 import { type ColorGroup, ColorPalette } from "./colorPalette"
 
-const meta: Meta<typeof ColorPalette> = {
+const meta = {
   component: ColorPalette,
   title: "01. Design System/Colors"
 } satisfies Meta<typeof ColorPalette>
 
 export default meta
 
-type Story = StoryObj<typeof ColorPalette>
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
