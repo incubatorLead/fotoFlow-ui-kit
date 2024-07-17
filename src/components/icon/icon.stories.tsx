@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 
 import React from "react"
 
-import { Icon, Props } from "./icon"
+import { Icon } from "./icon"
 
 const meta = {
   component: Icon,
@@ -14,7 +14,7 @@ export default meta
 
 type Story = StoryObj<typeof Icon>
 
-const IconsItems = [
+const iconsItems = [
   {
     iconId: "home-outline"
   },
@@ -56,12 +56,6 @@ const IconsItems = [
   },
   {
     iconId: "arrow-up"
-  },
-  {
-    iconId: "radio-button-unchecked"
-  },
-  {
-    iconId: "radio-button-checked"
   },
   {
     iconId: "pause-circle-outline"
@@ -251,13 +245,34 @@ const IconsItems = [
   },
   {
     iconId: "paid"
+  },
+  {
+    iconId: "united-kingdom-flag"
+  },
+  {
+    iconId: "russia-flag"
   }
 ]
 
-export const BaseStory = (args: Props) => (
-  <>
-    {IconsItems.map(i => {
-      return <Icon key={i.iconId} {...args} />
-    })}
-  </>
-)
+export const Default: Story = {
+  render: () => (
+    <div
+      style={{
+        alignItems: "center",
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "5px",
+        justifyContent: "space-around",
+        margin: "auto",
+        padding: "10%",
+        width: "50%"
+      }}
+    >
+      {iconsItems.map(i => {
+        return (
+          <Icon height={"34"} iconId={i.iconId} key={i.iconId} viewBox={"0 0 34 34"} width={"34"} />
+        )
+      })}
+    </div>
+  )
+}
