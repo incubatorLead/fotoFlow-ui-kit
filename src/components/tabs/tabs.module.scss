@@ -1,0 +1,63 @@
+@use "../../styles/abstracts/index" as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.list {
+  display: inline-flex;
+  flex-shrink: 0;
+  background-color: inherit;
+}
+
+.trigger {
+  cursor: pointer;
+
+  flex: 1;
+
+  padding: 6px 24px 4px;
+
+  color: var(--color-dark-100);
+
+  background-color: inherit;
+  border: none;
+  border-bottom: 2px solid var(--color-dark-100);
+
+  transition:
+    $transition-duration background-color ease-in-out,
+    $transition-duration color ease-in-out,
+    $transition-duration border-color ease-in-out,
+    $transition-duration opacity ease-in-out;
+
+  &:active {
+    background-color: var(--color-primary-active-tab);
+  }
+
+  &:hover {
+    background-color: var(--color-primary-hovered-tab);
+  }
+
+  &:focus-visible {
+    z-index: 9999;
+    border-radius: 2px;
+    outline: $outline-focus;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--color-dark-300);
+    border-bottom: 2px solid var(--color-dark-300);
+  }
+
+  &[data-state="active"] {
+    color: var(--color-accent-500);
+    border-bottom: 2px solid var(--color-accent-500);
+
+    &:disabled {
+      color: var(--color-accent-900);
+      border-bottom: 2px solid var(--color-accent-900);
+    }
+  }
+}
