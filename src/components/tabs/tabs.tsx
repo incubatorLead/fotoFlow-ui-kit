@@ -22,11 +22,11 @@ export const Tabs = (props: TabsProps) => {
   const { children, className, tabs, ...restProps } = props
 
   return (
-    <TabsPrimitive.Root className={clsx(s.root, className)} {...restProps}>
+    <TabsPrimitive.Root className={clsx(s.tabs, className)} {...restProps}>
       <TabsPrimitive.List className={s.list}>
         {tabs.map(tab => (
           <TabsPrimitive.Trigger
-            className={s.trigger}
+            className={s.tab}
             disabled={tab.disabled}
             key={tab.value}
             value={tab.value}
