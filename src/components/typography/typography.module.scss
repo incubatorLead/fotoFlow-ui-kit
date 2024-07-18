@@ -1,3 +1,5 @@
+@use "../../styles/abstracts/index" as *;
+
 .large {
   @include typography($font-size-xxl, $line-height-m, $font-weight-semibold);
 }
@@ -15,11 +17,11 @@
 }
 
 .regular_text_16 {
-  @include typography($font-size-m, $line-height-l, $font-weight-regular);
+  @include typography(inherit, inherit, inherit);
 }
 
 .bold_text_16 {
-  @include typography($font-size-m, $line-height-l, $font-weight-bold);
+  @include typography(inherit, inherit, $font-weight-bold);
 }
 
 .regular_text_14 {
@@ -39,7 +41,7 @@
 }
 
 .semi-bold_small_text {
-  @include typography($font-size-xs, $line-height-s, font-weight-semibold);
+  @include typography($font-size-xs, $line-height-s, $font-weight-semibold);
 }
 
 .regular_link,
@@ -58,4 +60,10 @@
   cursor: pointer;
   color: var(--color-accent-500);
   text-decoration: underline;
+}
+
+.error {
+  @include typography($font-size-s, $line-height-xl, $font-weight-regular);
+
+  color: var(--color-danger-500);
 }

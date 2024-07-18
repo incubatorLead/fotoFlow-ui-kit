@@ -1,3 +1,5 @@
+@use "../../styles/abstracts/index" as *;
+
 .checkbox {
   cursor: pointer;
 
@@ -12,7 +14,7 @@
   line-height: $line-height-s;
 }
 
-.checkboxInput {
+.input {
   pointer-events: none;
   cursor: pointer;
 
@@ -35,7 +37,7 @@
     transform 0.3s;
 }
 
-.checkboxIcon {
+.icon {
   cursor: pointer;
 
   position: relative;
@@ -50,7 +52,7 @@
   border-radius: 2px;
 }
 
-.checkboxIcon::after {
+.icon::after {
   content: "";
 
   position: absolute;
@@ -75,11 +77,11 @@
   animation: checkbox-off 0.3s forwards ease-out;
 }
 
-.checkboxInput:checked + .checkboxIcon {
+.input:checked + .icon {
   border-color: var(--color-light-100);
 }
 
-.checkboxInput:checked + .checkboxIcon::after {
+.input:checked + .icon::after {
   box-shadow:
     0 0 0 10px,
     10px -10px 0 10px,
@@ -90,42 +92,43 @@
   animation: checkbox-on 0.3s forwards ease-out;
 }
 
-.checkboxInput:hover {
+.input:hover {
   transform: translateY(-50%) scale(1);
   opacity: 1;
   background-color: var(--color-dark-300);
 }
 
-.checkboxInput:focus {
+.input:focus {
   transform: translateY(-50%) scale(1);
   opacity: 1;
   background-color: var(--color-dark-500);
 }
 
-.checkboxInput:active {
+.input:active {
   transform: translateY(-50%) scale(1);
   opacity: 1;
   background-color: var(--color-dark-100);
 }
 
-.checkboxInput:disabled {
+.input:disabled {
   background: none;
+  pointer-events: none;
 }
 
-.checkboxInput:disabled + .checkboxIcon {
+.input:disabled + .icon {
   cursor: default;
   border-color: var(--color-light-900);
 }
 
-.checkboxInput:checked:disabled + .checkboxIcon {
+.input:checked:disabled + .icon {
   background-color: var(--color-light-700);
 }
 
-.checkboxInput:disabled + .checkboxIcon::after {
+.input:disabled + .icon::after {
   color: var(--color-light-900);
 }
 
-.checkbox:has(.checkboxInput:disabled) {
+.checkbox:has(.input:disabled) {
   cursor: default;
   color: var(--color-light-900);
 }

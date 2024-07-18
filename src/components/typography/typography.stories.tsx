@@ -19,13 +19,14 @@ const meta = {
         "regular_text_14",
         "regular_text_16",
         "semi-bold_small_text",
-        "small_text"
+        "small_text",
+        "error"
       ]
     }
   },
   component: Typography,
   tags: ["autodocs"],
-  title: "Components/Typography"
+  title: "02. Components/Typography"
 } satisfies Meta<typeof Typography>
 
 export default meta
@@ -131,5 +132,12 @@ export const SmallLink: Story = {
   args: {
     children: "Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH",
     variant: "small_link"
+  }
+}
+
+export const Error: Story = {
+  args: {
+    children: "Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH",
+    variant: "error"
   }
 }
