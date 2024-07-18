@@ -1,0 +1,138 @@
+@use "../../styles/abstracts/index" as *;
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: start;
+}
+
+.label {
+  font-size: $font-size-s;
+  line-height: $line-height-s;
+  color: var(--color-light-900);
+}
+
+.labelRequired {
+  &::after {
+    content: "*";
+    color: var(--color-danger-500);
+  }
+}
+
+.inputSearchIcon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+
+  color: var(--color-light-900);
+}
+
+.input {
+  width: 100%;
+  padding: 6px 12px;
+
+  color: var(--color-light-900);
+  text-overflow: ellipsis;
+
+  background-color: var(--color-dark-700);
+  border: 1px solid var(--color-dark-100);
+  border-radius: 2px;
+
+  &[type="search"] {
+    padding-left: 44px;
+  }
+
+  &:hover {
+    background-color: var(--color-dark-700);
+    border-color: var(--color-light-900);
+  }
+
+  &:focus-visible {
+    background-color: var(--color-dark-700);
+    border-color: var(--color-accent-500);
+    border-width: 2px;
+  }
+
+  &:focus {
+    color: var(--color-light-100);
+    background-color: var(--color-dark-500);
+    border-color: var(--color-light-100);
+  }
+
+  &:focus::placeholder {
+    opacity: 0;
+  }
+
+  &:invalid,
+  &.inputError {
+    color: var(--color-light-100);
+    background-color: var(--color-dark-700);
+    border-color: var(--color-danger-500);
+  }
+
+  &:disabled {
+    color: var(--color-dark-100);
+    border-color: var(--color-dark-100);
+
+    &::placeholder {
+      color: var(--color-dark-100);
+    }
+  }
+}
+
+.textarea {
+  resize: none;
+  min-height: 84px;
+}
+
+.inputIconWrapper {
+  position: relative;
+}
+
+.hidePasswordIcon {
+  cursor: pointer;
+
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+
+  color: var(--color-light-100);
+}
+
+.inputIconWrapper:has(.input:focus, .inputError) .inputSearchIcon {
+  color: var(--color-light-100);
+}
+
+.inputIconWrapper:has(.input:disabled) .hidePasswordIcon,
+.inputIconWrapper:has(.input:disabled) .inputSearchIcon {
+  color: var(--color-dark-100);
+}
+
+.inputLabelWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.disabledPasswordIcon {
+  pointer-events: none;
+}
+
+.inputPassword {
+  padding-right: 48px;
+}
+
+.hidePassword {
+  text-overflow: inherit;
+}
+
+.error {
+  color: var(--color-danger-500);
+}
+
+.disabled {
+  color: var(--color-dark-100);
+}
