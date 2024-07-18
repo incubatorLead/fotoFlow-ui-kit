@@ -5,7 +5,7 @@
   color: var(--color-light-900);
 
   &:has(> button[data-disabled]) {
-    cursor: not-allowed;
+    pointer-events: none;
   }
 }
 
@@ -44,7 +44,7 @@
   }
 
   &:disabled {
-    cursor: not-allowed;
+    pointer-events: none;
     color: var(--color-light-900);
   }
 
@@ -72,6 +72,9 @@
   &[data-state="open"] .icon {
     transform: scaleY(-1);
   }
+  &[data-state="open"] {
+    background-color: var(--color-dark-500);
+  }
 }
 
 .content {
@@ -79,10 +82,10 @@
 
   width: var(--radix-select-trigger-width);
 
-  background-color: var(--color-dark-900);
   border: 1px solid var(--color-light-100);
   border-top: none;
   border-radius: 0 0 2px 2px;
+  background-color: var(--color-dark-500);
 }
 
 .viewport {

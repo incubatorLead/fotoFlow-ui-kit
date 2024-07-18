@@ -13,7 +13,7 @@ import s from "./select.module.scss"
 
 import { Typography } from "../typography"
 
-type Options = {
+export type Options = {
   icon?: string
   text: string
   value: string
