@@ -23,7 +23,7 @@ export const ColorPalette = ({ palette }: Props) => {
       await navigator.clipboard.writeText(colorText)
       console.log("Color copied to clipboard")
     } catch (err) {
-      console.error("Ошибка: ", err)
+      console.error("Error: ", err)
     }
   }
 
