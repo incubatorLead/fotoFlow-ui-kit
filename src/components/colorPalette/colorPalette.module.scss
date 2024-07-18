@@ -58,5 +58,13 @@
 }
 
 .colorHex {
+  cursor: pointer;
+
+  display: inline-flex;
+  gap: 8px;
+
   font-size: $font-size-xs;
+
+  background: none;
+  border: none;
 }
