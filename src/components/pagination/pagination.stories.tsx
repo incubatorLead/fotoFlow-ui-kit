@@ -7,7 +7,7 @@ import { Pagination } from "./pagination"
 const meta = {
   component: Pagination,
   tags: ["autodocs"],
-  title: "Components/Pagination"
+  title: "02. Components/Pagination"
 } satisfies Meta<typeof Pagination>
 const paginationOptions = [
   { text: "10", value: "10" },
@@ -24,7 +24,11 @@ const defaultArgs = {
 }
 
 export default meta
-export const Control = {
+
+// ToDo: Component type instead of meta.
+type Story = StoryObj<typeof Pagination>
+
+export const Control: Story = {
   args: {
     currentPage: 1,
     pageSize: 100,
@@ -56,18 +60,18 @@ export const Control = {
   }
 }
 
-export const firstPage = {
+export const FirstPage: Story = {
   args: {
     ...defaultArgs
   }
 }
-export const centerPage = {
+export const CenterPage: Story = {
   args: {
     ...defaultArgs,
     currentPage: 5
   }
 }
-export const lastPage = {
+export const LastPage: Story = {
   args: {
     ...defaultArgs,
     currentPage: 10

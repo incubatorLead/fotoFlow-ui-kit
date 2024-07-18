@@ -98,6 +98,7 @@
 
 .input:disabled {
   background: none;
+  pointer-events: none;
 }
 
 .input:disabled + .icon {
