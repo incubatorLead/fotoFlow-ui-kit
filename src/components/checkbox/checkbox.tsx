@@ -1,19 +1,20 @@
-import { type ComponentPropsWithoutRef, type ReactElement, forwardRef, useId } from "react"
+import { type ComponentPropsWithoutRef, type ReactNode, forwardRef } from "react"
 
 import clsx from "clsx"
 
 import s from "./checkbox.module.scss"
 
+import { useGenerateId } from "../../hooks/useGenerateId"
+
 type Props = {
-  labelText?: ReactElement
+  labelText?: ReactNode
 } & ComponentPropsWithoutRef<"input">
 
 export const Checkbox = forwardRef<HTMLInputElement, Props>((props, ref) => {
   const { className, id, labelText, name, ...restProps } = props
 
   // Generate unique ID if it is not provided
-  const generatedId = useId()
-  const inputId = id ?? name + generatedId
+  const inputId = useGenerateId(name, id)
 
   return (
     <label className={clsx(s.checkbox, className)} htmlFor={inputId}>

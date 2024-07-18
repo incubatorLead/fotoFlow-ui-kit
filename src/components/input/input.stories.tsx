@@ -24,7 +24,7 @@ const meta = {
   },
   component: Input,
   tags: ["autodocs"],
-  title: "Components/Input"
+  title: "02. Components/Input"
 } satisfies Meta<typeof Input>
 
 export default meta

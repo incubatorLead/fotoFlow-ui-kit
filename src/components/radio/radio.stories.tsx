@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
 
 import React from "react"
 
@@ -12,7 +12,9 @@ const meta = {
 
 export default meta
 
-export const DisabledRadioWithoutText = {
+type Story = StoryObj<typeof meta>
+
+export const DisabledRadioWithoutText: Story = {
   args: {
     disabled: true,
     id: "test radio",
@@ -21,7 +23,7 @@ export const DisabledRadioWithoutText = {
   name: "Disabled Radio"
 }
 
-export const DisabledRadioWithText = {
+export const DisabledRadioWithText: Story = {
   args: {
     disabled: true,
     labelText: "radio"
@@ -29,6 +31,7 @@ export const DisabledRadioWithText = {
   name: "Disabled Radio with text"
 }
 
+// ToDo: Fix any type.
 export const MultipleRadiosInOneStory = (args: any) => (
   <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
     <Radio {...args.radio1} />

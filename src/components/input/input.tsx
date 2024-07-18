@@ -4,13 +4,15 @@ import {
   type ForwardedRef,
   type ReactNode,
   forwardRef,
-  useId,
   useState
 } from "react"
 
 import clsx from "clsx"
 
 import s from "./input.module.scss"
+
+import { useGenerateId } from "../../hooks/useGenerateId"
+import { Typography } from "../typography"
 
 const DEFAULT_TYPE = "input"
 
@@ -32,13 +34,15 @@ export const Input = forwardRef(
       error,
       id,
       labelText,
+      name,
       required,
       type = "text",
       ...restProps
     } = props
 
-    const generatedId = useId()
-    const inputId = id ?? generatedId
+    // Generate unique ID if it is not provided
+    const inputId = useGenerateId(name, id)
+
     const isInputPassword = type === "password"
     const isInputSearch = type === "search"
     const isTextarea = Component === "textarea"
@@ -101,6 +105,7 @@ export const Input = forwardRef(
               className={classNames.input}
               disabled={disabled}
               id={inputId}
+              name={name}
               ref={ref}
               type={inputType}
               {...restProps}
@@ -136,7 +141,11 @@ export const Input = forwardRef(
             )}
           </div>
         </div>
-        {error && <span className={s.error}>{error}</span>}
+        {error && (
+          <Typography as={"p"} variant={"error"}>
+            {error}
+          </Typography>
+        )}
       </div>
     )
   }

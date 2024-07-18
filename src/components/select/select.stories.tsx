@@ -1,14 +1,17 @@
-import type { Meta } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
 
 import { Select } from "./select"
 
 const meta = {
   component: Select,
   tags: ["autodocs"],
-  title: "Components/Select"
+  title: "02. Components/Select"
 } satisfies Meta<typeof Select>
 
 export default meta
+
+// ToDo: Component type instead of meta.
+type Story = StoryObj<typeof Select>
 
 const defaultArgs = {
   options: [
@@ -19,27 +22,22 @@ const defaultArgs = {
   placeholder: "Select-box"
 }
 
-export const Default = {
+export const Default: Story = {
   args: {
     ...defaultArgs
   }
 }
 
-export const Open = {
-  args: {
-    ...defaultArgs,
-    name: "select",
-    open: true
-  }
-}
-export const withLabel = {
+// ToDo: body data-scroll-locked=1
+export const WithLabel: Story = {
   args: {
     ...defaultArgs,
     labelText: "Select",
     name: "select"
   }
 }
-export const withIcons = {
+
+export const WithIcons: Story = {
   args: {
     defaultValue: "canada",
     labelText: "Country",
@@ -53,7 +51,7 @@ export const withIcons = {
   }
 }
 
-export const disabledWithLabel = {
+export const DisabledWithLabel: Story = {
   args: {
     disabled: true,
     labelText: "Disabled",
