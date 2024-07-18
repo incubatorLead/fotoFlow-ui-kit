@@ -1,23 +1,115 @@
+@use "../../styles/abstracts/index" as *;
+
 .button {
   all: unset;
+
   cursor: pointer;
 
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 24px;
+
+  font-family: inherit;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-m;
+  color: inherit;
+  text-align: center;
+
+  background-color: transparent;
+  border: none;
+  border-radius: 2px;
+
+  transition:
+    $transition-duration background-color ease-in-out,
+    $transition-duration color ease-in-out,
+    $transition-duration border-color ease-in-out;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
   &:focus-visible {
-    outline: 2px solid var(--color-info-500);
+    outline: $outline-focus;
   }
 }
 
 .primary {
   background-color: var(--color-accent-500);
+
+  &:active {
+    background-color: var(--color-accent-700);
+  }
+
+  &:hover {
+    background-color: var(--color-accent-100);
+  }
+
+  &:disabled {
+    color: var(--color-light-900);
+    background-color: var(--color-accent-900);
+  }
 }
 
 .secondary {
   background-color: var(--color-dark-300);
+
+  &:active {
+    background-color: var(--color-dark-400);
+  }
+
+  &:hover {
+    background-color: var(--color-dark-100);
+  }
+
+  &:disabled {
+    color: var(--color-light-900);
+    background-color: var(--color-dark-500);
+  }
 }
 
 .outlined {
-  background-color: inherit;
-  border: 1px solid var(--color-dark-300);
+  color: var(--color-accent-500);
+  border: 1px solid $outline-color;
+
+  &:active {
+    color: var(--color-accent-700);
+    border-color: var(--color-accent-700);
+  }
+
+  &:hover {
+    color: var(--color-accent-100);
+    border-color: var(--color-accent-100);
+  }
+
+  &:disabled {
+    color: var(--color-accent-900);
+    border-color: var(--color-accent-900);
+  }
+
+  &:focus-visible {
+    border-color: var(--color-accent-700);
+    outline: 1px solid var(--color-accent-700);
+  }
+}
+
+.text {
+  color: var(--color-accent-500);
+
+  &:active {
+    color: var(--color-accent-700);
+  }
+
+  &:hover {
+    color: var(--color-accent-100);
+  }
+
+  &:disabled {
+    color: var(--color-accent-900);
+  }
 }
 
 .fullWidth {
