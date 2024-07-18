@@ -1,6 +1,6 @@
 import iconSprite from "../../assets/icons/icons-sprite.svg"
 
-type Props = {
+export type Props = {
   height?: string
   href?: string
   iconId: string
