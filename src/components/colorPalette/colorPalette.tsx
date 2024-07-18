@@ -21,7 +21,6 @@ export const ColorPalette = ({ palette }: Props) => {
   async function copyTextToClipboard(colorText: string) {
     try {
       await navigator.clipboard.writeText(colorText)
-      console.log("Color copied to clipboard")
     } catch (err) {
       console.error("Error: ", err)
     }
@@ -43,6 +42,7 @@ export const ColorPalette = ({ palette }: Props) => {
                   <button
                     className={s.colorHex}
                     onClick={() => copyTextToClipboard(item.color)}
+                    title={"copy hex color"}
                     type={"button"}
                   >
                     {item.color}
