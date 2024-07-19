@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@radix-ui/react-select':
-        specifier: ^2.1.1
+        specifier: 2.1.1
         version: 2.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-tabs':
         specifier: 1.1.0
@@ -58,7 +58,7 @@ importers:
         specifier: 8.1.11
         version: 8.1.11(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@storybook/manager-api':
-        specifier: ^8.1.11
+        specifier: 8.1.11
         version: 8.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@storybook/react':
         specifier: 8.1.11
@@ -70,7 +70,7 @@ importers:
         specifier: 8.1.11
         version: 8.1.11
       '@storybook/theming':
-        specifier: ^8.1.11
+        specifier: 8.1.11
         version: 8.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@types/node':
         specifier: 20.14.9
@@ -105,6 +105,9 @@ importers:
       storybook:
         specifier: 8.1.11
         version: 8.1.11(@babel/preset-env@7.24.7(@babel/core@7.24.7))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      storybook-addon-pseudo-states:
+        specifier: 3.1.1
+        version: 3.1.1
       stylelint:
         specifier: 16.6.1
         version: 16.6.1(typescript@5.2.2)
@@ -4557,6 +4560,9 @@ packages:
 
   store2@2.14.3:
     resolution: {integrity: sha512-4QcZ+yx7nzEFiV4BMLnr/pRa5HYzNITX2ri0Zh6sT9EyQHbBHacC6YigllUPU9X3D0f/22QCgfokpKs52YRrUg==}
+
+  storybook-addon-pseudo-states@3.1.1:
+    resolution: {integrity: sha512-08JNTfsiSfj0GgNV4q6+v6iU+Acp7ib/MdySPDb8p+C8N/e+kf6lnM7kIiE/GnTPXlg3dfV6FMaWgGYVfdTcLw==}
 
   storybook@8.1.11:
     resolution: {integrity: sha512-3KjIhF8lczXhKKHyHbOqV30dvuRYJSxc0d1as/C8kybuwE7cLaydhWGma7VBv5bTSPv0rDzucx7KcO+achArPg==}
@@ -10354,6 +10360,8 @@ snapshots:
   statuses@2.0.1: {}
 
   store2@2.14.3: {}
+
+  storybook-addon-pseudo-states@3.1.1: {}
 
   storybook@8.1.11(@babel/preset-env@7.24.7(@babel/core@7.24.7))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:

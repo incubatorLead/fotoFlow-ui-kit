@@ -1,16 +1,20 @@
-import type { Meta } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
+
+import React from "react"
 
 import { Checkbox } from "./checkbox"
 
 const meta = {
   component: Checkbox,
   tags: ["autodocs"],
-  title: "Components/Checkbox"
+  title: "02. Components/Checkbox"
 } satisfies Meta<typeof Checkbox>
 
 export default meta
 
-export const DisabledCheckboxWithoutText = {
+type Story = StoryObj<typeof meta>
+
+export const DisabledCheckboxWithoutText: Story = {
   args: {
     disabled: true,
     id: "test checkbox",
@@ -19,7 +23,7 @@ export const DisabledCheckboxWithoutText = {
   name: "Disabled Checkbox"
 }
 
-export const DisabledCheckboxWithText = {
+export const DisabledCheckboxWithText: Story = {
   args: {
     disabled: true,
     labelText: "checkbox"
@@ -27,16 +31,31 @@ export const DisabledCheckboxWithText = {
   name: "Disabled Checkbox with text"
 }
 
-export const CheckboxWithoutText = {
-  args: {
-    id: "test checkbox 2"
-  },
-  name: "Checkbox"
-}
+// ToDo: Fix any type!
+export const MultipleCheckboxesInOneStory = (args: any) => (
+  <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+    <Checkbox {...args.checkbox1} />
+    <Checkbox {...args.checkbox2} />
+    <Checkbox {...args.checkbox3} />
+  </div>
+)
 
-export const CheckboxWithText = {
-  args: {
-    labelText: "checkbox 2"
+MultipleCheckboxesInOneStory.storyName = "Checkbox multiple selections"
+
+MultipleCheckboxesInOneStory.args = {
+  checkbox1: {
+    id: "checkbox1",
+    labelText: "checkbox 1",
+    name: "checkbox1"
   },
-  name: "Checkbox with text"
+  checkbox2: {
+    id: "checkbox2",
+    labelText: "checkbox 2",
+    name: "checkbox2"
+  },
+  checkbox3: {
+    id: "checkbox3",
+    labelText: "checkbox 3",
+    name: "checkbox3"
+  }
 }

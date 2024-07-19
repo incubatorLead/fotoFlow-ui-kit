@@ -29,7 +29,8 @@
     $transition-duration border-color ease-in-out;
 
   &:disabled {
-    cursor: not-allowed;
+    cursor: default;
+    pointer-events: none;
   }
 
   &:focus-visible {

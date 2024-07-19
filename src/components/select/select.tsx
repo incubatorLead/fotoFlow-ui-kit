@@ -1,9 +1,8 @@
 import React, {
   type ComponentPropsWithoutRef,
   type ElementRef,
-  type ReactElement,
-  forwardRef,
-  useId
+  type ReactNode,
+  forwardRef
 } from "react"
 
 import * as SelectPrimitive from "@radix-ui/react-select"
@@ -11,9 +10,10 @@ import clsx from "clsx"
 
 import s from "./select.module.scss"
 
+import { useGenerateId } from "../../hooks/useGenerateId"
 import { Typography } from "../typography"
 
-type Options = {
+export type Options = {
   icon?: string
   text: string
   value: string
@@ -22,7 +22,7 @@ type Options = {
 type Props = {
   className?: string
   id?: string
-  labelText?: ReactElement
+  labelText?: ReactNode
   name: string
   onValueChange?: (items: string) => void
   options: Options[]
@@ -42,9 +42,9 @@ export const Select = forwardRef<ElementRef<typeof SelectPrimitive.Root>, Props>
     placeholder,
     ...restProps
   } = props
+
   // Generate unique ID if it is not provided
-  const generatedId = useId()
-  const selectId = id ?? generatedId
+  const selectId = useGenerateId(name, id)
 
   const items = options?.map(option => {
     return (
