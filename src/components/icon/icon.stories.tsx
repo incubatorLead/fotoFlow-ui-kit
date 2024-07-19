@@ -45,7 +45,7 @@ const iconsItems = [
   { iconId: "plus-circle" },
   { iconId: "image-outline" },
   { iconId: "image" },
-  { iconId: "search-outline" },
+  { iconId: "search" },
   { iconId: "block" },
   { iconId: "menu-outline" },
   { iconId: "settings-outline" },
