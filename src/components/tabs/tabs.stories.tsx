@@ -32,9 +32,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const DefaultTabs: Story = {
-  args: {}
-}
+export const DefaultTabs: Story = {}
 
 export const PrimaryWithDisabledTab = {
   args: {

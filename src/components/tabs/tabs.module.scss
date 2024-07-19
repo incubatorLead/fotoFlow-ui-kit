@@ -46,7 +46,7 @@
   }
 
   &:disabled {
-    cursor: not-allowed;
+    cursor: default;
     color: var(--color-dark-300);
     border-bottom: 2px solid var(--color-dark-300);
   }
