@@ -9,7 +9,6 @@
 .list {
   display: inline-flex;
   flex-shrink: 0;
-  background-color: inherit;
 }
 
 .tab {
@@ -21,7 +20,7 @@
 
   color: var(--color-dark-100);
 
-  background-color: inherit;
+  background: none;
   border: none;
   border-bottom: 2px solid var(--color-dark-100);
 
