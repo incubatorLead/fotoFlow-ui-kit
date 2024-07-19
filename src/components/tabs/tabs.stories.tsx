@@ -26,7 +26,7 @@ const meta = {
     layout: "default"
   },
   tags: ["autodocs"],
-  title: "Components/Tabs"
+  title: "02. Components/Tabs"
 } satisfies Meta<typeof Tabs>
 
 export default meta

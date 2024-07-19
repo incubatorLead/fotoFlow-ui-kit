@@ -26,6 +26,9 @@
   left: 12px;
   transform: translateY(-50%);
 
+  display: flex;
+  align-items: center;
+
   color: var(--color-light-900);
 }
 
@@ -99,7 +102,13 @@
   right: 12px;
   transform: translateY(-50%);
 
+  display: flex;
+  align-items: center;
+
   color: var(--color-light-100);
+
+  background: none;
+  border: none;
 }
 
 .inputIconWrapper:has(.input:focus, .inputError) .inputSearchIcon {

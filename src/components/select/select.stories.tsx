@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
+import { Icon } from "../icon"
 import { Select } from "./select"
 
 const meta = {
@@ -39,13 +40,11 @@ export const WithLabel: Story = {
 
 export const WithIcons: Story = {
   args: {
-    defaultValue: "canada",
     labelText: "Country",
     name: "select",
     options: [
-      { icon: "https://flagicons.lipis.dev/flags/4x3/ca.svg", text: "Canada", value: "canada" },
-      { icon: "https://flagicons.lipis.dev/flags/4x3/cn.svg", text: "China", value: "china" },
-      { icon: "https://flagicons.lipis.dev/flags/4x3/hn.svg", text: "Honduras", value: "honduras" }
+      { icon: <Icon iconId={"united-kingdom-flag"} />, text: "UK", value: "uk" },
+      { icon: <Icon iconId={"russia-flag"} />, text: "RU", value: "ru" }
     ],
     placeholder: "Select-box"
   }
