@@ -1,11 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { type ComponentProps, useState } from "react"
+import { useState } from "react"
 
 import { Button } from "../button"
-import { Card } from "../card"
-import { Icon } from "../icon"
-import { Typography } from "../typography"
 import { Modal } from "./modal"
 
 const meta = {
@@ -52,6 +49,8 @@ export const ModalWithControl: Story = {
           src={
             "https://vjoy.cc/wp-content/uploads/2020/06/98359-gorizont-palma-plyazh-more-komnata-1080x1920-1.jpg"
           }
+          style={{ filter: "brightness(0.8)" }}
+          width={360}
         />
         <Button fullWidth onClick={closeModal}>
           Send
