@@ -2,7 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react"
 
 import React from "react"
 
-import { Icon } from "./icon"
+import { copyTextToClipboard } from "../../utils"
+import { Icon, type IconId } from "./icon"
 
 const meta = {
   component: Icon,
@@ -14,7 +15,7 @@ export default meta
 
 type Story = StoryObj<typeof Icon>
 
-const iconsItems = [
+const iconsItems: { iconId: IconId }[] = [
   { iconId: "home-outline" },
   { iconId: "home" },
   { iconId: "plus-square-outline" },
@@ -114,15 +115,18 @@ export const Default: Story = {
         return (
           <div
             key={i.iconId}
+            onClick={() => copyTextToClipboard(i.iconId)}
             style={{
               alignItems: "center",
               border: "1px solid gray",
               borderRadius: "5px",
+              cursor: "copy",
               display: "flex",
               height: "32px",
               justifyContent: "space-around",
               width: "32px"
             }}
+            title={"Copy icon id"}
           >
             <Icon iconId={i.iconId} />
           </div>
