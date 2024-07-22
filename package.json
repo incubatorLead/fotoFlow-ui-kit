@@ -59,6 +59,7 @@
     "@typescript-eslint/eslint-plugin": "7.13.1",
     "@typescript-eslint/parser": "7.13.1",
     "@vitejs/plugin-react": "4.3.1",
+    "embla-carousel": "8.1.7",
     "eslint": "8.57.0",
     "eslint-plugin-react-hooks": "4.6.2",
     "eslint-plugin-react-refresh": "0.4.7",
@@ -73,6 +74,7 @@
     "@radix-ui/react-select": "2.1.1",
     "@radix-ui/react-tabs": "1.1.0",
     "clsx": "2.1.1",
+    "embla-carousel-react": "8.1.7",
     "sass": "1.77.6",
     "vite-plugin-dts": "3.9.1"
   }
