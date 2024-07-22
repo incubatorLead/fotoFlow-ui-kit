@@ -33,12 +33,9 @@ export const Modal = (props: Props) => {
                   </Dialog.Close>
                 }
               </Dialog.Title>
-              <hr />
             </>
           )}
-          <Dialog.Description className={clsx(s.description, className)}>
-            {children}
-          </Dialog.Description>
+          <Dialog.Description className={className}>{children}</Dialog.Description>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
