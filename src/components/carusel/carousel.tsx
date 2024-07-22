@@ -37,7 +37,7 @@ export const Carousel: React.FC<PropType> = props => {
         onClick={onPrevButtonClick}
         variant={"text"}
       >
-        <Icon iconId={"arrow-ios-back"} />
+        <Icon height={"48px"} iconId={"arrow-ios-back"} width={"48px"} />
       </Button>
       <Button
         className={s.nextButton}
@@ -45,7 +45,7 @@ export const Carousel: React.FC<PropType> = props => {
         onClick={onNextButtonClick}
         variant={"text"}
       >
-        <Icon iconId={"arrow-ios-forward"} />
+        <Icon height={"48px"} iconId={"arrow-ios-forward"} width={"48px"} />
       </Button>
       <div className={s.dots}>
         {scrollSnaps.map((_, index) => (
