@@ -2,6 +2,8 @@ import React from "react"
 
 import s from "./colorPalette.module.scss"
 
+import { copyTextToClipboard } from "../../utils"
+
 type Color = {
   color: string
   name: string
@@ -18,14 +20,6 @@ type Props = {
 }
 
 export const ColorPalette = ({ palette }: Props) => {
-  async function copyTextToClipboard(colorText: string) {
-    try {
-      await navigator.clipboard.writeText(colorText)
-    } catch (err) {
-      console.error("Error: ", err)
-    }
-  }
-
   return (
     <div className={s.palette}>
       {palette.map(group => (
