@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Typography } from "../typography"
 import { Table, TableBody, TableCell, TableEmpty, TableHead, TableHeadCell, TableRow } from "./"
 
 const meta = {
