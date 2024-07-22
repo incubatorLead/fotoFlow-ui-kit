@@ -18,10 +18,7 @@ type ButtonProps<T extends ElementType = "button"> = {
   variant?: ButtonVariant
 } & ComponentPropsWithoutRef<T>
 
-export const ButtonPolymorph = <T extends ElementType = "button">(
-  props: ButtonProps<T>,
-  ref: any
-) => {
+const ButtonPolymorph = <T extends ElementType = "button">(props: ButtonProps<T>, ref: any) => {
   const { as, className, fullWidth, variant = "primary", ...restProps } = props
   const Component = as ?? "button"
 
