@@ -1,8 +1,6 @@
 @use "../../styles/abstracts/index" as *;
 
 .button {
-  all: unset;
-
   cursor: pointer;
 
   display: inline-flex;
@@ -29,8 +27,8 @@
     $transition-duration border-color ease-in-out;
 
   &:disabled {
-    cursor: default;
     pointer-events: none;
+    cursor: default;
   }
 
   &:focus-visible {

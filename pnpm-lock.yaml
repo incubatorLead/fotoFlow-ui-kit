@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@radix-ui/react-dialog':
+        specifier: 1.1.1
+        version: 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-select':
         specifier: 2.1.1
         version: 2.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -17,6 +20,9 @@ importers:
       clsx:
         specifier: 2.1.1
         version: 2.1.1
+      embla-carousel-react:
+        specifier: 8.1.7
+        version: 8.1.7(react@18.3.1)
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -26,6 +32,9 @@ importers:
       sass:
         specifier: 1.77.6
         version: 1.77.6
+      sonner:
+        specifier: 1.5.0
+        version: 1.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       vite-plugin-dts:
         specifier: 3.9.1
         version: 3.9.1(@types/node@20.14.9)(rollup@4.18.0)(typescript@5.2.2)(vite@5.3.1(@types/node@20.14.9)(sass@1.77.6))
@@ -90,6 +99,9 @@ importers:
       '@vitejs/plugin-react':
         specifier: 4.3.1
         version: 4.3.1(vite@5.3.1(@types/node@20.14.9)(sass@1.77.6))
+      embla-carousel:
+        specifier: 8.1.7
+        version: 8.1.7
       eslint:
         specifier: 8.57.0
         version: 8.57.0
@@ -2725,6 +2737,19 @@ packages:
   electron-to-chromium@1.4.816:
     resolution: {integrity: sha512-EKH5X5oqC6hLmiS7/vYtZHZFTNdhsYG5NVPRN6Yn0kQHNBlT59+xSM8HBy66P5fxWpKgZbPqb+diC64ng295Jw==}
 
+  embla-carousel-react@8.1.7:
+    resolution: {integrity: sha512-ermMKzQ46LhXE4f81VBCVGxCJWvZfsu504dkyiUDO+cnEEPW8NlC2PpKULmiOWugusYWRLhQLjmyQs3b8vvOjA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.1 || ^18.0.0
+
+  embla-carousel-reactive-utils@8.1.7:
+    resolution: {integrity: sha512-FDPcWjNtW04KSuvSfGbVeoB8yl5no3E0++HikO/uW12cNkMnWt68C4OBOakZQZlpUdRQSA9KCYoBuQzfpVGvZQ==}
+    peerDependencies:
+      embla-carousel: 8.1.7
+
+  embla-carousel@8.1.7:
+    resolution: {integrity: sha512-b3kBr2H+S1gx4neki0P+aqN6cA5Ibjqy4CR3Ufi3X+Q3JpoNXJgOmJMSPkoP9DKcDREwADN6UWZzRwF2oo0y9Q==}
+
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
 
@@ -4524,6 +4549,12 @@ packages:
   slice-ansi@4.0.0:
     resolution: {integrity: sha512-qMCMfhY040cVHT43K9BFygqYbUPFZKHOg7K73mtTWJRb8pyP3fzf4Ixd5SzdEJQ6MRUg/WBnOLxghZtKKurENQ==}
     engines: {node: '>=10'}
+
+  sonner@1.5.0:
+    resolution: {integrity: sha512-FBjhG/gnnbN6FY0jaNnqZOMmB73R+5IiyYAw8yBj7L54ER7HB3fOSE5OFiQiE2iXWxeXKvg6fIP4LtVppHEdJA==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
 
   source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
@@ -8309,6 +8340,18 @@ snapshots:
 
   electron-to-chromium@1.4.816: {}
 
+  embla-carousel-react@8.1.7(react@18.3.1):
+    dependencies:
+      embla-carousel: 8.1.7
+      embla-carousel-reactive-utils: 8.1.7(embla-carousel@8.1.7)
+      react: 18.3.1
+
+  embla-carousel-reactive-utils@8.1.7(embla-carousel@8.1.7):
+    dependencies:
+      embla-carousel: 8.1.7
+
+  embla-carousel@8.1.7: {}
+
   emoji-regex@8.0.0: {}
 
   emoji-regex@9.2.2: {}
@@ -10329,6 +10372,11 @@ snapshots:
       ansi-styles: 4.3.0
       astral-regex: 2.0.0
       is-fullwidth-code-point: 3.0.0
+
+  sonner@1.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   source-map-js@1.2.0: {}
 
