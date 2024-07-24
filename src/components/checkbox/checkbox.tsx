@@ -6,11 +6,11 @@ import s from "./checkbox.module.scss"
 
 import { useGenerateId } from "../../hooks/useGenerateId"
 
-type Props = {
+export type CheckboxProps = {
   labelText?: ReactNode
 } & ComponentPropsWithoutRef<"input">
 
-export const Checkbox = forwardRef<HTMLInputElement, Props>((props, ref) => {
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
   const { className, id, labelText, name, ...restProps } = props
 
   // Generate unique ID if it is not provided
