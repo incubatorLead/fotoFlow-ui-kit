@@ -1,4 +1,4 @@
-import React from "react"
+import React, { type ElementType } from "react"
 import {
   type Control,
   type FieldValues,
@@ -9,7 +9,7 @@ import {
 import { Input, type InputProps } from "../components"
 
 type PropsForm<T extends FieldValues> = { control: Control<T> } & Omit<
-  InputProps,
+  InputProps<ElementType>,
   "onChange" | "value"
 > &
   Omit<UseControllerProps<T>, "control" | "defaultValue" | "rules">
