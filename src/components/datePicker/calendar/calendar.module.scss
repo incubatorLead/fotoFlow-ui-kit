@@ -1,0 +1,139 @@
+@use "../../../styles/abstracts/index" as *;
+
+.calendar {
+  padding: 16px 24px;
+  background-color: var(--color-dark-500);
+  border: 1px solid var(--color-dark-300);
+  border-radius: 2px;
+}
+
+.caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.captionLabel {
+  @include typography($font-size-m, $line-height-l, $font-weight-bold);
+}
+
+.nav {
+  button {
+    border: unset;
+  }
+}
+
+.cell {
+  width: 36px;
+  height: 36px;
+
+  text-align: center;
+  vertical-align: middle;
+
+  transition: $transition-duration background-color ease-in-out;
+
+  &:has([aria-selected]) {
+    background-color: var(--color-accent-900);
+  }
+
+  button {
+    width: 100%;
+    height: 100%;
+    padding: 6px;
+
+    background-color: unset;
+    border: unset;
+    border-radius: 50%;
+
+    transition: $transition-duration background-color ease-in-out;
+
+    &:hover {
+      background-color: var(--color-accent-700);
+    }
+
+    &:active {
+      background-color: var(--color-accent-900);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-accent-300);
+    }
+  }
+}
+
+.cellRange {
+  // Средняя часть диапазона (без закруглений)
+  &:has([aria-selected]:not(.dayRangeStart, .dayRangeEnd)) {
+    border-radius: 0;
+  }
+
+  // Одиночная выбранная дата
+  &:has([aria-selected].dayRangeStart.dayRangeEnd.daySelected) {
+    border-radius: 50%;
+  }
+
+  // Конец диапазона (исключает одиночную дату)
+  &:has([aria-selected].dayRangeEnd):not(
+      :has([aria-selected].dayRangeStart.dayRangeEnd.daySelected)
+    ) {
+    border-radius: 0 50% 50% 0;
+  }
+
+  // Начало диапазона (исключает одиночную дату)
+  &:has([aria-selected].dayRangeStart):not(
+      :has([aria-selected].dayRangeStart.dayRangeEnd.daySelected)
+    ) {
+    border-radius: 50% 0 0 50%;
+  }
+}
+
+.cellSingle {
+  &:has([aria-selected]) {
+    border-radius: 50%;
+  }
+}
+
+.day {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-light-100);
+}
+
+.dayToday {
+  font-weight: $font-weight-bold;
+  color: var(--color-accent-500);
+}
+
+.weekend {
+  color: var(--color-danger-300);
+}
+
+.dayOutside {
+  color: var(--color-light-900);
+}
+
+.table {
+  border-collapse: collapse;
+}
+
+.headRow {
+  color: var(--color-dark-100);
+}
+
+.headCell {
+  padding: 20px 0;
+}
+
+.navButtons {
+  svg {
+    vertical-align: middle;
+  }
+}
+
+.navButton {
+  cursor: pointer;
+  padding: 8px;
+  background-color: var(--color-dark-100);
+  border-radius: 50%;
+}
