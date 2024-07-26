@@ -71,11 +71,14 @@
     "vite": "5.3.1"
   },
   "dependencies": {
-    "@radix-ui/react-dropdown-menu": "^2.1.1",
+    "@radix-ui/react-dropdown-menu": "2.1.1",
     "@radix-ui/react-dialog": "1.1.1",
+    "@radix-ui/react-popover": "1.1.1",
     "@radix-ui/react-select": "2.1.1",
     "@radix-ui/react-tabs": "1.1.0",
     "clsx": "2.1.1",
+    "date-fns": "3.6.0",
+    "react-day-picker": "8.10.1",
     "embla-carousel-react": "8.1.7",
     "sass": "1.77.6",
     "sonner": "1.5.0",

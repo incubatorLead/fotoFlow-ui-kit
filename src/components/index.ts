@@ -1,6 +1,7 @@
 export * from "./button"
 export * from "./card"
 export * from "./checkbox"
+export * from "./datePicker"
 export * from "./dropdown"
 export * from "./icon"
 export * from "./input"
