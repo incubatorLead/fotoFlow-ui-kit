@@ -2,8 +2,9 @@ import type { Meta, StoryObj } from "@storybook/react"
 
 import { useForm } from "react-hook-form"
 
-import { Button } from "../components/button"
+import { Button } from "../components/"
 import { FormCheckbox } from "./form-checkbox"
+import { FormDatePicker } from "./form-date-picker"
 import { FormInput } from "./form-input"
 import { FormRadio } from "./form-radio"
 import { FormSelect } from "./form-select"
@@ -53,6 +54,7 @@ export const Form: Story = {
         <FormRadio control={control} labelText={"Man"} name={"gender"} value={"man"} />
         <FormRadio control={control} labelText={"Women"} name={"gender"} value={"women"} />
         <FormInput as={"textarea"} control={control} labelText={"Message"} name={"message"} />
+        <FormDatePicker control={control} labelText={"Date of birth"} name={"date"} />
         <Button>Submit</Button>
       </form>
     )

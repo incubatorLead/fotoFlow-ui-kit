@@ -21,11 +21,12 @@ const MONDAY = 1
 // ToDo: Local date format + capitalize month name
 const formatDate = (date: Date) => format(date, "dd/MM/yyyy")
 
-type Props = {
+// ToDo: ReactNode error in all components.
+export type DatePickerProps = {
   date?: DateRange
   disabled?: boolean
-  error?: string
-  label?: ReactNode
+  error?: ReactNode
+  labelText?: ReactNode
   onSelect: (date: DateRange | undefined) => void
 } & Omit<DayPickerRangeProps, "disabled" | "mode">
 // ToDo: aria-label = presentation change to grid-cell + date, types for day picker mode.
@@ -37,12 +38,12 @@ export const DatePicker = ({
   disabled,
   error,
   id,
-  label,
+  labelText,
   locale = enUS,
   onSelect,
   showOutsideDays = true,
   weekStartsOn = locale?.code === "en-US" ? SUNDAY : MONDAY
-}: Props) => {
+}: DatePickerProps) => {
   const [isCalendarOpen, setCalendarOpen] = useState(false)
   const calendarId = useGenerateId(id)
   const calendarIcon = isCalendarOpen ? "calendar" : "calendar-outline"
@@ -61,7 +62,7 @@ export const DatePicker = ({
   return (
     <div className={className}>
       <label className={clsx(s.label, disabled && s.disabledLabel)} htmlFor={calendarId}>
-        {label}
+        {labelText}
       </label>
       <Popover onOpenChange={setCalendarOpen} open={isCalendarOpen}>
         <PopoverTrigger asChild>
