@@ -19,9 +19,11 @@
 
 .nav {
   button {
-    border: unset;
+    border: none;
   }
 }
+
+// ToDo: global styles reset buttons and backgrounds
 
 .cell {
   width: 36px;
@@ -41,8 +43,8 @@
     height: 100%;
     padding: 6px;
 
-    background-color: unset;
-    border: unset;
+    background: none;
+    border: none;
     border-radius: 50%;
 
     transition: $transition-duration background-color ease-in-out;
@@ -55,35 +57,33 @@
       background-color: var(--color-accent-900);
     }
 
-    &:focus-visible {
+    &:focus,
+    &:focus-within {
+      background-color: transparent;
       outline: 2px solid var(--color-accent-300);
     }
   }
 }
 
 .cellRange {
+  // Начало диапазона (исключает одиночную дату)
+  &:has([aria-selected].dayRangeStart) {
+    border-radius: 50% 0 0 50%;
+  }
+
   // Средняя часть диапазона (без закруглений)
-  &:has([aria-selected]:not(.dayRangeStart, .dayRangeEnd)) {
+  &:has([aria-selected].dayRangeMiddle) {
     border-radius: 0;
   }
 
-  // Одиночная выбранная дата
-  &:has([aria-selected].dayRangeStart.dayRangeEnd.daySelected) {
-    border-radius: 50%;
-  }
-
   // Конец диапазона (исключает одиночную дату)
-  &:has([aria-selected].dayRangeEnd):not(
-      :has([aria-selected].dayRangeStart.dayRangeEnd.daySelected)
-    ) {
+  &:has([aria-selected].dayRangeEnd) {
     border-radius: 0 50% 50% 0;
   }
 
-  // Начало диапазона (исключает одиночную дату)
-  &:has([aria-selected].dayRangeStart):not(
-      :has([aria-selected].dayRangeStart.dayRangeEnd.daySelected)
-    ) {
-    border-radius: 50% 0 0 50%;
+  // Одиночная выбранная дата
+  &:has([aria-selected].dayRangeStart.dayRangeEnd) {
+    border-radius: 50%;
   }
 }
 

@@ -27,6 +27,7 @@ type Props = {
   label?: ReactNode
   onSelect: (date: DateRange | undefined) => void
 } & Omit<DayPickerRangeProps, "disabled" | "mode">
+// ToDo: aria-label = presentation change to grid-cell + date, types for day picker mode.
 
 export const DatePicker = ({
   className,
@@ -52,12 +53,7 @@ export const DatePicker = ({
       ? `${formatDate(date.from)} - ${formatDate(date.to)}`
       : formatDate(date.from)
   } else {
-    // ToDo: formattedDate = "Pick a date" placeholder or select current date?
-    // const currentDate = new Date()
-    //
-    // formattedDate = formatDate(currentDate)
-    // onSelect({ from: currentDate })
-    formattedDate = "Pick a date"
+    formattedDate = locale?.code === "en-US" ? "Pick a date" : "Выберите дату"
   }
 
   //  ToDo: Add button with forwardRef or date input after merge.
