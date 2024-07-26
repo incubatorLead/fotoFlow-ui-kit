@@ -8,6 +8,7 @@ import {
 
 import { Input, type InputProps } from "../components"
 
+// ToDo: Ask Andrei about type for FormInput attributes
 type PropsForm<T extends FieldValues> = { control: Control<T> } & Omit<
   InputProps<ElementType>,
   "onChange" | "value"
@@ -15,7 +16,6 @@ type PropsForm<T extends FieldValues> = { control: Control<T> } & Omit<
   Omit<UseControllerProps<T>, "control" | "defaultValue" | "rules">
 
 export const FormInput = <T extends FieldValues>({
-  as,
   control,
   disabled,
   name,
@@ -32,5 +32,5 @@ export const FormInput = <T extends FieldValues>({
     shouldUnregister
   })
 
-  return <Input as={as} error={error?.message} {...field} {...rest} />
+  return <Input error={error?.message} {...field} {...rest} />
 }

@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 
 import { useForm } from "react-hook-form"
 
+import { Button } from "../components/button"
 import { FormCheckbox } from "./form-checkbox"
 import { FormInput } from "./form-input"
 import { FormRadio } from "./form-radio"
@@ -11,7 +12,7 @@ const meta = {
   //TODO formSelect
   component: FormSelect,
   tags: ["autodocs"],
-  title: "Form"
+  title: "03. Features/Form"
 } satisfies Meta<typeof FormSelect>
 
 export default meta
@@ -39,16 +40,20 @@ export const Form: Story = {
     })
 
     return (
-      <form onSubmit={onSubmit}>
-        <FormInput control={control} name={"name"} />
-        <FormInput control={control} name={"password"} />
-        <FormSelect control={control} name={"select"} {...defaultArgsSelect} />
+      <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+        <FormInput control={control} labelText={"Name"} name={"name"} />
+        <FormInput control={control} labelText={"Password"} name={"password"} type={"password"} />
+        <FormSelect
+          control={control}
+          labelText={"Select numbers"}
+          name={"select"}
+          {...defaultArgsSelect}
+        />
         <FormCheckbox control={control} labelText={"Remember me"} name={"rememberMe"} />
-        <FormCheckbox control={control} labelText={"Some"} name={"some"} />
         <FormRadio control={control} labelText={"Man"} name={"gender"} value={"man"} />
         <FormRadio control={control} labelText={"Women"} name={"gender"} value={"women"} />
-        <FormInput as={"textarea"} control={control} name={"message"} />
-        <button type={"submit"}>Submit</button>
+        <FormInput as={"textarea"} control={control} labelText={"Message"} name={"message"} />
+        <Button>Submit</Button>
       </form>
     )
   }

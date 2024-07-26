@@ -6,6 +6,7 @@ import dts from "vite-plugin-dts"
 
 import { devDependencies, peerDependencies } from "./package.json"
 
+// ToDo: How to exclude react-hook-forms from final build? Add to external?
 export default defineConfig({
   build: {
     lib: {
