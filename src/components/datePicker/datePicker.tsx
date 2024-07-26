@@ -18,6 +18,7 @@ import { Calendar } from "./calendar/calendar"
 const SUNDAY = 0
 const MONDAY = 1
 
+// ToDo: Local date format + capitalize month name
 const formatDate = (date: Date) => format(date, "dd/MM/yyyy")
 
 type Props = {
