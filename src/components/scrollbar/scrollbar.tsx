@@ -27,18 +27,20 @@ export const Scrollbar = ({
   const viewportStyles = { maxHeight: maxHeightConverted, maxWidth: maxWidthConverted }
 
   return (
-    <ScrollArea.Root asChild type={type}>
-      <div className={clsx(s.root, className)} {...restProps}>
-        <ScrollArea.Viewport className={s.viewport} style={viewportStyles}>
-          {children}
-        </ScrollArea.Viewport>
-        <ScrollArea.Scrollbar className={s.scrollbar} orientation={"vertical"}>
-          <ScrollArea.Thumb className={s.thumb} />
-        </ScrollArea.Scrollbar>
-        <ScrollArea.Scrollbar className={s.scrollbar} orientation={"horizontal"}>
-          <ScrollArea.Thumb className={s.thumb} />
-        </ScrollArea.Scrollbar>
-      </div>
+    <ScrollArea.Root className={s.scrollableContainer} type={type}>
+      <ScrollArea.Viewport
+        className={clsx(s.viewport, className)}
+        style={viewportStyles}
+        {...restProps}
+      >
+        {children}
+      </ScrollArea.Viewport>
+      <ScrollArea.Scrollbar className={s.scrollbar} orientation={"vertical"}>
+        <ScrollArea.Thumb className={s.thumb} />
+      </ScrollArea.Scrollbar>
+      <ScrollArea.Scrollbar className={s.scrollbar} orientation={"horizontal"}>
+        <ScrollArea.Thumb className={s.thumb} />
+      </ScrollArea.Scrollbar>
     </ScrollArea.Root>
   )
 }

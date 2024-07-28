@@ -13,7 +13,7 @@ const meta = {
   },
   component: Scrollbar,
   tags: ["autodocs"],
-  title: "01. Design System/Scrollbar"
+  title: "02. Components/Scrollbar"
 } satisfies Meta<typeof Scrollbar>
 
 export default meta
@@ -45,6 +45,7 @@ export const VerticalScrollbar: Story = {
       border: "1px solid gray",
       borderRadius: "5px",
       height: "300px",
+      padding: "10px",
       width: "fit-content"
     }
   }
