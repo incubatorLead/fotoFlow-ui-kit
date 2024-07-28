@@ -1,4 +1,4 @@
-import React, { type ComponentPropsWithoutRef } from "react"
+import React, { type ComponentPropsWithoutRef, useMemo } from "react"
 
 import * as SelectPrimitive from "@radix-ui/react-select"
 import clsx from "clsx"
@@ -7,7 +7,7 @@ import s from "./pagination.module.scss"
 
 import { Button } from "../button"
 import { Icon } from "../icon"
-import { type Options, Select } from "../select"
+import { type Option, Select } from "../select"
 import { Typography } from "../typography"
 import { usePagination } from "./usePagination"
 
@@ -18,7 +18,7 @@ type Props = {
   onPageChange: (value: number) => void
   onPageSize: (value: number) => void
   pageSize: number
-  paginationOptions: Options[]
+  paginationOptions?: number[]
   siblingCount?: number
   totalCount: number
 } & ComponentPropsWithoutRef<typeof SelectPrimitive.Root>
@@ -31,7 +31,7 @@ export const Pagination = (props: Props) => {
     onPageChange,
     onPageSize,
     pageSize,
-    paginationOptions,
+    paginationOptions = [5, 10, 15],
     siblingCount,
     totalCount,
     ...restProps
@@ -44,6 +44,12 @@ export const Pagination = (props: Props) => {
     onPageChange(currentPage - 1)
   }
   const paginationRange = usePagination({ currentPage, pageSize, siblingCount, totalCount })
+
+  const optionsForSelect: Option[] = useMemo(() => {
+    return paginationOptions.map(option => {
+      return { text: option.toString(), value: option.toString() }
+    })
+  }, [paginationOptions])
 
   return (
     <div className={s.pagination}>
@@ -77,7 +83,7 @@ export const Pagination = (props: Props) => {
       </ol>
       <Button
         className={s.button}
-        disabled={currentPage === paginationRange[paginationRange.length - 1]}
+        disabled={currentPage === paginationRange.at(-1)}
         onClick={nextPage}
         title={"Next page"}
         variant={"text"}
@@ -87,9 +93,8 @@ export const Pagination = (props: Props) => {
       <Typography as={"div"} className={s.selectContainer} variant={"regular_text_14"}>
         Show
         <Select
-          name={"select"}
-          onValueChange={page => onPageSize(+page)}
-          options={paginationOptions}
+          onValueChange={page => onPageSize(Number.parseInt(page, 10))}
+          options={optionsForSelect}
           value={pageSize.toString()}
           {...restProps}
         />

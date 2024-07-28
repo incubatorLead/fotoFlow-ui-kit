@@ -35,8 +35,11 @@
     "**/*.css"
   ],
   "peerDependencies": {
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react": ">=18.3.1",
+    "react-dom": ">=18.3.1",
+    "react-hook-form": ">=7.52.1",
+    "clsx": ">=2.1.1",
+    "date-fns": ">=3.6.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "1.6.1",
@@ -68,21 +71,19 @@
     "storybook-addon-pseudo-states": "3.1.1",
     "stylelint": "16.6.1",
     "typescript": "5.2.2",
-    "vite": "5.3.1"
+    "vite": "5.3.1",
+    "vite-plugin-dts": "3.9.1",
+    "sass": "1.77.6"
   },
   "dependencies": {
-    "@radix-ui/react-dialog": "1.1.1",
     "@radix-ui/react-dropdown-menu": "2.1.1",
+    "@radix-ui/react-dialog": "1.1.1",
     "@radix-ui/react-popover": "1.1.1",
     "@radix-ui/react-scroll-area": "1.1.0",
     "@radix-ui/react-select": "2.1.1",
     "@radix-ui/react-tabs": "1.1.0",
-    "clsx": "2.1.1",
-    "date-fns": "3.6.0",
-    "embla-carousel-react": "8.1.7",
     "react-day-picker": "8.10.1",
-    "sass": "1.77.6",
-    "sonner": "1.5.0",
-    "vite-plugin-dts": "3.9.1"
+    "embla-carousel-react": "8.1.7",
+    "sonner": "1.5.0"
   }
 }

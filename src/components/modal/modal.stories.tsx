@@ -13,7 +13,7 @@ const meta = {
 
 export default meta
 
-type Story = StoryObj<typeof Modal>
+type Story = StoryObj<typeof meta>
 
 export const ModalWithTitle: Story = {
   args: {
@@ -31,7 +31,11 @@ export const ModalWithTitle: Story = {
 }
 
 export const ModalWithControl: Story = {
-  render: function Render() {
+  args: {
+    children: "",
+    trigger: ""
+  },
+  render: () => {
     const [isOpen, setIsOpen] = useState(false)
 
     const closeModal = () => {

@@ -17,15 +17,15 @@ import { Typography } from "../typography"
 
 const DEFAULT_TYPE = "input"
 
-type Props<T extends ElementType = typeof DEFAULT_TYPE> = {
+export type InputProps<T extends ElementType = typeof DEFAULT_TYPE> = {
   as?: T
-  error?: string
+  error?: ReactNode
   labelText?: ReactNode
 } & ComponentPropsWithoutRef<T>
 
 export const Input = forwardRef(
   <T extends ElementType = typeof DEFAULT_TYPE>(
-    props: Props<T>,
+    props: InputProps<T>,
     ref: ForwardedRef<HTMLInputElement>
   ) => {
     const {

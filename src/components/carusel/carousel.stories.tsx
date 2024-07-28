@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
 
 import React from "react"
 
@@ -11,6 +11,8 @@ const meta: Meta<typeof Carousel> = {
 } satisfies Meta<typeof Carousel>
 
 export default meta
+
+type Story = StoryObj<typeof meta>
 
 const slides = [
   {
@@ -30,21 +32,28 @@ const slides = [
   }
 ]
 
-export const CarouselDefault = () => (
-  <div style={{ width: "490px" }}>
-    <Carousel>
-      {slides.map(s => (
-        <img alt={s.src} key={s.src} src={s.src} />
-      ))}
-    </Carousel>
-  </div>
-)
-export const CarouselLoop = () => (
-  <div style={{ width: "360px" }}>
-    <Carousel options={{ loop: true }}>
-      {slides.map(s => (
-        <img alt={s.src} key={s.src} src={s.src} />
-      ))}
-    </Carousel>
-  </div>
-)
+export const CarouselDefault: Story = {
+  name: "Carousel",
+  render: () => (
+    <div style={{ width: "490px" }}>
+      <Carousel>
+        {slides.map(s => (
+          <img alt={s.src} key={s.src} src={s.src} />
+        ))}
+      </Carousel>
+    </div>
+  )
+}
+
+export const CarouselLoop: Story = {
+  name: "Infinity carousel",
+  render: () => (
+    <div style={{ width: "360px" }}>
+      <Carousel options={{ loop: true }}>
+        {slides.map(s => (
+          <img alt={s.src} key={s.src} src={s.src} />
+        ))}
+      </Carousel>
+    </div>
+  )
+}

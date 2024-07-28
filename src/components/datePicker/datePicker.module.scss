@@ -4,10 +4,10 @@
   @include typography($font-size-s, $line-height-xl, $font-weight-regular);
 
   color: var(--color-light-900);
-}
 
-.disabledLabel {
-  color: var(--color-dark-100);
+  &.disabled {
+    color: var(--color-dark-100);
+  }
 }
 
 .button {

@@ -27,32 +27,29 @@ importers:
         specifier: 1.1.0
         version: 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx:
-        specifier: 2.1.1
+        specifier: '>=2.1.1'
         version: 2.1.1
       date-fns:
-        specifier: 3.6.0
+        specifier: '>=3.6.0'
         version: 3.6.0
       embla-carousel-react:
         specifier: 8.1.7
         version: 8.1.7(react@18.3.1)
       react:
-        specifier: 18.3.1
+        specifier: '>=18.3.1'
         version: 18.3.1
       react-day-picker:
         specifier: 8.10.1
         version: 8.10.1(date-fns@3.6.0)(react@18.3.1)
       react-dom:
-        specifier: 18.3.1
+        specifier: '>=18.3.1'
         version: 18.3.1(react@18.3.1)
-      sass:
-        specifier: 1.77.6
-        version: 1.77.6
+      react-hook-form:
+        specifier: '>=7.52.1'
+        version: 7.52.1(react@18.3.1)
       sonner:
         specifier: 1.5.0
         version: 1.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      vite-plugin-dts:
-        specifier: 3.9.1
-        version: 3.9.1(@types/node@20.14.9)(rollup@4.18.0)(typescript@5.2.2)(vite@5.3.1(@types/node@20.14.9)(sass@1.77.6))
     devDependencies:
       '@chromatic-com/storybook':
         specifier: 1.6.1
@@ -129,6 +126,9 @@ importers:
       eslint-plugin-storybook:
         specifier: 0.8.0
         version: 0.8.0(eslint@8.57.0)(typescript@5.2.2)
+      sass:
+        specifier: 1.77.6
+        version: 1.77.6
       storybook:
         specifier: 8.1.11
         version: 8.1.11(@babel/preset-env@7.24.7(@babel/core@7.24.7))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -144,6 +144,9 @@ importers:
       vite:
         specifier: 5.3.1
         version: 5.3.1(@types/node@20.14.9)(sass@1.77.6)
+      vite-plugin-dts:
+        specifier: 3.9.1
+        version: 3.9.1(@types/node@20.14.9)(rollup@4.18.0)(typescript@5.2.2)(vite@5.3.1(@types/node@20.14.9)(sass@1.77.6))
 
 packages:
 
@@ -4357,6 +4360,12 @@ packages:
     peerDependencies:
       react: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
       react-dom: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
+
+  react-hook-form@7.52.1:
+    resolution: {integrity: sha512-uNKIhaoICJ5KQALYZ4TOaOLElyM+xipord+Ha3crEFhTntdLvWZqVY49Wqd/0GiVCA/f9NjemLeiNPjG7Hpurg==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18 || ^19
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -10204,6 +10213,10 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-is: 18.1.0
+
+  react-hook-form@7.52.1(react@18.3.1):
+    dependencies:
+      react: 18.3.1
 
   react-is@16.13.1: {}
 

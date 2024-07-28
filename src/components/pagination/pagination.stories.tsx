@@ -9,15 +9,12 @@ const meta = {
   tags: ["autodocs"],
   title: "02. Components/Pagination"
 } satisfies Meta<typeof Pagination>
-const paginationOptions = [
-  { text: "10", value: "10" },
-  { text: "20", value: "20" },
-  { text: "30", value: "30" },
-  { text: "50", value: "50" },
-  { text: "100", value: "100" }
-]
+const paginationOptions = [10, 20, 30, 50, 100]
+
 const defaultArgs = {
   currentPage: 1,
+  onPageChange: () => {},
+  onPageSize: () => {},
   pageSize: 10,
   paginationOptions,
   totalCount: 100
@@ -25,18 +22,19 @@ const defaultArgs = {
 
 export default meta
 
-// ToDo: Component type instead of meta.
-type Story = StoryObj<typeof Pagination>
+type Story = StoryObj<typeof meta>
 
 export const Control: Story = {
   args: {
     currentPage: 1,
+    onPageChange: () => {},
+    onPageSize: () => {},
     pageSize: 100,
     paginationOptions,
     siblingCount: 1,
     totalCount: 1001
   },
-  render: function Render(args: ComponentProps<typeof Pagination>) {
+  render: (args: ComponentProps<typeof Pagination>) => {
     const [currentPage, setCurrentPage] = useState(args.currentPage)
     const [pageSize, setPageSize] = useState(args.pageSize)
 

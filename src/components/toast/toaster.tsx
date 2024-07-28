@@ -1,4 +1,3 @@
-import clsx from "clsx"
 import { Toaster as Sonner } from "sonner"
 
 import "./toaster.scss"

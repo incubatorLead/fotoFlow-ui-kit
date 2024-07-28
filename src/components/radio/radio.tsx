@@ -6,11 +6,11 @@ import s from "./radio.module.scss"
 
 import { useGenerateId } from "../../hooks/useGenerateId"
 
-type Props = {
+export type RadioProps = {
   labelText?: ReactNode
 } & ComponentPropsWithoutRef<"input">
 
-export const Radio = forwardRef<HTMLInputElement, Props>((props, ref) => {
+export const Radio = forwardRef<HTMLInputElement, RadioProps>((props, ref) => {
   const { className, id, labelText, name, ...restProps } = props
 
   // Generate unique ID if it is not provided

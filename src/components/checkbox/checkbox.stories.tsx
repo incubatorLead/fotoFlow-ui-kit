@@ -20,7 +20,7 @@ export const DisabledCheckboxWithoutText: Story = {
     id: "test checkbox",
     name: "testCheckbox"
   },
-  name: "Disabled Checkbox"
+  name: "Disabled checkbox"
 }
 
 export const DisabledCheckboxWithText: Story = {
@@ -28,34 +28,34 @@ export const DisabledCheckboxWithText: Story = {
     disabled: true,
     labelText: "checkbox"
   },
-  name: "Disabled Checkbox with text"
+  name: "Disabled checkbox with text"
 }
 
-// ToDo: Fix any type!
-export const MultipleCheckboxesInOneStory = (args: any) => (
-  <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
-    <Checkbox {...args.checkbox1} />
-    <Checkbox {...args.checkbox2} />
-    <Checkbox {...args.checkbox3} />
-  </div>
-)
-
-MultipleCheckboxesInOneStory.storyName = "Checkbox multiple selections"
-
-MultipleCheckboxesInOneStory.args = {
-  checkbox1: {
-    id: "checkbox1",
-    labelText: "checkbox 1",
-    name: "checkbox1"
-  },
-  checkbox2: {
-    id: "checkbox2",
-    labelText: "checkbox 2",
-    name: "checkbox2"
-  },
-  checkbox3: {
-    id: "checkbox3",
-    labelText: "checkbox 3",
-    name: "checkbox3"
-  }
+export const MultipleCheckboxesInOneStory: Story = {
+  name: "Checkbox multiple selections",
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+      <Checkbox
+        {...{
+          id: "checkbox1",
+          labelText: "checkbox 1",
+          name: "checkbox1"
+        }}
+      />
+      <Checkbox
+        {...{
+          id: "checkbox2",
+          labelText: "checkbox 2",
+          name: "checkbox2"
+        }}
+      />
+      <Checkbox
+        {...{
+          id: "checkbox3",
+          labelText: "checkbox 3",
+          name: "checkbox3"
+        }}
+      />
+    </div>
+  )
 }

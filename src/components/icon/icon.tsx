@@ -2,7 +2,6 @@ import iconSprite from "../../assets/icons/icons-sprite.svg"
 
 export type Props = {
   height?: string
-  href?: string
   iconId: IconId
   viewBox?: string
   width?: string

@@ -5,7 +5,7 @@ import { type ReactNode, useState } from "react"
 
 import { Popover, PopoverContent, PopoverTrigger } from "@radix-ui/react-popover"
 import clsx from "clsx"
-import { format } from "date-fns"
+import { type Locale, format } from "date-fns"
 import { enUS } from "date-fns/locale"
 
 import s from "./datePicker.module.scss"
@@ -15,17 +15,20 @@ import { Icon } from "../icon"
 import { Typography } from "../typography"
 import { Calendar } from "./calendar/calendar"
 
-const SUNDAY = 0
-const MONDAY = 1
+export enum WEEKDAYS {
+  MONDAY = 1,
+  SUNDAY = 0
+}
 
-// ToDo: Local date format + capitalize month name
-const formatDate = (date: Date) => format(date, "dd/MM/yyyy")
+// ToDo: Capitalize month name
+const formatDate = (date: Date, locale: Locale) =>
+  format(date, locale.code === "en-US" ? "MM/dd/yyyy" : "dd/MM/yyyy")
 
-type Props = {
+export type DatePickerProps = {
   date?: DateRange
   disabled?: boolean
-  error?: string
-  label?: ReactNode
+  error?: ReactNode
+  labelText?: ReactNode
   onSelect: (date: DateRange | undefined) => void
 } & Omit<DayPickerRangeProps, "disabled" | "mode">
 // ToDo: aria-label = presentation change to grid-cell + date, types for day picker mode.
@@ -37,12 +40,14 @@ export const DatePicker = ({
   disabled,
   error,
   id,
-  label,
+  initialFocus = true,
+  labelText,
   locale = enUS,
   onSelect,
   showOutsideDays = true,
-  weekStartsOn = locale?.code === "en-US" ? SUNDAY : MONDAY
-}: Props) => {
+  weekStartsOn,
+  ...rest
+}: DatePickerProps) => {
   const [isCalendarOpen, setCalendarOpen] = useState(false)
   const calendarId = useGenerateId(id)
   const calendarIcon = isCalendarOpen ? "calendar" : "calendar-outline"
@@ -51,8 +56,8 @@ export const DatePicker = ({
 
   if (date?.from) {
     formattedDate = date.to
-      ? `${formatDate(date.from)} - ${formatDate(date.to)}`
-      : formatDate(date.from)
+      ? `${formatDate(date.from, locale)} - ${formatDate(date.to, locale)}`
+      : formatDate(date.from, locale)
   } else {
     formattedDate = locale?.code === "en-US" ? "Pick a date" : "Выберите дату"
   }
@@ -60,8 +65,8 @@ export const DatePicker = ({
   //  ToDo: Add button with forwardRef or date input after merge.
   return (
     <div className={className}>
-      <label className={clsx(s.label, disabled && s.disabledLabel)} htmlFor={calendarId}>
-        {label}
+      <label className={clsx(s.label, disabled && s.disabled)} htmlFor={calendarId}>
+        {labelText}
       </label>
       <Popover onOpenChange={setCalendarOpen} open={isCalendarOpen}>
         <PopoverTrigger asChild>
@@ -82,13 +87,14 @@ export const DatePicker = ({
             defaultMonth={date?.from}
             disabled={disabled}
             id={calendarId}
-            initialFocus
+            initialFocus={initialFocus}
             locale={locale}
             mode={"range"}
             onSelect={onSelect}
             selected={date}
             showOutsideDays={showOutsideDays}
             weekStartsOn={weekStartsOn}
+            {...rest}
           />
         </PopoverContent>
       </Popover>

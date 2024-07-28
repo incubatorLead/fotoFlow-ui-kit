@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Table, TableBody, TableCell, TableEmpty, TableHead, TableHeadCell, TableRow } from "./"
+import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "./"
 
 const meta = {
   component: Table,
@@ -69,9 +69,6 @@ export const TableWithMapMethod: Story = {
         </TableBody>
       </>
     )
-  }
-}
-
-export const EmptyTable = {
-  render: () => <TableEmpty />
+  },
+  name: "Table with map method"
 }

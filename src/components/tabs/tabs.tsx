@@ -31,9 +31,7 @@ export const Tabs = (props: TabsProps) => {
             key={tab.value}
             value={tab.value}
           >
-            <Typography as={"span"} variant={"h3"}>
-              {tab.title}
-            </Typography>
+            <Typography variant={"h3"}>{tab.title}</Typography>
           </TabsPrimitive.Trigger>
         ))}
       </TabsPrimitive.List>

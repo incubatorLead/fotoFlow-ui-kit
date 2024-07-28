@@ -11,8 +11,7 @@ const meta = {
 
 export default meta
 
-// ToDo: Component type instead of meta.
-type Story = StoryObj<typeof Select>
+type Story = StoryObj<typeof meta>
 
 const defaultArgs = {
   options: [
@@ -29,7 +28,6 @@ export const Default: Story = {
   }
 }
 
-// ToDo: body data-scroll-locked=1
 export const WithLabel: Story = {
   args: {
     ...defaultArgs,
@@ -55,6 +53,7 @@ export const DisabledWithLabel: Story = {
     disabled: true,
     labelText: "Disabled",
     name: "select",
+    options: [],
     placeholder: "Select disabled with label"
   }
 }
