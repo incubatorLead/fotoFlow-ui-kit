@@ -1,0 +1,53 @@
+@use "../../styles/abstracts/index" as *;
+
+.scrollableContainer {
+  overflow: hidden;
+}
+
+.viewport {
+  width: 100%;
+  height: 100%;
+}
+
+.scrollbar {
+  touch-action: none;
+  user-select: none;
+
+  display: flex;
+
+  background: var(--color-dark-300);
+  border-radius: 2px;
+}
+
+.scrollbar[data-orientation="vertical"] {
+  width: $scrollbar-size;
+}
+
+.scrollbar[data-orientation="horizontal"] {
+  flex-direction: column;
+  height: $scrollbar-size;
+}
+
+.thumb {
+  position: relative;
+  flex: 1;
+  background: var(--color-dark-100);
+  border-radius: 3px;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+
+    width: 4px;
+    height: 100%;
+
+    border-radius: 3px;
+
+    transition: 200ms;
+  }
+
+  &:hover {
+    background: var(--color-light-900);
+  }
+}
