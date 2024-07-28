@@ -31,31 +31,31 @@ export const DisabledRadioWithText: Story = {
   name: "Disabled Radio with text"
 }
 
-// ToDo: Fix any type.
-export const MultipleRadiosInOneStory = (args: any) => (
-  <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
-    <Radio {...args.radio1} />
-    <Radio {...args.radio2} />
-    <Radio {...args.radio3} />
-  </div>
-)
-
-MultipleRadiosInOneStory.storyName = "Radio multiple selections"
-
-MultipleRadiosInOneStory.args = {
-  radio1: {
-    id: "testradio1",
-    labelText: "radio 1",
-    name: "radio"
-  },
-  radio2: {
-    id: "testradio2",
-    labelText: "radio 2",
-    name: "radio"
-  },
-  radio3: {
-    id: "testradio3",
-    labelText: "radio 3",
-    name: "radio"
-  }
+export const MultipleRadiosInOneStory: Story = {
+  name: "Radio multiple selections",
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+      <Radio
+        {...{
+          id: "testradio1",
+          labelText: "radio 1",
+          name: "radio"
+        }}
+      />
+      <Radio
+        {...{
+          id: "testradio2",
+          labelText: "radio 2",
+          name: "radio"
+        }}
+      />
+      <Radio
+        {...{
+          id: "testradio3",
+          labelText: "radio 3",
+          name: "radio"
+        }}
+      />
+    </div>
+  )
 }

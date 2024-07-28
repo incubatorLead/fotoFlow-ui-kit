@@ -32,14 +32,17 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const DefaultTabs: Story = {}
+export const DefaultTabs: Story = {
+  name: "Tabs"
+}
 
-export const PrimaryWithDisabledTab = {
+export const PrimaryWithDisabledTab: Story = {
   args: {
     tabs: [
       { title: "Uploaded files", value: "uploaded_files" },
       { title: "Payments", value: "payments" },
       { disabled: true, title: "Followers", value: "followers" }
     ]
-  }
+  },
+  name: "Primary with disabled tab"
 }

@@ -1,24 +1,24 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
+import { Component } from "react"
 import { useForm } from "react-hook-form"
 
 import { Button } from "../components/"
-import { FormCheckbox } from "./form-checkbox"
-import { FormDatePicker } from "./form-date-picker"
-import { FormInput } from "./form-input"
-import { FormRadio } from "./form-radio"
-import { FormSelect } from "./form-select"
+import { FormCheckbox } from "./formCheckbox"
+import { FormDatePicker } from "./formDatePicker"
+import { FormInput } from "./formInput"
+import { FormRadio } from "./formRadio"
+import { FormSelect } from "./formSelect"
 
 const meta = {
-  //TODO formSelect
-  component: FormSelect,
   tags: ["autodocs"],
   title: "03. Features/Form"
-} satisfies Meta<typeof FormSelect>
+} satisfies Meta<typeof Component>
 
 export default meta
 
-type Story = StoryObj<typeof FormSelect>
+type Story = StoryObj<typeof meta>
+
 const defaultArgsSelect = {
   options: [
     { text: "10", value: "10" },
@@ -29,7 +29,8 @@ const defaultArgsSelect = {
 }
 
 export const Form: Story = {
-  render: function Render() {
+  name: "Form",
+  render: () => {
     const {
       control,
       formState: { errors },

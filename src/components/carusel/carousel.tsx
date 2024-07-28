@@ -17,7 +17,7 @@ type PropType = {
   options?: EmblaOptionsType
 }
 
-export const Carousel: React.FC<PropType> = props => {
+export const Carousel = (props: PropType) => {
   const { children, options } = props
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
 

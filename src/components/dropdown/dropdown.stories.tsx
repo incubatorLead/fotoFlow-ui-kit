@@ -23,8 +23,8 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Learn: Story = {
-  args: {},
+export const NotificationDropdown: Story = {
+  name: "Notification dropdown",
   render: () => {
     const [isOpen, setIsOpen] = useState(false)
 
@@ -109,9 +109,9 @@ export const Learn: Story = {
 }
 
 export const HeaderDropdown: Story = {
-  args: {},
+  name: "Header dropdown",
   render: () => (
-    <DropdownMenu open>
+    <DropdownMenu>
       <DropdownMenuTrigger>
         <Button variant={"text"}>
           <Icon iconId={"more-horizontal"} />

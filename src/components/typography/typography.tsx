@@ -32,11 +32,30 @@ export const Typography = <T extends ElementType = "p">({
   variant = "regular_text_16",
   ...restProps
 }: Props<T>) => {
-  const Component = as ?? "p"
+  const Component = getComponent(variant, as)
 
   return (
     <Component className={clsx(s.typography, s[variant], className)} {...restProps}>
       {children}
     </Component>
   )
+}
+
+const getComponent = <T extends ElementType>(variant: TypographyVariant, as?: T) => {
+  if (as) {
+    return as
+  }
+
+  switch (variant) {
+    case "large":
+      return "h1"
+    case "h1":
+      return "h2"
+    case "h2":
+      return "h3"
+    case "h3":
+      return "h4"
+    default:
+      return "p"
+  }
 }

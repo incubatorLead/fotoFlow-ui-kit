@@ -1,5 +1,5 @@
 import * as React from "react"
-import { DayPicker, type DayPickerRangeProps } from "react-day-picker"
+import { DayPicker, type DayPickerProps } from "react-day-picker"
 
 import clsx from "clsx"
 
@@ -8,7 +8,7 @@ import s from "./calendar.module.scss"
 import { Icon } from "../../icon"
 
 // ToDo: mode hardcoded props.mode === "range" ?
-export const Calendar = ({ className, classNames, ...props }: DayPickerRangeProps) => (
+export const Calendar = ({ className, classNames, ...props }: DayPickerProps) => (
   <DayPicker
     className={clsx(s.calendar, className)}
     classNames={{

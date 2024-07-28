@@ -21,7 +21,7 @@ export const FormDatePicker = <T extends FieldValues>({
   ...rest
 }: PropsForm<T>) => {
   const {
-    field: { onChange, value },
+    field: { onChange, value, ...field },
     fieldState: { error }
   } = useController({
     control,
@@ -30,5 +30,5 @@ export const FormDatePicker = <T extends FieldValues>({
     shouldUnregister
   })
 
-  return <DatePicker date={value} error={error?.message} onSelect={onChange} {...rest} />
+  return <DatePicker date={value} error={error?.message} onSelect={onChange} {...rest} {...field} />
 }

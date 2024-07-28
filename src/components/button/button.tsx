@@ -19,12 +19,20 @@ type ButtonProps<T extends ElementType = "button"> = {
 } & ComponentPropsWithoutRef<T>
 
 const ButtonPolymorph = <T extends ElementType = "button">(props: ButtonProps<T>, ref: any) => {
-  const { as, className, fullWidth, variant = "primary", ...restProps } = props
+  const {
+    as,
+    className,
+    fullWidth,
+    type = !as || as === "button" ? "button" : undefined,
+    variant = "primary",
+    ...restProps
+  } = props
   const Component = as ?? "button"
 
   return (
     <Component
       className={clsx(s.button, s[variant], fullWidth && s.fullWidth, className)}
+      type={type}
       {...restProps}
       ref={ref}
     />
@@ -37,3 +45,5 @@ export const Button = forwardRef(ButtonPolymorph) as <T extends ElementType = "b
   } & ButtonProps<T> &
     Omit<ComponentPropsWithoutRef<T>, keyof ButtonProps<T>>
 ) => ReturnType<typeof ButtonPolymorph>
+
+// ToDo: Why we use here ButtonPoly seperated? Can we merge it?

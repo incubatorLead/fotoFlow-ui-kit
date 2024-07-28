@@ -19,7 +19,7 @@ const DEFAULT_TYPE = "input"
 
 export type InputProps<T extends ElementType = typeof DEFAULT_TYPE> = {
   as?: T
-  error?: string
+  error?: ReactNode
   labelText?: ReactNode
 } & ComponentPropsWithoutRef<T>
 

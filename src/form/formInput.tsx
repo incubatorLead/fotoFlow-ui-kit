@@ -8,7 +8,6 @@ import {
 
 import { Input, type InputProps } from "../components"
 
-// ToDo: Ask Andrei about type for FormInput attributes
 type PropsForm<T extends FieldValues> = { control: Control<T> } & Omit<
   InputProps<ElementType>,
   "onChange" | "value"

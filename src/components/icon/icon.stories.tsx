@@ -13,7 +13,7 @@ const meta = {
 
 export default meta
 
-type Story = StoryObj<typeof Icon>
+type Story = StoryObj<typeof meta>
 
 const iconsItems: { iconId: IconId }[] = [
   { iconId: "home-outline" },
@@ -98,6 +98,7 @@ const iconsItems: { iconId: IconId }[] = [
 ]
 
 export const Default: Story = {
+  args: { iconId: "home-outline" },
   render: () => (
     <div
       style={{

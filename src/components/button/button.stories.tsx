@@ -5,6 +5,9 @@ import { Button } from "./"
 
 const meta = {
   component: Button,
+  parameters: {
+    layout: "padded"
+  },
   tags: ["autodocs"],
   title: "02. Components/Button"
 } satisfies Meta<typeof Button>

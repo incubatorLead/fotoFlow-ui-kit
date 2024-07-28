@@ -16,48 +16,45 @@ const meta = {
 
 export default meta
 
-type Story = StoryObj<typeof Toaster>
+type Story = StoryObj<typeof meta>
 
 export const ToastsWithControl: Story = {
-  render: function Render() {
-    return (
-      <>
-        <div style={{ display: "flex", gap: "10px" }}>
-          <Button
-            onClick={() =>
-              toast.success("Your settings are saved", {
-                cancel: {
-                  label: <Icon iconId={"close"} />,
-                  // TODO is it possible to remove onClick
-                  onClick: () => console.log("Cancel!")
-                },
-                duration: 5000,
-                position: "bottom-left"
-              })
-            }
-            style={{ backgroundColor: "#0a6638" }}
-          >
-            Show Success Toast
-          </Button>
-          <Button
-            onClick={() =>
-              toast.error("Error! Server is not available", {
-                cancel: {
-                  label: <Icon iconId={"close"} />,
-                  // TODO is it possible to remove onClick
-                  onClick: () => console.log("Cancel!")
-                },
-                duration: 5000,
-                position: "bottom-left"
-              })
-            }
-            style={{ backgroundColor: "#660a1d" }}
-          >
-            Show Error Toast
-          </Button>
-        </div>
-        <Toaster />
-      </>
-    )
-  }
+  name: "Toasts",
+  render: () => (
+    <>
+      <div style={{ display: "flex", gap: "10px" }}>
+        <Button
+          onClick={() =>
+            toast.success("Your settings are saved", {
+              cancel: {
+                label: <Icon iconId={"close"} />,
+                onClick: () => {}
+              },
+              duration: 5000,
+              position: "bottom-left"
+            })
+          }
+          style={{ backgroundColor: "#0a6638" }}
+        >
+          Show Success Toast
+        </Button>
+        <Button
+          onClick={() =>
+            toast.error("Error! Server is not available", {
+              cancel: {
+                label: <Icon iconId={"close"} />,
+                onClick: () => {}
+              },
+              duration: 5000,
+              position: "bottom-left"
+            })
+          }
+          style={{ backgroundColor: "#660a1d" }}
+        >
+          Show Error Toast
+        </Button>
+      </div>
+      <Toaster />
+    </>
+  )
 }

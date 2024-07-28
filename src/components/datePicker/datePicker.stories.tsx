@@ -21,7 +21,7 @@ const meta = {
 
 export default meta
 
-type Story = StoryObj<typeof DatePicker>
+type Story = StoryObj<typeof meta>
 
 const defaultArgs = {
   date: {
@@ -30,6 +30,7 @@ const defaultArgs = {
   disabled: false,
   error: "",
   label: "Label",
+  onSelect: () => {},
   showOutsideDays: true
 }
 
@@ -61,7 +62,7 @@ export const ControlledDatePicker: Story = {
     ...defaultArgs
   },
   name: "Controlled date picker",
-  render: function Render(args: ComponentProps<typeof DatePicker>) {
+  render: (args: ComponentProps<typeof DatePicker>) => {
     const [date, setDate] = useState<DateRange | undefined>(args.date)
 
     const onSelect = (date: DateRange | undefined) => setDate(date)
