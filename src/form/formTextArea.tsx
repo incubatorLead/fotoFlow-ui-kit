@@ -6,15 +6,15 @@ import {
   useController
 } from "react-hook-form"
 
-import { Input, type InputProps } from "../components"
+import { TextArea, type TextAreaProps } from "../components"
 
 type PropsForm<T extends FieldValues> = { control: Control<T> } & Omit<
-  InputProps,
+  TextAreaProps,
   "onChange" | "value"
 > &
   Omit<UseControllerProps<T>, "control" | "defaultValue" | "rules">
 
-export const FormInput = <T extends FieldValues>({
+export const FormTextArea = <T extends FieldValues>({
   control,
   disabled,
   name,
@@ -31,5 +31,5 @@ export const FormInput = <T extends FieldValues>({
     shouldUnregister
   })
 
-  return <Input error={error?.message} {...field} {...rest} />
+  return <TextArea error={error?.message} {...field} {...rest} />
 }

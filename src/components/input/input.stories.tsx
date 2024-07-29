@@ -4,10 +4,6 @@ import { Input } from "./input"
 
 const meta = {
   argTypes: {
-    as: {
-      control: { type: "radio" },
-      options: ["input", "textarea"]
-    },
     disabled: {
       control: { type: "boolean" }
     },
@@ -138,11 +134,4 @@ export const DisabledPasswordInput: Story = {
     value: "Disabled password"
   },
   name: "Disabled password input"
-}
-
-export const Textarea: Story = {
-  args: {
-    ...defaultArgs,
-    as: "textarea"
-  }
 }

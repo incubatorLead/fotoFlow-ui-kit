@@ -9,6 +9,7 @@ import { FormDatePicker } from "./formDatePicker"
 import { FormInput } from "./formInput"
 import { FormRadio } from "./formRadio"
 import { FormSelect } from "./formSelect"
+import { FormTextArea } from "./formTextArea"
 
 const meta = {
   tags: ["autodocs"],
@@ -54,7 +55,7 @@ export const Form: Story = {
         <FormCheckbox control={control} labelText={"Remember me"} name={"rememberMe"} />
         <FormRadio control={control} labelText={"Man"} name={"gender"} value={"man"} />
         <FormRadio control={control} labelText={"Women"} name={"gender"} value={"women"} />
-        <FormInput as={"textarea"} control={control} labelText={"Message"} name={"message"} />
+        <FormTextArea control={control} labelText={"Message"} name={"message"} />
         <FormDatePicker control={control} labelText={"Date of birth"} name={"date"} />
         <Button>Submit</Button>
       </form>
