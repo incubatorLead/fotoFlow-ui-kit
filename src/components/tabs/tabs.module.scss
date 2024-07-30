@@ -41,7 +41,6 @@
   &:focus-visible {
     z-index: 9999;
     border-radius: 2px;
-    outline: $outline-focus;
   }
 
   &:disabled {

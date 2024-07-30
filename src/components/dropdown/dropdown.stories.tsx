@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { useState } from "react"
+import React, { useState } from "react"
 
 import { Button } from "../button"
 import { Icon } from "../icon"
@@ -35,7 +35,7 @@ export const NotificationDropdown: Story = {
         }}
       >
         <DropdownMenuTrigger>
-          <Button style={{ color: isOpen ? "#397DF6FF" : "#fff" }} variant={"text"}>
+          <Button style={{ color: isOpen ? "#397DF6FF" : "#fff", padding: "0" }} variant={"text"}>
             {isOpen ? <Icon iconId={"bell-fill"} /> : <Icon iconId={"bell-outline"} />}
           </Button>
         </DropdownMenuTrigger>
@@ -113,7 +113,7 @@ export const HeaderDropdown: Story = {
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <Button variant={"text"}>
+        <Button style={{ padding: "0" }} variant={"text"}>
           <Icon iconId={"more-horizontal"} />
         </Button>
       </DropdownMenuTrigger>
