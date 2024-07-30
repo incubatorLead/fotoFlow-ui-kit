@@ -45,6 +45,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   }
 
   const classNames = {
+    buttonPassword: clsx("btnReset", s.hidePasswordIcon),
     fieldContainer: clsx(s.fieldContainer, className),
     input: clsx(
       s.formControl,
@@ -76,7 +77,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
           </span>
         )}
         {isInputPassword && (
-          <button className={s.hidePasswordIcon} onClick={toggleHidePassword} type={"button"}>
+          <button
+            className={classNames.buttonPassword}
+            onClick={toggleHidePassword}
+            type={"button"}
+          >
             <Icon iconId={iconId} />
           </button>
         )}
