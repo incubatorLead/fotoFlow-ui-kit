@@ -2,8 +2,7 @@ import { type ComponentPropsWithoutRef, type ReactNode, forwardRef } from "react
 
 import clsx from "clsx"
 
-import inputStyles from "../input/input.module.scss"
-import textAreaStyles from "./textArea.module.scss"
+import s from "./textArea.module.scss"
 
 import { useGenerateId } from "../../hooks/useGenerateId"
 import { Typography } from "../typography"
@@ -19,17 +18,13 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>((props, r
   const textAreaId = useGenerateId(name, id)
 
   const classNames = {
-    input: clsx(inputStyles.input, textAreaStyles.textarea, error && inputStyles.inputError),
-    inputContainer: clsx(inputStyles.inputContainer, className),
-    label: clsx(
-      inputStyles.label,
-      required && inputStyles.labelRequired,
-      disabled && inputStyles.disabled
-    )
+    fieldContainer: clsx(s.fieldContainer, className),
+    input: clsx(s.formControl, s.textarea, error && s.inputError),
+    label: clsx(s.label, required && s.labelRequired, disabled && s.disabled)
   }
 
   return (
-    <div className={classNames.inputContainer}>
+    <div className={classNames.fieldContainer}>
       <label className={classNames.label} htmlFor={textAreaId}>
         {labelText}
       </label>

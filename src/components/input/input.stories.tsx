@@ -82,16 +82,6 @@ export const HoveredInput: Story = {
   }
 }
 
-export const FocusedInput: Story = {
-  args: {
-    ...defaultArgs
-  },
-  name: "Focused input",
-  parameters: {
-    pseudo: { focusVisible: true }
-  }
-}
-
 export const DisabledInput: Story = {
   args: {
     ...defaultArgs,

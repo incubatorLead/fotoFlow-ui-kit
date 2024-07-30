@@ -1,17 +1,19 @@
 @use "../abstracts/index" as *;
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 html {
+  box-sizing: border-box;
+
   font-family: $font-family-primary, sans-serif;
   font-size: 6.25%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--color-light-100);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 body {
@@ -41,7 +43,6 @@ ol {
 }
 
 input,
-button,
 select,
 textarea,
 optgroup,
@@ -70,4 +71,18 @@ a:visited {
 
 a:active {
   color: inherit;
+}
+
+:focus-visible {
+  border-color: transparent !important;
+  outline: $outline-focus;
+}
+
+.btnReset {
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: none;
+  color: inherit;
+  font: inherit;
 }

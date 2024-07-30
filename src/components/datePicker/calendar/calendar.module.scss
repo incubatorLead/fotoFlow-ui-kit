@@ -19,17 +19,10 @@
   text-transform: capitalize;
 }
 
-.nav {
-  button {
-    border: none;
-  }
-}
-
-// ToDo: global styles reset buttons and backgrounds
-
 .cell {
   width: 36px;
   height: 36px;
+  padding: 0;
 
   text-align: center;
   vertical-align: middle;
@@ -45,8 +38,6 @@
     height: 100%;
     padding: 6px;
 
-    background: none;
-    border: none;
     border-radius: 50%;
 
     transition: $transition-duration background-color ease-in-out;
@@ -127,17 +118,12 @@
   padding: 20px 0;
 }
 
-.navButtons {
-  svg {
-    vertical-align: middle;
-  }
-}
-
 .navButton {
   cursor: pointer;
 
   width: 36px;
   height: 36px;
+  padding: 6px;
 
   background-color: var(--color-dark-100);
   border-radius: 50%;

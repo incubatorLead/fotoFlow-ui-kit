@@ -45,28 +45,23 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   }
 
   const classNames = {
+    buttonPassword: clsx("btnReset", s.hidePasswordIcon),
+    fieldContainer: clsx(s.fieldContainer, className),
     input: clsx(
-      s.input,
+      s.formControl,
       isInputPassword && s.inputPassword,
       isInputPassword && isPasswordHidden && s.hidePassword,
       error && s.inputError
     ),
-    inputContainer: clsx(s.inputContainer, className),
-    inputPassword: clsx(s.hidePasswordIcon, disabled && s.disabledPasswordIcon),
     label: clsx(s.label, required && s.labelRequired, disabled && s.disabled)
   }
 
   return (
-    <div className={classNames.inputContainer}>
+    <div className={classNames.fieldContainer}>
       <label className={classNames.label} htmlFor={inputId}>
         {labelText}
       </label>
       <div className={s.inputIconWrapper}>
-        {isInputSearch && (
-          <span className={s.inputSearchIcon}>
-            <Icon iconId={"search"} />
-          </span>
-        )}
         <input
           className={classNames.input}
           disabled={disabled}
@@ -76,8 +71,17 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
           type={inputType}
           {...restProps}
         />
+        {isInputSearch && (
+          <span className={s.inputSearchIcon}>
+            <Icon iconId={"search"} />
+          </span>
+        )}
         {isInputPassword && (
-          <button className={classNames.inputPassword} onClick={toggleHidePassword} type={"button"}>
+          <button
+            className={classNames.buttonPassword}
+            onClick={toggleHidePassword}
+            type={"button"}
+          >
             <Icon iconId={iconId} />
           </button>
         )}

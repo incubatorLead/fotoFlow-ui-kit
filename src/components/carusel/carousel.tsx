@@ -50,7 +50,7 @@ export const Carousel = (props: PropType) => {
       <div className={s.dots}>
         {scrollSnaps.map((_, index) => (
           <button
-            className={clsx(s.dot, index === selectedIndex && s.selected)}
+            className={clsx("btnReset", s.dot, index === selectedIndex && s.selected)}
             key={index}
             onClick={() => onDotButtonClick(index)}
             type={"button"}

@@ -15,10 +15,11 @@
 
   display: flex;
   gap: 28px;
+  align-items: center;
   justify-content: space-between;
 
   width: 100%;
-  padding: 6px 12px;
+  padding: 7px 12px 5px;
 
   color: var(--color-light-100);
 
@@ -33,7 +34,6 @@
 
   &:focus {
     border-color: var(--color-accent-700);
-    border-width: 2px;
   }
 
   &:active {
