@@ -7,7 +7,6 @@ import s from "./calendar.module.scss"
 
 import { Icon } from "../../icon"
 
-// ToDo: mode hardcoded props.mode === "range" ?
 export const Calendar = ({ className, classNames, ...props }: DayPickerProps) => (
   <DayPicker
     className={clsx(s.calendar, className)}

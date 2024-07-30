@@ -30,7 +30,6 @@ export type DatePickerProps = {
   labelText?: ReactNode
   onSelect: (date: Date | undefined) => void
 } & Omit<DayPickerSingleProps, "disabled" | "mode">
-// ToDo: aria-label = presentation change to grid-cell + date, types for day picker mode.
 
 export const DatePicker = ({
   className,
