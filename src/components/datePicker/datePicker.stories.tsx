@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import type { DateRange } from "react-day-picker"
 
 import { type ComponentProps, useState } from "react"
 
@@ -24,9 +23,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const defaultArgs = {
-  date: {
-    from: new Date()
-  },
+  date: new Date(),
   disabled: false,
   error: "",
   label: "Label",
@@ -63,9 +60,9 @@ export const ControlledDatePicker: Story = {
   },
   name: "Controlled date picker",
   render: (args: ComponentProps<typeof DatePicker>) => {
-    const [date, setDate] = useState<DateRange | undefined>(args.date)
+    const [date, setDate] = useState<Date | undefined>(args.date)
 
-    const onSelect = (date: DateRange | undefined) => setDate(date)
+    const onSelect = (date: Date | undefined) => setDate(date)
 
     return <DatePicker {...args} date={date} onSelect={onSelect} />
   }

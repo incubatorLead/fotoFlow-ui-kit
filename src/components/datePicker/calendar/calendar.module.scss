@@ -15,9 +15,9 @@
 
 .captionLabel {
   @include typography($font-size-m, $line-height-l, $font-weight-bold);
-}
 
-// ToDo: global styles reset buttons and backgrounds
+  text-transform: capitalize;
+}
 
 .cell {
   width: 36px;
