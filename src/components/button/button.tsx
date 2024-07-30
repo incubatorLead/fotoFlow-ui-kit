@@ -31,7 +31,7 @@ const ButtonPolymorph = <T extends ElementType = "button">(props: ButtonProps<T>
 
   return (
     <Component
-      className={clsx(s.button, s[variant], fullWidth && s.fullWidth, className)}
+      className={clsx("btnReset", s.button, s[variant], fullWidth && s.fullWidth, className)}
       type={type}
       {...restProps}
       ref={ref}

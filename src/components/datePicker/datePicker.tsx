@@ -69,7 +69,15 @@ export const DatePicker = ({
         {labelText}
       </label>
       <Popover onOpenChange={setCalendarOpen} open={isCalendarOpen}>
-        <PopoverTrigger asChild>
+        <PopoverTrigger
+          className={clsx("btnReset", s.button, error && s.error)}
+          disabled={disabled}
+          id={calendarId}
+        >
+          {formattedDate}
+          <Icon iconId={calendarIcon} />
+        </PopoverTrigger>
+        {/*        <PopoverTrigger asChild>
           <button
             className={clsx(s.button, error && s.error)}
             disabled={disabled}
@@ -79,7 +87,7 @@ export const DatePicker = ({
             {formattedDate}
             <Icon iconId={calendarIcon} />
           </button>
-        </PopoverTrigger>
+        </PopoverTrigger>*/}
         <PopoverContent align={"start"}>
           <Calendar
             className={className}
