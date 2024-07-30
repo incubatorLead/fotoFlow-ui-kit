@@ -1,11 +1,10 @@
-import type { DayPickerSingleProps } from "react-day-picker"
+import type { DateRange, DayPickerRangeProps } from "react-day-picker"
 
 import * as React from "react"
 import { type ReactNode, useState } from "react"
 
 import { Popover, PopoverContent, PopoverTrigger } from "@radix-ui/react-popover"
 import clsx from "clsx"
-import { type Locale, format } from "date-fns"
 import { enUS } from "date-fns/locale"
 
 import s from "./datePicker.module.scss"
@@ -14,25 +13,17 @@ import { useGenerateId } from "../../hooks/useGenerateId"
 import { Icon } from "../icon"
 import { Typography } from "../typography"
 import { Calendar } from "./calendar/calendar"
+import { formatDate } from "./datePicker.tsx"
 
-export enum WEEKDAYS {
-  MONDAY = 1,
-  SUNDAY = 0
-}
-
-export const formatDate = (date: Date, locale: Locale) =>
-  format(date, locale.code === "en-US" ? "MM/dd/yyyy" : "dd/MM/yyyy")
-
-export type DatePickerProps = {
-  date?: Date
+export type DatePickerRangeProps = {
+  date?: DateRange
   disabled?: boolean
   error?: ReactNode
   labelText?: ReactNode
-  onSelect: (date: Date | undefined) => void
-} & Omit<DayPickerSingleProps, "disabled" | "mode">
-// ToDo: aria-label = presentation change to grid-cell + date, types for day picker mode.
+  onSelect: (date: DateRange | undefined) => void
+} & Omit<DayPickerRangeProps, "disabled" | "mode">
 
-export const DatePicker = ({
+export const DatePickerRange = ({
   className,
   classNames,
   date,
@@ -46,12 +37,20 @@ export const DatePicker = ({
   showOutsideDays = true,
   weekStartsOn,
   ...rest
-}: DatePickerProps) => {
+}: DatePickerRangeProps) => {
   const [isCalendarOpen, setCalendarOpen] = useState(false)
   const calendarId = useGenerateId(id)
   const calendarIcon = isCalendarOpen ? "calendar" : "calendar-outline"
-  const pickDate = locale?.code === "en-US" ? "Pick a date" : "Выберите дату"
-  const formattedDate = date ? formatDate(date, locale) : pickDate
+
+  let formattedDate
+
+  if (date?.from) {
+    formattedDate = date.to
+      ? `${formatDate(date.from, locale)} - ${formatDate(date.to, locale)}`
+      : formatDate(date.from, locale)
+  } else {
+    formattedDate = locale?.code === "en-US" ? "Pick a date" : "Выберите дату"
+  }
 
   return (
     <div className={className}>
@@ -74,12 +73,12 @@ export const DatePicker = ({
           <Calendar
             className={className}
             classNames={classNames}
-            defaultMonth={date}
+            defaultMonth={date?.from}
             disabled={disabled}
             id={calendarId}
             initialFocus={initialFocus}
             locale={locale}
-            mode={"single"}
+            mode={"range"}
             onSelect={onSelect}
             selected={date}
             showOutsideDays={showOutsideDays}
@@ -97,4 +96,4 @@ export const DatePicker = ({
   )
 }
 
-DatePicker.displayName = "DatePicker"
+DatePickerRange.displayName = "DatePickerRange"

@@ -15,6 +15,8 @@
 
 .captionLabel {
   @include typography($font-size-m, $line-height-l, $font-weight-bold);
+
+  text-transform: capitalize;
 }
 
 .nav {
@@ -133,7 +135,10 @@
 
 .navButton {
   cursor: pointer;
-  padding: 8px;
+
+  width: 36px;
+  height: 36px;
+
   background-color: var(--color-dark-100);
   border-radius: 50%;
 }
