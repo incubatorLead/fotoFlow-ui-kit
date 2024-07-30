@@ -7,7 +7,8 @@ export const Toaster = () => {
     <Sonner
       toastOptions={{
         classNames: {
-          cancelButton: "close",
+          cancelButton: "btnReset close",
+          icon: "emptyIcon",
           title: "text",
           toast: "toast"
         },
