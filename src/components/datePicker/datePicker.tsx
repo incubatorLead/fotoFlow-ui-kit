@@ -77,17 +77,6 @@ export const DatePicker = ({
           {formattedDate}
           <Icon iconId={calendarIcon} />
         </PopoverTrigger>
-        {/*        <PopoverTrigger asChild>
-          <button
-            className={clsx(s.button, error && s.error)}
-            disabled={disabled}
-            id={calendarId}
-            type={"button"}
-          >
-            {formattedDate}
-            <Icon iconId={calendarIcon} />
-          </button>
-        </PopoverTrigger>*/}
         <PopoverContent align={"start"}>
           <Calendar
             className={className}
