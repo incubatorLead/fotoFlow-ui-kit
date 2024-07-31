@@ -1,0 +1,67 @@
+@use "../../fonts" as *;
+
+@mixin input-textarea-core {
+  .fieldContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .label {
+    font-size: $font-size-s;
+    line-height: $line-height-s;
+    color: var(--color-light-900);
+
+    &.disabled {
+      color: var(--color-dark-100);
+    }
+  }
+
+  .labelRequired {
+    &::after {
+      content: "*";
+      color: var(--color-danger-500);
+    }
+  }
+
+  .formControl {
+    width: 100%;
+    padding: 6px 12px;
+
+    color: var(--color-light-900);
+    text-overflow: ellipsis;
+
+    background-color: var(--color-dark-700);
+    border: 1px solid var(--color-dark-100);
+    border-radius: 2px;
+
+    &:hover {
+      border-color: var(--color-light-900);
+    }
+
+    &:focus-visible {
+      color: var(--color-light-100);
+      background-color: var(--color-dark-500);
+    }
+
+    &:focus::placeholder {
+      opacity: 0;
+    }
+
+    &:invalid,
+    &.inputError {
+      color: var(--color-light-100);
+      background-color: var(--color-dark-700);
+      border-color: var(--color-danger-500);
+    }
+
+    &:disabled {
+      color: var(--color-dark-100);
+      border-color: var(--color-dark-100);
+
+      &::placeholder {
+        color: var(--color-dark-100);
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+@use "../../styles/abstracts/index" as *;
+
+@include input-textarea-core;
+
+.textarea {
+  resize: none;
+  min-height: 84px;
+}
