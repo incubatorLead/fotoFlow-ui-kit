@@ -1,5 +1,7 @@
 import React from "react"
 
+import clsx from "clsx"
+
 import s from "./colorPalette.module.scss"
 
 import { copyTextToClipboard } from "../../utils"
@@ -34,7 +36,7 @@ export const ColorPalette = ({ palette }: Props) => {
                 <div className={s.info}>
                   <div className={s.name}>{item.name}</div>
                   <button
-                    className={s.colorHex}
+                    className={clsx(s.colorHex, "btnReset")}
                     onClick={() => copyTextToClipboard(item.color)}
                     title={"copy hex color"}
                     type={"button"}
