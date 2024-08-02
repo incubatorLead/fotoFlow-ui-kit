@@ -9,7 +9,7 @@ import { enUS } from "date-fns/locale"
 
 import s from "./datePicker.module.scss"
 
-import { Calendar as CalendarFill, CalendarOutline } from "../../assets/icons/components"
+import { IconCalendar, IconCalendarOutline } from "../../assets/icons/components"
 import { useGenerateId } from "../../hooks/useGenerateId"
 import { Typography } from "../typography"
 import { Calendar } from "./calendar/calendar"
@@ -40,7 +40,7 @@ export const DatePickerRange = ({
 }: DatePickerRangeProps) => {
   const [isCalendarOpen, setCalendarOpen] = useState(false)
   const calendarId = useGenerateId(id)
-  const calendarIcon = isCalendarOpen ? <CalendarFill /> : <CalendarOutline />
+  const calendarIcon = isCalendarOpen ? <IconCalendar /> : <IconCalendarOutline />
 
   let formattedDate
 

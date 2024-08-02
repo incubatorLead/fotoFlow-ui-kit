@@ -4,7 +4,7 @@ import React, { Fragment } from "react"
 
 import { toast } from "sonner"
 
-import { Close } from "../../assets/icons/components"
+import { IconClose } from "../../assets/icons/components"
 import { Button } from "../button"
 import { Toaster } from "./toaster"
 const meta = {
@@ -26,7 +26,7 @@ export const ToastsWithControl: Story = {
           onClick={() =>
             toast.success("Your settings are saved", {
               cancel: {
-                label: <Close />,
+                label: <IconClose />,
                 onClick: () => {}
               },
               duration: 5000,
@@ -41,7 +41,7 @@ export const ToastsWithControl: Story = {
           onClick={() =>
             toast.error("Error! Server is not available", {
               cancel: {
-                label: <Close />,
+                label: <IconClose />,
                 onClick: () => {}
               },
               duration: 5000,

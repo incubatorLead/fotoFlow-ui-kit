@@ -3,11 +3,11 @@ import type { Meta, StoryObj } from "@storybook/react"
 import React, { useState } from "react"
 
 import {
-  BellFill,
-  BellOutline,
-  Block,
-  MoreHorizontal,
-  PersonRemoveOutline
+  IconBellFill,
+  IconBellOutline,
+  IconBlock,
+  IconMoreHorizontal,
+  IconPersonRemoveOutline
 } from "../../assets/icons/components"
 import { Button } from "../button"
 import { Typography } from "../typography"
@@ -41,7 +41,7 @@ export const NotificationDropdown: Story = {
       >
         <DropdownMenuTrigger>
           <Button style={{ color: isOpen ? "#397DF6FF" : "#fff", padding: "0" }} variant={"text"}>
-            {isOpen ? <BellFill /> : <BellOutline />}
+            {isOpen ? <IconBellFill /> : <IconBellOutline />}
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent style={{ maxWidth: "331px" }}>
@@ -119,7 +119,7 @@ export const HeaderDropdown: Story = {
     <DropdownMenu>
       <DropdownMenuTrigger>
         <Button style={{ padding: "0" }} variant={"text"}>
-          <MoreHorizontal />
+          <IconMoreHorizontal />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
@@ -129,19 +129,19 @@ export const HeaderDropdown: Story = {
         style={{ display: "flex", flexDirection: "column", gap: "12px" }}
       >
         <DropdownMenuItem style={{ display: "flex", gap: "12px" }}>
-          <PersonRemoveOutline />
+          <IconPersonRemoveOutline />
           <Typography as={"span"} variant={"regular_text_14"}>
             Delete User
           </Typography>
         </DropdownMenuItem>
         <DropdownMenuItem style={{ display: "flex", gap: "12px" }}>
-          <Block />
+          <IconBlock />
           <Typography as={"span"} variant={"regular_text_14"}>
             Ban in the system
           </Typography>
         </DropdownMenuItem>
         <DropdownMenuItem style={{ display: "flex", gap: "12px" }}>
-          <MoreHorizontal />
+          <IconMoreHorizontal />
           <Typography as={"span"} variant={"regular_text_14"}>
             More Information
           </Typography>

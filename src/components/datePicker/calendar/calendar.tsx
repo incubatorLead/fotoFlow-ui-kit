@@ -5,7 +5,7 @@ import clsx from "clsx"
 
 import s from "./calendar.module.scss"
 
-import { ArrowIosBack, ArrowIosForward } from "../../../assets/icons/components"
+import { IconArrowIosBack, IconArrowIosForward } from "../../../assets/icons/components"
 export const Calendar = ({ className, classNames, ...props }: DayPickerProps) => (
   <DayPicker
     className={clsx(s.calendar, className)}
@@ -30,8 +30,8 @@ export const Calendar = ({ className, classNames, ...props }: DayPickerProps) =>
       ...classNames
     }}
     components={{
-      IconLeft: () => <ArrowIosBack />,
-      IconRight: () => <ArrowIosForward />
+      IconLeft: () => <IconArrowIosBack />,
+      IconRight: () => <IconArrowIosForward />
     }}
     modifiers={{
       saturday: { dayOfWeek: [6] },

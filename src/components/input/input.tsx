@@ -11,7 +11,7 @@ export type InputProps = {
   error?: ReactNode
   labelText?: ReactNode
 } & ComponentPropsWithoutRef<"input">
-import { EyeOffOutline, EyeOutline, Search } from "../../assets/icons/components"
+import { IconEyeOffOutline, IconEyeOutline, IconSearch } from "../../assets/icons/components"
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const {
     className,
@@ -33,7 +33,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const [isPasswordHidden, setPasswordHidden] = useState(isInputPassword)
   const toggleHidePassword = () => setPasswordHidden(!isPasswordHidden)
 
-  const passwordIcon = isPasswordHidden ? <EyeOffOutline /> : <EyeOutline />
+  const passwordIcon = isPasswordHidden ? <IconEyeOffOutline /> : <IconEyeOutline />
 
   let inputType
 
@@ -72,7 +72,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         />
         {isInputSearch && (
           <span className={s.inputSearchIcon}>
-            <Search />
+            <IconSearch />
           </span>
         )}
         {isInputPassword && (

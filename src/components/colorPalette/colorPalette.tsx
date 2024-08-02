@@ -4,7 +4,7 @@ import clsx from "clsx"
 
 import s from "./colorPalette.module.scss"
 
-import { Copy } from "../../assets/icons/components"
+import { IconCopy } from "../../assets/icons/components"
 import { copyTextToClipboard } from "../../utils"
 
 type Color = {
@@ -43,7 +43,7 @@ export const ColorPalette = ({ palette }: Props) => {
                     type={"button"}
                   >
                     {item.color}
-                    <Copy height={18} width={18} />
+                    <IconCopy height={18} width={18} />
                   </button>
                 </div>
               </div>

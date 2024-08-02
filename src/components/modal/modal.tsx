@@ -5,7 +5,7 @@ import clsx from "clsx"
 
 import s from "./modal.module.scss"
 
-import { Close } from "../../assets/icons/components"
+import { IconClose } from "../../assets/icons/components"
 import { Typography } from "../typography"
 type Props = {
   children: ReactNode
@@ -28,7 +28,7 @@ export const Modal = (props: Props) => {
                 <Typography variant={"h1"}>{title}</Typography>
                 {
                   <Dialog.Close className={clsx("btnReset", s.closeButton)}>
-                    <Close />
+                    <IconClose />
                   </Dialog.Close>
                 }
               </Dialog.Title>
