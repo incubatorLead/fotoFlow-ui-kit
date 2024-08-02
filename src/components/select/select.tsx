@@ -12,8 +12,8 @@ import clsx from "clsx"
 
 import s from "./select.module.scss"
 
+import { IconArrowDown } from "../../assets/icons/components"
 import { useGenerateId } from "../../hooks/useGenerateId"
-import { Icon } from "../icon"
 import { Typography } from "../typography"
 
 export type Option = {
@@ -58,7 +58,7 @@ const SelectRaw = forwardRef<ElementRef<typeof SelectPrimitive.Root>, SelectProp
         <SelectPrimitive.Trigger className={clsx(s.trigger, className)} id={selectId} ref={ref}>
           <SelectPrimitive.Value placeholder={placeholder} />
           <SelectPrimitive.Icon className={s.icon}>
-            <Icon iconId={"arrow-down"} />
+            <IconArrowDown />
           </SelectPrimitive.Icon>
         </SelectPrimitive.Trigger>
       </Typography>
