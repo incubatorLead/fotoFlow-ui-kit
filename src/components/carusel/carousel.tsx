@@ -7,11 +7,10 @@ import useEmblaCarousel from "embla-carousel-react"
 
 import s from "./carousel.module.scss"
 
+import { ArrowIosBack, ArrowIosForward } from "../../assets/icons/components"
 import { Button } from "../button"
-import { Icon } from "../icon"
 import { useDotButton } from "./useDotButton"
 import { usePrevNextButtons } from "./usePrevNextButtons"
-
 type PropType = {
   children: ReactNode
   options?: EmblaOptionsType
@@ -37,7 +36,7 @@ export const Carousel = (props: PropType) => {
         onClick={onPrevButtonClick}
         variant={"text"}
       >
-        <Icon height={"48px"} iconId={"arrow-ios-back"} width={"48px"} />
+        <ArrowIosBack height={48} width={48} />
       </Button>
       <Button
         className={s.nextButton}
@@ -45,7 +44,7 @@ export const Carousel = (props: PropType) => {
         onClick={onNextButtonClick}
         variant={"text"}
       >
-        <Icon height={"48px"} iconId={"arrow-ios-forward"} width={"48px"} />
+        <ArrowIosForward height={48} width={48} />
       </Button>
       <div className={s.dots}>
         {scrollSnaps.map((_, index) => (

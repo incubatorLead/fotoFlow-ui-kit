@@ -2,8 +2,14 @@ import type { Meta, StoryObj } from "@storybook/react"
 
 import React, { useState } from "react"
 
+import {
+  BellFill,
+  BellOutline,
+  Block,
+  MoreHorizontal,
+  PersonRemoveOutline
+} from "../../assets/icons/components"
 import { Button } from "../button"
-import { Icon } from "../icon"
 import { Typography } from "../typography"
 import {
   DropdownMenu,
@@ -13,7 +19,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from "./dropdown"
-
 const meta = {
   component: DropdownMenu,
   tags: ["autodocs"],
@@ -36,7 +41,7 @@ export const NotificationDropdown: Story = {
       >
         <DropdownMenuTrigger>
           <Button style={{ color: isOpen ? "#397DF6FF" : "#fff", padding: "0" }} variant={"text"}>
-            {isOpen ? <Icon iconId={"bell-fill"} /> : <Icon iconId={"bell-outline"} />}
+            {isOpen ? <BellFill /> : <BellOutline />}
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent style={{ maxWidth: "331px" }}>
@@ -114,7 +119,7 @@ export const HeaderDropdown: Story = {
     <DropdownMenu>
       <DropdownMenuTrigger>
         <Button style={{ padding: "0" }} variant={"text"}>
-          <Icon iconId={"more-horizontal"} />
+          <MoreHorizontal />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
@@ -124,19 +129,19 @@ export const HeaderDropdown: Story = {
         style={{ display: "flex", flexDirection: "column", gap: "12px" }}
       >
         <DropdownMenuItem style={{ display: "flex", gap: "12px" }}>
-          <Icon iconId={"person-remove-outline"} />
+          <PersonRemoveOutline />
           <Typography as={"span"} variant={"regular_text_14"}>
             Delete User
           </Typography>
         </DropdownMenuItem>
         <DropdownMenuItem style={{ display: "flex", gap: "12px" }}>
-          <Icon iconId={"block"} />
+          <Block />
           <Typography as={"span"} variant={"regular_text_14"}>
             Ban in the system
           </Typography>
         </DropdownMenuItem>
         <DropdownMenuItem style={{ display: "flex", gap: "12px" }}>
-          <Icon iconId={"more-horizontal"} />
+          <MoreHorizontal />
           <Typography as={"span"} variant={"regular_text_14"}>
             More Information
           </Typography>

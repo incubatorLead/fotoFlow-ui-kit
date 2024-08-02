@@ -10,11 +10,10 @@ import { enUS } from "date-fns/locale"
 
 import s from "./datePicker.module.scss"
 
+import { Calendar as CalendarFill, CalendarOutline } from "../../assets/icons/components"
 import { useGenerateId } from "../../hooks/useGenerateId"
-import { Icon } from "../icon"
 import { Typography } from "../typography"
 import { Calendar } from "./calendar/calendar"
-
 export enum WEEKDAYS {
   MONDAY = 1,
   SUNDAY = 0
@@ -48,7 +47,7 @@ export const DatePicker = ({
 }: DatePickerProps) => {
   const [isCalendarOpen, setCalendarOpen] = useState(false)
   const calendarId = useGenerateId(id)
-  const calendarIcon = isCalendarOpen ? "calendar" : "calendar-outline"
+  const calendarIcon = isCalendarOpen ? <CalendarFill /> : <CalendarOutline />
   const pickDate = locale?.code === "en-US" ? "Pick a date" : "Выберите дату"
   const formattedDate = date ? formatDate(date, locale) : pickDate
 
@@ -64,7 +63,7 @@ export const DatePicker = ({
           id={calendarId}
         >
           {formattedDate}
-          <Icon iconId={calendarIcon} />
+          {calendarIcon}
         </PopoverTrigger>
         <PopoverContent align={"start"}>
           <Calendar

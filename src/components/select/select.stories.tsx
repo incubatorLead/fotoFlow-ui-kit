@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Icon } from "../icon"
+import { RussiaFlag, UnitedKingdomFlag } from "../../assets/icons/components"
 import { Select } from "./select"
 
 const meta = {
@@ -41,8 +41,8 @@ export const WithIcons: Story = {
     labelText: "Country",
     name: "select",
     options: [
-      { icon: <Icon iconId={"united-kingdom-flag"} />, text: "UK", value: "uk" },
-      { icon: <Icon iconId={"russia-flag"} />, text: "RU", value: "ru" }
+      { icon: <UnitedKingdomFlag />, text: "UK", value: "uk" },
+      { icon: <RussiaFlag />, text: "RU", value: "ru" }
     ],
     placeholder: "Select-box"
   }

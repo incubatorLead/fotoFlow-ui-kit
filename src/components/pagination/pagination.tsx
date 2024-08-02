@@ -5,8 +5,8 @@ import clsx from "clsx"
 
 import s from "./pagination.module.scss"
 
+import { ArrowIosBack, ArrowIosForward } from "../../assets/icons/components"
 import { Button } from "../button"
-import { Icon } from "../icon"
 import { type Option, Select } from "../select"
 import { Typography } from "../typography"
 import { usePagination } from "./usePagination"
@@ -60,7 +60,7 @@ export const Pagination = (props: Props) => {
         title={"Previous page"}
         variant={"text"}
       >
-        <Icon iconId={"arrow-ios-back"} />
+        <ArrowIosBack />
       </Button>
       <ol className={s.pagination__links}>
         {paginationRange.map((page, index) => {
@@ -88,7 +88,7 @@ export const Pagination = (props: Props) => {
         title={"Next page"}
         variant={"text"}
       >
-        <Icon iconId={"arrow-ios-forward"} />
+        <ArrowIosForward />
       </Button>
       <Typography as={"div"} className={s.selectContainer} variant={"regular_text_14"}>
         Show

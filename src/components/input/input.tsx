@@ -5,14 +5,13 @@ import clsx from "clsx"
 import s from "./input.module.scss"
 
 import { useGenerateId } from "../../hooks/useGenerateId"
-import { Icon } from "../icon"
 import { Typography } from "../typography"
 
 export type InputProps = {
   error?: ReactNode
   labelText?: ReactNode
 } & ComponentPropsWithoutRef<"input">
-
+import { EyeOffOutline, EyeOutline, Search } from "../../assets/icons/components"
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const {
     className,
@@ -34,7 +33,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const [isPasswordHidden, setPasswordHidden] = useState(isInputPassword)
   const toggleHidePassword = () => setPasswordHidden(!isPasswordHidden)
 
-  const iconId = isPasswordHidden ? "eye-off-outline" : "eye-outline"
+  const passwordIcon = isPasswordHidden ? <EyeOffOutline /> : <EyeOutline />
 
   let inputType
 
@@ -73,7 +72,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         />
         {isInputSearch && (
           <span className={s.inputSearchIcon}>
-            <Icon iconId={"search"} />
+            <Search />
           </span>
         )}
         {isInputPassword && (
@@ -82,7 +81,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
             onClick={toggleHidePassword}
             type={"button"}
           >
-            <Icon iconId={iconId} />
+            {passwordIcon}
           </button>
         )}
       </div>
