@@ -1,0 +1,31 @@
+import { Meta, IconGallery, IconItem } from "@storybook/blocks"
+import * as Icons from "./components"
+
+<Meta title="01. Design system/Icon" />
+## Compilation Command to convert svg-icons to separate components
+
+npx @svgr/cli --out-dir src/assets/icons/components --jsx-runtime automatic --typescript --ref --memo --no-dimensions --icon -- src/assets/icons/icons-origin
+
+## Usage
+
+All the icons in the design system are available as React components. You can use them like this:
+
+```tsx
+import { Close } from "@teamlead.incubator/ui-kit"
+
+// ...
+
+return <Close />
+```
+
+## Gallery
+
+<br />
+
+<IconGallery>
+  {Object.entries(Icons).map(([name, Icon]) => (
+    <IconItem key={name} name={name}>
+      <Icon />
+    </IconItem>
+  ))}
+</IconGallery>

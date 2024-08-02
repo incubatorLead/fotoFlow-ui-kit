@@ -4,10 +4,9 @@ import React, { Fragment } from "react"
 
 import { toast } from "sonner"
 
+import { IconClose } from "../../assets/icons/components"
 import { Button } from "../button"
-import { Icon } from "../icon"
 import { Toaster } from "./toaster"
-
 const meta = {
   component: Toaster,
   tags: ["autodocs"],
@@ -27,7 +26,7 @@ export const ToastsWithControl: Story = {
           onClick={() =>
             toast.success("Your settings are saved", {
               cancel: {
-                label: <Icon iconId={"close"} />,
+                label: <IconClose />,
                 onClick: () => {}
               },
               duration: 5000,
@@ -42,7 +41,7 @@ export const ToastsWithControl: Story = {
           onClick={() =>
             toast.error("Error! Server is not available", {
               cancel: {
-                label: <Icon iconId={"close"} />,
+                label: <IconClose />,
                 onClick: () => {}
               },
               duration: 5000,
