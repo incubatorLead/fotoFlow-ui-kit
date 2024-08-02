@@ -1,6 +1,7 @@
 import type { ComponentPropsWithoutRef, ReactNode } from "react"
 
 import * as Dialog from "@radix-ui/react-dialog"
+import clsx from "clsx"
 
 import s from "./modal.module.scss"
 
@@ -26,7 +27,7 @@ export const Modal = (props: Props) => {
               <Dialog.Title className={s.title}>
                 <Typography variant={"h1"}>{title}</Typography>
                 {
-                  <Dialog.Close className={s.closeButton}>
+                  <Dialog.Close className={clsx("btnReset", s.closeButton)}>
                     <Close />
                   </Dialog.Close>
                 }

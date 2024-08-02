@@ -10,7 +10,7 @@ const SvgMessageCircleOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVG
   >
     <path
       d={
-        "M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2M16 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2M8 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2"
+        "M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2m4 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2"
       }
       fill={"currentColor"}
     />

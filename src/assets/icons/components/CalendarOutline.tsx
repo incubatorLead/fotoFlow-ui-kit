@@ -15,7 +15,7 @@ const SvgCalendarOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGEleme
       fill={"currentColor"}
     />
     <path
-      d={"M8 17a1 1 0 1 0 0-2 1 1 0 0 0 0 2M16 15h-4a1 1 0 0 0 0 2h4a1 1 0 0 0 0-2"}
+      d={"M8 17a1 1 0 1 0 0-2 1 1 0 0 0 0 2m8-2h-4a1 1 0 0 0 0 2h4a1 1 0 0 0 0-2"}
       fill={"currentColor"}
     />
   </svg>

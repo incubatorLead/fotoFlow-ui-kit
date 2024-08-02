@@ -15,7 +15,7 @@ const SvgCreditCardOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGEle
       fill={"currentColor"}
     />
     <path
-      d={"M7 15h4a1 1 0 0 0 0-2H7a1 1 0 0 0 0 2M15 15h2a1 1 0 0 0 0-2h-2a1 1 0 0 0 0 2"}
+      d={"M7 15h4a1 1 0 0 0 0-2H7a1 1 0 0 0 0 2m8 0h2a1 1 0 0 0 0-2h-2a1 1 0 0 0 0 2"}
       fill={"currentColor"}
     />
   </svg>

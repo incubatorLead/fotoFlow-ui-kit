@@ -1,12 +1,10 @@
-import React, { type SVGProps } from "react"
-import { type Ref, forwardRef, memo } from "react"
+import { type Ref, type SVGProps, forwardRef, memo } from "react"
 const SvgCopePalette = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
-    height={"16"}
+    height={"24"}
     ref={ref}
     viewBox={"0 0 24 24"}
     width={"24"}
-    widths={"16"}
     xmlns={"http://www.w3.org/2000/svg"}
     {...props}
   >

@@ -1,5 +1,4 @@
 import { type Ref, type SVGProps, forwardRef, memo } from "react"
-
 const SvgArrowBackOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
     height={"24"}
