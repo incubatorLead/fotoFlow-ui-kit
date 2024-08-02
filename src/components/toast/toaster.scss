@@ -19,18 +19,11 @@
 
 .close {
   cursor: pointer;
-
   display: flex;
   align-items: center;
-
-  padding: 0;
-
-  background: none;
-  border: none;
 }
 
-// TODO is it possible to remove icon without css via configuration
-[data-icon] {
+.emptyIcon {
   display: none;
 }
 

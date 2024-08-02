@@ -8,6 +8,7 @@ export const Toaster = () => {
       toastOptions={{
         classNames: {
           cancelButton: "btnReset close",
+          icon: "emptyIcon",
           title: "text",
           toast: "toast"
         },
