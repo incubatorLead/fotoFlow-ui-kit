@@ -23,7 +23,7 @@ export default defineConfig({
       ],
       output: {
         dir: "dist",
-        entryFileNames: "[name].js",
+        entryFileNames: "[name].cjs",
         format: "es"
       }
     },

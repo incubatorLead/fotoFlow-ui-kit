@@ -4,13 +4,13 @@
   "version": "0.0.5",
   "type": "module",
   "main": "./dist/index.cjs",
-  "module": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": {
         "types": "./dist/index.d.ts",
-        "default": "./dist/index.cjs"
+        "default": "./dist/index.js"
       },
       "require": {
         "types": "./dist/index.d.ts",
