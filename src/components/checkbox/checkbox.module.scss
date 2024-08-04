@@ -9,9 +9,14 @@
   gap: 11px;
 
   width: max-content;
+}
 
-  font-size: $font-size-s;
-  line-height: $line-height-s;
+.textCenter {
+  align-items: center;
+}
+
+.textEnd {
+  align-items: end;
 }
 
 .input {
@@ -111,8 +116,8 @@
 }
 
 .input:disabled {
-  background: none;
   pointer-events: none;
+  background: none;
 }
 
 .input:disabled + .icon {

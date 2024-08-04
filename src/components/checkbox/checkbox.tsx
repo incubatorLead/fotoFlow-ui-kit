@@ -6,18 +6,21 @@ import s from "./checkbox.module.scss"
 
 import { useGenerateId } from "../../hooks/useGenerateId"
 
+type labelTextVariant = "textCenter" | "textEnd"
+
 export type CheckboxProps = {
+  alignText?: labelTextVariant
   labelText?: ReactNode
 } & ComponentPropsWithoutRef<"input">
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
-  const { className, id, labelText, name, ...restProps } = props
+  const { alignText = "textEnd", className, id, labelText, name, ...restProps } = props
 
   // Generate unique ID if it is not provided
   const inputId = useGenerateId(name, id)
 
   return (
-    <label className={clsx(s.checkbox, className)} htmlFor={inputId}>
+    <label className={clsx(s.checkbox, s[alignText], className)} htmlFor={inputId}>
       <input
         className={s.input}
         id={inputId}
