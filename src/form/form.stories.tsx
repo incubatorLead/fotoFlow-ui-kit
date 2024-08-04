@@ -52,7 +52,12 @@ export const Form: Story = {
           name={"select"}
           {...defaultArgsSelect}
         />
-        <FormCheckbox control={control} labelText={"Remember me"} name={"rememberMe"} />
+        <FormCheckbox
+          alignText={"textCenter"}
+          control={control}
+          labelText={"Remember me"}
+          name={"rememberMe"}
+        />
         <FormRadio control={control} labelText={"Man"} name={"gender"} value={"man"} />
         <FormRadio control={control} labelText={"Women"} name={"gender"} value={"women"} />
         <FormTextArea control={control} labelText={"Message"} name={"message"} />
