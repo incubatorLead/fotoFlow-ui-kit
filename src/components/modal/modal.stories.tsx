@@ -20,7 +20,7 @@ export const ModalWithTitle: Story = {
     children: (
       <div style={{ padding: "12px 24px" }}>
         Transaction failed. Please, write to support{" "}
-        <Button fullWidth style={{ marginTop: "40px" }}>
+        <Button fullWidth style={{ marginTop: "40px" }} variant={"primary"}>
           Back to payment
         </Button>
       </div>
@@ -56,7 +56,7 @@ export const ModalWithControl: Story = {
           style={{ filter: "brightness(0.8)" }}
           width={360}
         />
-        <Button fullWidth onClick={closeModal}>
+        <Button fullWidth onClick={closeModal} variant={"primary"}>
           Send
         </Button>
       </Modal>

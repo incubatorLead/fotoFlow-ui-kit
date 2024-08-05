@@ -34,6 +34,7 @@ export const ToastsWithControl: Story = {
             })
           }
           style={{ backgroundColor: "#0a6638" }}
+          variant={"primary"}
         >
           Show Success Toast
         </Button>
@@ -49,6 +50,7 @@ export const ToastsWithControl: Story = {
             })
           }
           style={{ backgroundColor: "#660a1d" }}
+          variant={"primary"}
         >
           Show Error Toast
         </Button>

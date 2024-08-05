@@ -26,6 +26,7 @@ export const DisabledCheckboxWithoutText: Story = {
 
 export const DisabledCheckboxWithText: Story = {
   args: {
+    alignText: "textCenter",
     disabled: true,
     labelText: "checkbox"
   },
