@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
+import React from "react"
+
 import { IconRussiaFlag, IconUnitedKingdomFlag } from "../../assets/icons/components"
 import { Button } from "./"
 

@@ -35,6 +35,10 @@
   transition:
     opacity 0.4s,
     transform 0.3s;
+
+  &:focus-visible {
+    box-shadow: none;
+  }
 }
 
 .icon {
@@ -97,8 +101,8 @@
 }
 
 .input:disabled {
-  background: none;
   pointer-events: none;
+  background: none;
 }
 
 .input:disabled + .icon {

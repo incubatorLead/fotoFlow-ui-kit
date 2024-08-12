@@ -44,7 +44,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   }
 
   const classNames = {
-    buttonPassword: clsx("btnReset", s.hidePasswordIcon),
+    buttonPassword: s.hidePasswordIcon,
     fieldContainer: clsx(s.fieldContainer, className),
     input: clsx(
       s.formControl,

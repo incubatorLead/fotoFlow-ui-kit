@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { type ComponentProps, useState } from "react"
+import React, { type ComponentProps, useState } from "react"
 
 import { Pagination } from "./pagination"
 

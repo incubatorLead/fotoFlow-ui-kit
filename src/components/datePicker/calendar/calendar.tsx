@@ -13,7 +13,7 @@ export const Calendar = ({ className, classNames, ...props }: DayPickerProps) =>
       caption: s.caption,
       caption_label: s.captionLabel,
       cell: clsx(s.cell, props.mode === "range" ? s.cellRange : s.cellSingle),
-      day: clsx("btnReset", s.day),
+      day: s.day,
       day_outside: s.dayOutside,
       day_range_end: s.dayRangeEnd,
       day_range_middle: s.dayRangeMiddle,
@@ -24,8 +24,8 @@ export const Calendar = ({ className, classNames, ...props }: DayPickerProps) =>
       head_row: s.headRow,
       nav: s.nav,
       nav_button: s.navButtons,
-      nav_button_next: clsx("btnReset", s.navButton),
-      nav_button_previous: clsx("btnReset", s.navButton),
+      nav_button_next: s.navButton,
+      nav_button_previous: s.navButton,
       table: s.table,
       ...classNames
     }}

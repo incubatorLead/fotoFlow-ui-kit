@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Component } from "react"
+import React, { Component } from "react"
 import { useForm } from "react-hook-form"
 
-import { Button } from "../components/"
+import { Button, Typography } from "../components/"
 import { FormCheckbox } from "./formCheckbox"
 import { FormDatePicker } from "./formDatePicker"
 import { FormInput } from "./formInput"
@@ -62,7 +62,18 @@ export const Form: Story = {
         <FormRadio control={control} labelText={"Women"} name={"gender"} value={"women"} />
         <FormTextArea control={control} labelText={"Message"} name={"message"} />
         <FormDatePicker control={control} labelText={"Date of birth"} name={"date"} />
-        <Button>Submit</Button>
+        <Typography
+          as={"a"}
+          href={"#"}
+          style={{ alignSelf: "flex-end" }}
+          variant={"regular_text_16"}
+        >
+          Forgot password
+        </Typography>
+        <Button as={"a"} href={"#"} variant={"primary"}>
+          Submit
+        </Button>
+        <Button variant={"primary"}>Reset</Button>
       </form>
     )
   }

@@ -131,7 +131,9 @@ export const SemiBoldSmallText: Story = {
 
 export const RegularLink: Story = {
   args: {
+    as: "a",
     children: "Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH",
+    href: "#",
     variant: "regular_link"
   },
   name: "Regular link"
@@ -139,7 +141,9 @@ export const RegularLink: Story = {
 
 export const SmallLink: Story = {
   args: {
+    as: "a",
     children: "Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH",
+    href: "#",
     variant: "small_link"
   },
   name: "Small link"
