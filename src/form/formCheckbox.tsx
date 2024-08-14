@@ -18,12 +18,14 @@ export const FormCheckbox = <T extends FieldValues>({
   shouldUnregister,
   ...rest
 }: PropsForm<T>) => {
-  const { field } = useController({
+  const {
+    field: { value, ...restField }
+  } = useController({
     control,
     disabled,
     name,
     shouldUnregister
   })
 
-  return <Checkbox {...rest} {...field} />
+  return <Checkbox checked={value} {...rest} {...restField} />
 }

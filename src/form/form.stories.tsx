@@ -36,7 +36,17 @@ export const Form: Story = {
       control,
       formState: { errors },
       handleSubmit
-    } = useForm()
+    } = useForm({
+      defaultValues: {
+        date: "",
+        gender: "",
+        message: "",
+        name: "",
+        password: "",
+        rememberMe: "",
+        select: ""
+      }
+    })
 
     const onSubmit = handleSubmit(data => {
       console.log(data)
@@ -62,7 +72,7 @@ export const Form: Story = {
         <FormRadio control={control} labelText={"Women"} name={"gender"} value={"women"} />
         <FormTextArea control={control} labelText={"Message"} name={"message"} />
         <FormDatePicker control={control} labelText={"Date of birth"} name={"date"} />
-        <Button>Submit</Button>
+        <Button type={"submit"}>Submit</Button>
       </form>
     )
   }
