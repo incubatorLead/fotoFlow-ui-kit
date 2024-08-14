@@ -44,8 +44,7 @@
   @include typography($font-size-xs, $line-height-s, $font-weight-semibold);
 }
 
-.regular_link,
-.regular_link:visited {
+.regular_link {
   @include typography($font-size-s, $line-height-xl, $font-weight-regular);
 
   cursor: pointer;
@@ -53,8 +52,7 @@
   text-decoration: underline;
 }
 
-.small_link,
-.small_link:visited {
+.small_link {
   @include typography($font-size-xs, $line-height-s, $font-weight-regular);
 
   cursor: pointer;

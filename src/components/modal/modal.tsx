@@ -1,7 +1,6 @@
 import type { ComponentPropsWithoutRef, ReactNode } from "react"
 
 import * as Dialog from "@radix-ui/react-dialog"
-import clsx from "clsx"
 
 import s from "./modal.module.scss"
 
@@ -11,7 +10,7 @@ type Props = {
   children: ReactNode
   className?: string
   title?: string
-  trigger: ReactNode
+  trigger?: ReactNode
 } & ComponentPropsWithoutRef<typeof Dialog.Root>
 export const Modal = (props: Props) => {
   const { children, className, title, trigger, ...restProps } = props
@@ -24,17 +23,21 @@ export const Modal = (props: Props) => {
         <Dialog.Content className={s.dialogContent}>
           {title && (
             <>
-              <Dialog.Title className={s.title}>
-                <Typography variant={"h1"}>{title}</Typography>
-                {
-                  <Dialog.Close className={clsx("btnReset", s.closeButton)}>
-                    <IconClose />
-                  </Dialog.Close>
-                }
+              <Dialog.Title asChild>
+                <div className={s.dialogHeader}>
+                  <Typography variant={"h1"}>{title}</Typography>
+                  {
+                    <Dialog.Close className={s.closeButton}>
+                      <IconClose />
+                    </Dialog.Close>
+                  }
+                </div>
               </Dialog.Title>
             </>
           )}
-          <Dialog.Description className={className}>{children}</Dialog.Description>
+          <Dialog.Description asChild>
+            <div className={className}>{children}</div>
+          </Dialog.Description>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>

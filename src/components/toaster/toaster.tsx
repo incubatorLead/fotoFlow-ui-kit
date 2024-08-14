@@ -1,4 +1,3 @@
-import { clsx } from "clsx"
 import { Toaster as Sonner } from "sonner"
 
 import s from "./toaster.module.scss"
@@ -8,7 +7,7 @@ export const Toaster = () => {
     <Sonner
       toastOptions={{
         classNames: {
-          cancelButton: clsx("btnReset", s.close),
+          cancelButton: s.close,
           icon: s.emptyIcon,
           title: s.text,
           toast: s.toast

@@ -59,7 +59,7 @@ export const DatePickerRange = ({
       </label>
       <Popover onOpenChange={setCalendarOpen} open={isCalendarOpen}>
         <PopoverTrigger
-          className={clsx("btnReset", s.button, error && s.error)}
+          className={clsx(s.button, error && s.error)}
           disabled={disabled}
           id={calendarId}
         >
