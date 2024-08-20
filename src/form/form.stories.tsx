@@ -44,6 +44,7 @@ export const Form: Story = {
         name: "",
         password: "",
         rememberMe: "",
+        rememberMe2: "",
         select: ""
       }
     })
@@ -53,7 +54,10 @@ export const Form: Story = {
     })
 
     return (
-      <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+      <form
+        onSubmit={onSubmit}
+        style={{ display: "flex", flexDirection: "column", gap: "20px", width: "300px" }}
+      >
         <FormInput control={control} labelText={"Name"} name={"name"} />
         <FormInput control={control} labelText={"Password"} name={"password"} type={"password"} />
         <FormSelect
@@ -63,13 +67,50 @@ export const Form: Story = {
           {...defaultArgsSelect}
         />
         <FormCheckbox
-          alignText={"textCenter"}
           control={control}
-          labelText={"Remember me"}
+          labelText={
+            <Typography as={"span"} variant={"regular_text_14"}>
+              Remember me
+            </Typography>
+          }
           name={"rememberMe"}
         />
-        <FormRadio control={control} labelText={"Man"} name={"gender"} value={"man"} />
-        <FormRadio control={control} labelText={"Women"} name={"gender"} value={"women"} />
+        <FormCheckbox
+          control={control}
+          labelText={
+            <Typography as={"span"} variant={"regular_text_14"}>
+              I agree to the{" "}
+              <Typography as={"a"} href={"#"} target={"_blank"} variant={"regular_link"}>
+                Terms of Service
+              </Typography>{" "}
+              and{" "}
+              <Typography as={"a"} href={"#"} target={"_blank"} variant={"regular_link"}>
+                Privacy Policy
+              </Typography>
+            </Typography>
+          }
+          name={"rememberMe2"}
+        />
+        <FormRadio
+          control={control}
+          labelText={
+            <Typography as={"span"} variant={"regular_text_14"}>
+              Man
+            </Typography>
+          }
+          name={"gender"}
+          value={"man"}
+        />
+        <FormRadio
+          control={control}
+          labelText={
+            <Typography as={"span"} variant={"regular_text_14"}>
+              Women
+            </Typography>
+          }
+          name={"gender"}
+          value={"women"}
+        />
         <FormTextArea control={control} labelText={"Message"} name={"message"} />
         <FormDatePicker control={control} labelText={"Date of birth"} name={"date"} />
         <Typography
@@ -83,7 +124,7 @@ export const Form: Story = {
         <Button as={"a"} href={"#"} variant={"primary"}>
           Submit
         </Button>
-        <Button variant={"primary"}>Reset</Button>
+        <Button variant={"text"}>Reset</Button>
       </form>
     )
   }
