@@ -55,6 +55,10 @@
   & + span {
     line-height: 1.3;
   }
+
+  a {
+    line-height: inherit;
+  }
 }
 
 .icon::after {

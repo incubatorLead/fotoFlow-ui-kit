@@ -54,6 +54,10 @@
 
   border: 2px solid var(--color-light-100);
   border-radius: 50%;
+
+  & + span {
+    line-height: 1.5;
+  }
 }
 
 .icon::after {

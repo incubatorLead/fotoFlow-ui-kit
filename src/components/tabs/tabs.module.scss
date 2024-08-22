@@ -12,16 +12,12 @@
 }
 
 .tab {
-  cursor: pointer;
-
   flex: 1;
 
   padding: 6px 24px 4px;
 
   color: var(--color-dark-100);
 
-  background: none;
-  border: none;
   border-bottom: 2px solid var(--color-dark-100);
 
   transition:
