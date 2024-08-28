@@ -128,3 +128,28 @@
   background-color: var(--color-dark-100);
   border-radius: 50%;
 }
+
+.dropdowns {
+  @include typography($font-size-m, $line-height-l, $font-weight-bold);
+
+  cursor: pointer;
+
+  text-transform: capitalize;
+
+  appearance: none;
+  background-color: transparent;
+  border: none;
+
+  option {
+    background-color: var(--color-dark-900);
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.captionDropdowns {
+  display: flex;
+  align-items: center;
+}
