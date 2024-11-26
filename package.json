@@ -1,7 +1,7 @@
 {
   "name": "@teamlead.incubator/ui-kit",
   "private": false,
-  "version": "0.0.15",
+  "version": "0.0.16",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -71,7 +71,7 @@
     "storybook-addon-pseudo-states": "3.1.1",
     "stylelint": "16.6.1",
     "typescript": "5.2.2",
-    "vite": "5.3.1",
+    "vite": "5.4.6",
     "vite-plugin-dts": "3.9.1",
     "sass": "1.77.6"
   },
