@@ -16,6 +16,7 @@ export const FormSelect = <T extends FieldValues>({
   defaultValue,
   disabled,
   name,
+  onValueChange,
   shouldUnregister,
   ...rest
 }: PropsForm<T>) => {
@@ -29,13 +30,18 @@ export const FormSelect = <T extends FieldValues>({
     shouldUnregister
   })
 
+  const onValueChangeHandler = (value: string) => {
+    onValueChange?.(value)
+    onChange(value)
+  }
+
   return (
     <Select
       {...rest}
       {...selectField}
       defaultValue={defaultValue}
       // https://stackoverflow.com/questions/75815473/how-can-i-implement-react-hook-form-with-radix-ui-select
-      onValueChange={onChange}
+      onValueChange={onValueChangeHandler}
     />
   )
 }
