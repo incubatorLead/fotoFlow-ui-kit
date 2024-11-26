@@ -23,8 +23,6 @@ jobs:
         run: pnpm install --no-frozen-lockfile
       - name: Build lib
         run: pnpm run build
-      - name: Build lib
-        run: pnpm run build
       - uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_PUBLISH_TOKEN }}
