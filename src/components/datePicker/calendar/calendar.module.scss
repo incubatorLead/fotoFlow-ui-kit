@@ -1,10 +1,13 @@
 @use "../../../styles/abstracts/index" as *;
 
+$padding-x: 24px;
+$padding-y: 16px;
+
 .calendar {
-  padding: 16px 24px;
-  background-color: var(--color-dark-500);
+  padding: $padding-y $padding-x;
   border: 1px solid var(--color-dark-300);
   border-radius: 2px;
+  background-color: var(--color-dark-500);
 }
 
 .caption {
@@ -16,7 +19,33 @@
 .captionLabel {
   @include typography($font-size-m, $line-height-l, $font-weight-bold);
 
+  display: inline-flex;
+  align-items: center;
   text-transform: capitalize;
+}
+
+.dropdowns {
+  display: flex;
+  gap: 16px;
+}
+
+.dropdownContainer {
+  line-height: inherit;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  cursor: inherit;
+  opacity: 0;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--color-dark-500);
+  appearance: none;
+}
+
+.chevron {
+  display: flex;
+  height: 16px;
+  fill: var(--color-light-100);
 }
 
 .cell {
@@ -24,10 +53,10 @@
   height: 36px;
   padding: 0;
 
-  text-align: center;
-  vertical-align: middle;
-
   transition: $transition-duration background-color ease-in-out;
+  text-align: center;
+
+  vertical-align: middle;
 
   &:has([aria-selected]) {
     background-color: var(--color-accent-900);
@@ -38,9 +67,9 @@
     height: 100%;
     padding: 6px;
 
-    border-radius: 50%;
-
     transition: $transition-duration background-color ease-in-out;
+
+    border-radius: 50%;
 
     &:hover {
       background-color: var(--color-accent-700);
@@ -52,8 +81,8 @@
 
     &:focus,
     &:focus-within {
-      background-color: transparent;
       outline: 2px solid var(--color-accent-300);
+      background-color: var(--color-accent-300);
     }
   }
 }
@@ -122,6 +151,32 @@
   height: 36px;
   padding: 6px;
 
-  background-color: var(--color-dark-100);
   border-radius: 50%;
+  background-color: var(--color-dark-100);
+}
+
+.nav {
+  position: absolute;
+  top: $padding-y - 6px;
+  right: $padding-x;
+  display: inline-block;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
