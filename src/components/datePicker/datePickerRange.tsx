@@ -1,4 +1,5 @@
-import type { DateRange, DayPickerRangeProps } from "react-day-picker"
+import type { Locale } from "date-fns"
+import type { DateRange, DayPickerProps, PropsRange } from "react-day-picker"
 
 import * as React from "react"
 import { type ReactNode, useState } from "react"
@@ -21,16 +22,17 @@ export type DatePickerRangeProps = {
   error?: ReactNode
   labelText?: ReactNode
   onSelect: (date: DateRange | undefined) => void
-} & Omit<DayPickerRangeProps, "disabled" | "mode">
+} & Omit<DayPickerProps, "mode"> &
+  Omit<PropsRange, "disabled" | "mode">
 
 export const DatePickerRange = ({
+  autoFocus = true,
   className,
   classNames,
   date,
   disabled,
   error,
   id,
-  initialFocus = true,
   labelText,
   locale = enUS,
   onSelect,
@@ -46,8 +48,8 @@ export const DatePickerRange = ({
 
   if (date?.from) {
     formattedDate = date.to
-      ? `${formatDate(date.from, locale)} - ${formatDate(date.to, locale)}`
-      : formatDate(date.from, locale)
+      ? `${formatDate(date.from, locale as Required<Locale>)} - ${formatDate(date.to, locale as Required<Locale>)}`
+      : formatDate(date.from, locale as Required<Locale>)
   } else {
     formattedDate = locale?.code === "en-US" ? "Pick a date" : "Выберите дату"
   }
@@ -68,12 +70,12 @@ export const DatePickerRange = ({
         </PopoverTrigger>
         <PopoverContent align={"start"}>
           <Calendar
+            autoFocus={autoFocus}
             className={className}
             classNames={classNames}
             defaultMonth={date?.from}
             disabled={disabled}
             id={calendarId}
-            initialFocus={initialFocus}
             locale={locale}
             mode={"range"}
             onSelect={onSelect}
