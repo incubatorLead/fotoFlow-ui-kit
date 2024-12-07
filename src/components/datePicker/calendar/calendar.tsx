@@ -3,8 +3,6 @@ import { DayPicker, type DayPickerProps } from "react-day-picker"
 
 import clsx from "clsx"
 
-// import "react-day-picker/style.css"
-
 import s from "./calendar.module.scss"
 
 export const Calendar = ({ className, classNames, ...props }: DayPickerProps) => {
@@ -13,25 +11,24 @@ export const Calendar = ({ className, classNames, ...props }: DayPickerProps) =>
       captionLayout={"dropdown"}
       className={clsx(s.calendar, className)}
       classNames={{
-        button_next: clsx(s.navButtons, s.navButton),
-        button_previous: clsx(s.navButtons, s.navButton),
+        button_next: s.navButton,
+        button_previous: s.navButton,
         caption_label: s.captionLabel,
         chevron: s.chevron,
-        day: clsx(s.cell, s.day, props.mode === "range" ? s.cellRange : s.cellSingle),
-        dropdown: s.dropdownContainer,
+        day: clsx(s.day, props.mode === "range" ? s.dayRange : s.daySingle),
+        dropdown: s.dropdown,
+        dropdown_root: s.dropdownRoot,
         dropdowns: s.dropdowns,
-        month_caption: s.caption,
-        month_grid: s.table,
-        months: s.months,
+        month_caption: s.monthCaption,
+        month_grid: s.monthGrid,
         nav: s.nav,
-        outside: s.dayOutside,
-        range_end: s.dayRangeEnd,
-        range_middle: s.dayRangeMiddle,
-        range_start: s.dayRangeStart,
-        selected: s.daySelected,
-        today: s.dayToday,
-        weekday: s.headCell,
-        weekdays: s.headRow,
+        outside: s.outside,
+        range_end: s.rangeEnd,
+        range_middle: s.rangeMiddle,
+        range_start: s.rangeStart,
+        today: s.today,
+        weekday: s.weekday,
+        weekdays: s.weekdays,
         ...classNames
       }}
       locale={props.locale}
