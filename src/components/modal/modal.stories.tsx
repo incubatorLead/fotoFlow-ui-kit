@@ -53,7 +53,7 @@ export const ModalWithControl: Story = {
         <img
           alt={""}
           src={
-            "https://images.pexels.com/photos/17603742/pexels-photo-17603742/free-photo-of-college-student-chatgpt-for-studying.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            "https://media.gettyimages.com/id/1414393912/photo/smiling-helping-and-working-customer-support-service-worker-with-a-headset-and-office.jpg?s=1024x1024&w=gi&k=20&c=MOnj236Hu9HhmYVAqk7nQy0OuMWIFMjYdmopcIMYSSg="
           }
           style={{ filter: "brightness(0.8)" }}
           width={360}
@@ -69,7 +69,7 @@ export const ModalWithControl: Story = {
 export const ModalWithHiddenTitle: Story = {
   args: {
     children: "",
-    hiddenTitle: true,
+    isTitleHidden: true,
     title: "Hidden Title",
     trigger: ""
   },
@@ -82,7 +82,7 @@ export const ModalWithHiddenTitle: Story = {
 
     return (
       <Modal
-        hiddenTitle={args.hiddenTitle}
+        isTitleHidden={args.isTitleHidden}
         onOpenChange={setIsOpen}
         open={isOpen}
         title={args.title}
@@ -91,7 +91,7 @@ export const ModalWithHiddenTitle: Story = {
         <img
           alt={""}
           src={
-            "https://images.pexels.com/photos/17603742/pexels-photo-17603742/free-photo-of-college-student-chatgpt-for-studying.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            "https://media.gettyimages.com/id/1414393912/photo/smiling-helping-and-working-customer-support-service-worker-with-a-headset-and-office.jpg?s=1024x1024&w=gi&k=20&c=MOnj236Hu9HhmYVAqk7nQy0OuMWIFMjYdmopcIMYSSg="
           }
           style={{ filter: "brightness(0.8)" }}
           width={360}

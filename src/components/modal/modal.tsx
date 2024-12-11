@@ -11,12 +11,12 @@ import { Typography } from "../typography"
 type Props = {
   children: ReactNode
   className?: string
-  hiddenTitle?: boolean
+  isTitleHidden?: boolean
   title: string
   trigger?: ReactNode
 } & ComponentPropsWithoutRef<typeof Dialog.Root>
 export const Modal = (props: Props) => {
-  const { children, className, hiddenTitle, title, trigger, ...restProps } = props
+  const { children, className, isTitleHidden, title, trigger, ...restProps } = props
 
   return (
     <Dialog.Root {...restProps}>
@@ -25,7 +25,7 @@ export const Modal = (props: Props) => {
         <Dialog.Overlay className={s.dialogOverlay} />
         <Dialog.Content className={s.dialogContent}>
           <Dialog.Title asChild>
-            {hiddenTitle ? (
+            {isTitleHidden ? (
               <VisuallyHidden>
                 <Typography variant={"h1"}>{title}</Typography>
               </VisuallyHidden>
