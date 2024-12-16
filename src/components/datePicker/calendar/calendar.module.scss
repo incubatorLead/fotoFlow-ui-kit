@@ -1,13 +1,16 @@
 @use "../../../styles/abstracts/index" as *;
 
+$padding-x: 24px;
+$padding-y: 16px;
+
 .calendar {
-  padding: 16px 24px;
-  background-color: var(--color-dark-500);
+  padding: $padding-y $padding-x;
   border: 1px solid var(--color-dark-300);
   border-radius: 2px;
+  background-color: var(--color-dark-500);
 }
 
-.caption {
+.monthCaption {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,31 +19,63 @@
 .captionLabel {
   @include typography($font-size-m, $line-height-l, $font-weight-bold);
 
-  text-transform: capitalize;
+  display: inline-flex;
+  align-items: center;
 }
 
-.cell {
+.dropdowns {
+  display: flex;
+  gap: 16px;
+}
+
+.dropdownRoot {
+  display: flex;
+
+  &:focus,
+  &:focus-within {
+    border-radius: 4px;
+    outline: none;
+    box-shadow: 0 0 0 1px var(--color-accent-300);
+  }
+}
+
+.dropdown {
+  line-height: inherit;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  border-radius: 4px;
+  background-color: var(--color-dark-500);
+  appearance: none;
+}
+
+.chevron {
+  display: flex;
+  height: 16px;
+  fill: var(--color-light-100);
+}
+
+.day {
+  font-size: 16px;
+  font-weight: 400;
   width: 36px;
   height: 36px;
   padding: 0;
-
+  transition: $transition-duration background-color ease-in-out;
   text-align: center;
   vertical-align: middle;
+  color: var(--color-light-100);
+  border-radius: 50%;
 
-  transition: $transition-duration background-color ease-in-out;
-
-  &:has([aria-selected]) {
+  &[aria-selected] {
     background-color: var(--color-accent-900);
   }
 
   button {
     width: 100%;
     height: 100%;
-    padding: 6px;
-
-    border-radius: 50%;
-
     transition: $transition-duration background-color ease-in-out;
+    border-radius: 50%;
 
     &:hover {
       background-color: var(--color-accent-700);
@@ -52,47 +87,41 @@
 
     &:focus,
     &:focus-within {
-      background-color: transparent;
       outline: 2px solid var(--color-accent-300);
+      background-color: transparent;
     }
   }
 }
 
-.cellRange {
+.dayRange {
   // Начало диапазона (исключает одиночную дату)
-  &:has([aria-selected].dayRangeStart) {
+  &[aria-selected].rangeStart {
     border-radius: 50% 0 0 50%;
   }
 
   // Средняя часть диапазона (без закруглений)
-  &:has([aria-selected].dayRangeMiddle) {
+  &[aria-selected].rangeMiddle {
     border-radius: 0;
   }
 
   // Конец диапазона (исключает одиночную дату)
-  &:has([aria-selected].dayRangeEnd) {
+  &[aria-selected].rangeEnd {
     border-radius: 0 50% 50% 0;
   }
 
   // Одиночная выбранная дата
-  &:has([aria-selected].dayRangeStart.dayRangeEnd) {
+  &[aria-selected].rangeStart.rangeEnd {
     border-radius: 50%;
   }
 }
 
-.cellSingle {
-  &:has([aria-selected]) {
+.daySingle {
+  &[aria-selected] {
     border-radius: 50%;
   }
 }
 
-.day {
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--color-light-100);
-}
-
-.dayToday {
+.today {
   font-weight: $font-weight-bold;
   color: var(--color-accent-500);
 }
@@ -101,19 +130,19 @@
   color: var(--color-danger-300);
 }
 
-.dayOutside {
+.outside {
   color: var(--color-light-900);
 }
 
-.table {
+.monthGrid {
   border-collapse: collapse;
 }
 
-.headRow {
+.weekdays {
   color: var(--color-dark-100);
 }
 
-.headCell {
+.weekday {
   padding: 20px 0;
 }
 
@@ -121,7 +150,28 @@
   width: 36px;
   height: 36px;
   padding: 6px;
-
-  background-color: var(--color-dark-100);
   border-radius: 50%;
+  background-color: var(--color-dark-100);
+}
+
+.nav {
+  position: absolute;
+  top: $padding-y - 6px;
+  right: $padding-x;
+  display: inline-block;
+}
+
+$scrollbar-width: 10px;
+
+::-webkit-scrollbar {
+  width: $scrollbar-width;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: calc($scrollbar-width / 2);
+  background: var(--color-dark-100);
 }
