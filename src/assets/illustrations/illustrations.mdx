@@ -1,0 +1,29 @@
+import { Meta, IconGallery, IconItem } from "@storybook/blocks"
+import * as Illustrations from "./components"
+
+<Meta title="01. Design system/Illustrations" />
+
+## Usage
+
+All the illustrations in the design system are available as React components. You can use them like this:
+
+```tsx
+import { PolaroidIllustration } from "@teamlead.incubator/ui-kit"
+
+// ...
+
+return <PolaroidIllustration />
+```
+
+## Gallery
+
+<br />
+
+<IconGallery>
+  {Object.entries(Illustrations).map(([name, Illustration]) => (
+     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px'}}>
+        <span>{name}</span>
+        <Illustration style={{width: '300px', height: '300px'}} />
+     </div>
+  ))}
+</IconGallery>
