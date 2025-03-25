@@ -58,7 +58,6 @@ export const Pagination = (props: Props) => {
         disabled={currentPage === 1}
         onClick={prevPage}
         title={"Previous page"}
-        variant={"text"}
       >
         <IconArrowIosBack />
       </Button>
@@ -73,7 +72,6 @@ export const Pagination = (props: Props) => {
               <Button
                 className={clsx(s.link, currentPage === page && s.active)}
                 onClick={() => onPageChange(+page)}
-                variant={"text"}
               >
                 {page}
               </Button>
@@ -86,7 +84,6 @@ export const Pagination = (props: Props) => {
         disabled={currentPage === paginationRange.at(-1)}
         onClick={nextPage}
         title={"Next page"}
-        variant={"text"}
       >
         <IconArrowIosForward />
       </Button>

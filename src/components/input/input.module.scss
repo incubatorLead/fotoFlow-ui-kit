@@ -26,9 +26,7 @@
   position: relative;
 }
 
-.hidePasswordIcon {
-  cursor: pointer;
-
+.hidePasswordIcon, .clearInputIcon {
   position: absolute;
   top: 50%;
   right: 12px;
@@ -47,7 +45,9 @@
 }
 
 input[disabled] + .hidePasswordIcon,
-input[disabled] + .inputSearchIcon {
+input[disabled] + .inputSearchIcon,
+input[disabled] + .clearInputIcon {
+  cursor: default;
   color: var(--color-dark-100);
 }
 
@@ -55,7 +55,7 @@ input[disabled] + .hidePasswordIcon {
   pointer-events: none;
 }
 
-.inputPassword {
+.inputPassword, .inputSearch {
   padding-right: 48px;
 }
 

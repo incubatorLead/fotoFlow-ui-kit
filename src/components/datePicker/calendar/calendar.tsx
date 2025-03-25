@@ -5,44 +5,44 @@ import clsx from "clsx"
 
 import s from "./calendar.module.scss"
 
-import { IconArrowIosBack, IconArrowIosForward } from "../../../assets/icons/components"
-export const Calendar = ({ className, classNames, ...props }: DayPickerProps) => (
-  <DayPicker
-    className={clsx(s.calendar, className)}
-    classNames={{
-      caption: s.caption,
-      caption_label: s.captionLabel,
-      cell: clsx(s.cell, props.mode === "range" ? s.cellRange : s.cellSingle),
-      day: clsx("btnReset", s.day),
-      day_outside: s.dayOutside,
-      day_range_end: s.dayRangeEnd,
-      day_range_middle: s.dayRangeMiddle,
-      day_range_start: s.dayRangeStart,
-      day_selected: s.daySelected,
-      day_today: s.dayToday,
-      head_cell: s.headCell,
-      head_row: s.headRow,
-      nav: s.nav,
-      nav_button: s.navButtons,
-      nav_button_next: clsx("btnReset", s.navButton),
-      nav_button_previous: clsx("btnReset", s.navButton),
-      table: s.table,
-      ...classNames
-    }}
-    components={{
-      IconLeft: () => <IconArrowIosBack />,
-      IconRight: () => <IconArrowIosForward />
-    }}
-    modifiers={{
-      saturday: { dayOfWeek: [6] },
-      sunday: { dayOfWeek: [0] }
-    }}
-    modifiersClassNames={{
-      saturday: s.weekend || "",
-      sunday: s.weekend || ""
-    }}
-    {...props}
-  />
-)
+export const Calendar = ({ className, classNames, ...props }: DayPickerProps) => {
+  return (
+    <DayPicker
+      captionLayout={"dropdown"}
+      className={clsx(s.calendar, className)}
+      classNames={{
+        button_next: s.navButton,
+        button_previous: s.navButton,
+        caption_label: s.captionLabel,
+        chevron: s.chevron,
+        day: clsx(s.day, props.mode === "range" ? s.dayRange : s.daySingle),
+        dropdown: s.dropdown,
+        dropdown_root: s.dropdownRoot,
+        dropdowns: s.dropdowns,
+        month_caption: s.monthCaption,
+        month_grid: s.monthGrid,
+        nav: s.nav,
+        outside: s.outside,
+        range_end: s.rangeEnd,
+        range_middle: s.rangeMiddle,
+        range_start: s.rangeStart,
+        today: s.today,
+        weekday: s.weekday,
+        weekdays: s.weekdays,
+        ...classNames
+      }}
+      locale={props.locale}
+      modifiers={{
+        saturday: { dayOfWeek: [6] },
+        sunday: { dayOfWeek: [0] }
+      }}
+      modifiersClassNames={{
+        saturday: s.weekend || "",
+        sunday: s.weekend || ""
+      }}
+      {...props}
+    />
+  )
+}
 
 Calendar.displayName = "Calendar"

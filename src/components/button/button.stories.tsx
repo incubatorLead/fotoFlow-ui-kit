@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
+import React from "react"
+
 import { IconRussiaFlag, IconUnitedKingdomFlag } from "../../assets/icons/components"
 import { Button } from "./"
 
@@ -17,7 +19,8 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    children: "Primary Button"
+    children: "Primary Button",
+    variant: "primary"
   }
 }
 
@@ -77,22 +80,23 @@ export const TextDisabled: Story = {
 export const AsLink: Story = {
   args: {
     as: "a",
-    children: "Link that looks like a button"
+    children: "Link that looks like a button",
+    variant: "primary"
   }
 }
 
 export const FullWidth: Story = {
   args: {
     children: "Full width button",
-    fullWidth: true
+    fullWidth: true,
+    variant: "primary"
   }
 }
 
 export const WithIcon: Story = {
   args: {
     children: <IconRussiaFlag />,
-    fullWidth: true,
-    variant: "text"
+    fullWidth: true
   }
 }
 
@@ -103,7 +107,6 @@ export const WithIconAndText: Story = {
         <IconUnitedKingdomFlag /> UK
       </>
     ),
-    fullWidth: true,
-    variant: "text"
+    fullWidth: true
   }
 }

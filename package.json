@@ -1,7 +1,7 @@
 {
-  "name": "@test-acoount-12312o3123123/ui-kit-int",
+  "name": "@teamlead.incubator/ui-kit",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.20",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -10,7 +10,7 @@
     ".": {
       "import": {
         "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "default": "./dist/index.cjs"
       },
       "require": {
         "types": "./dist/index.d.ts",
@@ -71,7 +71,7 @@
     "storybook-addon-pseudo-states": "3.1.1",
     "stylelint": "16.6.1",
     "typescript": "5.2.2",
-    "vite": "5.3.1",
+    "vite": "5.4.6",
     "vite-plugin-dts": "3.9.1",
     "sass": "1.77.6"
   },
@@ -82,7 +82,7 @@
     "@radix-ui/react-scroll-area": "1.1.0",
     "@radix-ui/react-select": "2.1.1",
     "@radix-ui/react-tabs": "1.1.0",
-    "react-day-picker": "8.10.1",
+    "react-day-picker": "9.4.1",
     "embla-carousel-react": "8.1.7",
     "sonner": "1.5.0"
   }

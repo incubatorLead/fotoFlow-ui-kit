@@ -35,6 +35,10 @@
   transition:
     opacity 0.4s,
     transform 0.3s;
+
+  &:focus-visible {
+    box-shadow: none;
+  }
 }
 
 .icon {
@@ -50,6 +54,10 @@
 
   border: 2px solid var(--color-light-100);
   border-radius: 50%;
+
+  & + span {
+    line-height: 1.5;
+  }
 }
 
 .icon::after {
@@ -97,8 +105,8 @@
 }
 
 .input:disabled {
-  background: none;
   pointer-events: none;
+  background: none;
 }
 
 .input:disabled + .icon {

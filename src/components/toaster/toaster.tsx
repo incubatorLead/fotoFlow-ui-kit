@@ -1,16 +1,16 @@
 import { Toaster as Sonner } from "sonner"
 
-import "./toaster.scss"
+import s from "./toaster.module.scss"
 
 export const Toaster = () => {
   return (
     <Sonner
       toastOptions={{
         classNames: {
-          cancelButton: "btnReset close",
-          icon: "emptyIcon",
-          title: "text",
-          toast: "toast"
+          cancelButton: s.close,
+          icon: s.emptyIcon,
+          title: s.text,
+          toast: s.toast
         },
         unstyled: true
       }}

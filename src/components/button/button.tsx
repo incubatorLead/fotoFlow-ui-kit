@@ -24,14 +24,14 @@ const ButtonPolymorph = <T extends ElementType = "button">(props: ButtonProps<T>
     className,
     fullWidth,
     type = !as || as === "button" ? "button" : undefined,
-    variant = "primary",
+    variant,
     ...restProps
   } = props
   const Component = as ?? "button"
 
   return (
     <Component
-      className={clsx("btnReset", s.button, s[variant], fullWidth && s.fullWidth, className)}
+      className={clsx(s.button, variant && s[variant], fullWidth && s.fullWidth, className)}
       type={type}
       {...restProps}
       ref={ref}

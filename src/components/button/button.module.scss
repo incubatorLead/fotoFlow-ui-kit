@@ -1,8 +1,6 @@
 @use "../../styles/abstracts/index" as *;
 
 .button {
-  cursor: pointer;
-
   display: inline-flex;
   flex-shrink: 0;
   gap: 10px;
@@ -66,7 +64,7 @@
 .outlined {
   padding: 6px 24px;
   color: var(--color-accent-500);
-  border: 1px solid $outline-color;
+  border: 1px solid var(--color-accent-500);
 
   &:active {
     color: var(--color-accent-700);
@@ -85,6 +83,7 @@
 }
 
 .text {
+  padding: 6px 24px;
   color: var(--color-accent-500);
 
   &:active {

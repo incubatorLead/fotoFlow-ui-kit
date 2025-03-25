@@ -35,27 +35,9 @@ export const MultipleRadiosInOneStory: Story = {
   name: "Radio multiple selections",
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
-      <Radio
-        {...{
-          id: "testradio1",
-          labelText: "radio 1",
-          name: "radio"
-        }}
-      />
-      <Radio
-        {...{
-          id: "testradio2",
-          labelText: "radio 2",
-          name: "radio"
-        }}
-      />
-      <Radio
-        {...{
-          id: "testradio3",
-          labelText: "radio 3",
-          name: "radio"
-        }}
-      />
+      <Radio id={"testradio1"} labelText={"radio 1"} name={"radio"} />
+      <Radio id={"testradio2"} labelText={"radio 2"} name={"radio"} />
+      <Radio id={"testradio3"} labelText={"radio 3"} name={"radio"} />
     </div>
   )
 }

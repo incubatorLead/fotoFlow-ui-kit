@@ -26,12 +26,13 @@ export type SelectProps = {
   className?: string
   id?: string
   labelText?: ReactNode
+  onValueChange?: (value: string) => void
   options: Option[]
   placeholder?: string
 } & Omit<ComponentPropsWithoutRef<typeof SelectPrimitive.Root>, "children">
 
 const SelectRaw = forwardRef<ElementRef<typeof SelectPrimitive.Root>, SelectProps>((props, ref) => {
-  const { className, id, labelText, options, placeholder, ...restProps } = props
+  const { className, id, labelText, onValueChange, options, placeholder, ...restProps } = props
 
   // Generate unique ID if it is not provided
   const selectId = useGenerateId(props.name, id)
@@ -52,7 +53,7 @@ const SelectRaw = forwardRef<ElementRef<typeof SelectPrimitive.Root>, SelectProp
   )
 
   return (
-    <SelectPrimitive.Root {...restProps}>
+    <SelectPrimitive.Root onValueChange={onValueChange} {...restProps}>
       <Typography as={"label"} className={s.label} htmlFor={selectId} variant={"regular_text_14"}>
         {labelText}
         <SelectPrimitive.Trigger className={clsx(s.trigger, className)} id={selectId} ref={ref}>

@@ -4,7 +4,6 @@
   position: fixed;
   inset: 0;
   background-color: rgb(0 0 0 / 60%);
-  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .dialogContent {
@@ -15,11 +14,9 @@
 
   background: var(--color-dark-300);
   border: 1px solid var(--color-dark-100);
-
-  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.title {
+.dialogHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,29 +27,6 @@
 }
 
 .closeButton {
-  cursor: pointer;
   display: flex;
   align-items: center;
-}
-
-@keyframes overlayShow {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes contentShow {
-  from {
-    transform: translate(-50%, -48%) scale(0.96);
-    opacity: 0;
-  }
-
-  to {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
 }

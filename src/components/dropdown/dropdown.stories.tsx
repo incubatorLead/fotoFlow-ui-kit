@@ -40,7 +40,7 @@ export const NotificationDropdown: Story = {
         }}
       >
         <DropdownMenuTrigger>
-          <Button style={{ color: isOpen ? "#397DF6FF" : "#fff", padding: "0" }} variant={"text"}>
+          <Button style={{ color: isOpen ? "#397DF6FF" : "#fff" }}>
             {isOpen ? <IconBellFill /> : <IconBellOutline />}
           </Button>
         </DropdownMenuTrigger>
@@ -118,7 +118,7 @@ export const HeaderDropdown: Story = {
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <Button style={{ padding: "0" }} variant={"text"}>
+        <Button>
           <IconMoreHorizontal />
         </Button>
       </DropdownMenuTrigger>

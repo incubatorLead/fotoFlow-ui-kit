@@ -1,4 +1,4 @@
-import type { DayPickerSingleProps } from "react-day-picker"
+import type { DayPickerProps, PropsSingle } from "react-day-picker"
 
 import * as React from "react"
 import { type ReactNode, useState } from "react"
@@ -14,12 +14,13 @@ import { IconCalendar, IconCalendarOutline } from "../../assets/icons/components
 import { useGenerateId } from "../../hooks/useGenerateId"
 import { Typography } from "../typography"
 import { Calendar } from "./calendar/calendar"
+
 export enum WEEKDAYS {
   MONDAY = 1,
   SUNDAY = 0
 }
 
-export const formatDate = (date: Date, locale: Locale) =>
+export const formatDate = (date: Date, locale: Required<Locale>) =>
   format(date, locale.code === "en-US" ? "MM/dd/yyyy" : "dd/MM/yyyy")
 
 export type DatePickerProps = {
@@ -28,16 +29,17 @@ export type DatePickerProps = {
   error?: ReactNode
   labelText?: ReactNode
   onSelect: (date: Date | undefined) => void
-} & Omit<DayPickerSingleProps, "disabled" | "mode">
+} & Omit<DayPickerProps, "mode"> &
+  Omit<PropsSingle, "disabled" | "mode">
 
 export const DatePicker = ({
+  autoFocus = true,
   className,
   classNames,
   date,
   disabled,
   error,
   id,
-  initialFocus = true,
   labelText,
   locale = enUS,
   onSelect,
@@ -48,8 +50,8 @@ export const DatePicker = ({
   const [isCalendarOpen, setCalendarOpen] = useState(false)
   const calendarId = useGenerateId(id)
   const calendarIcon = isCalendarOpen ? <IconCalendar /> : <IconCalendarOutline />
-  const pickDate = locale?.code === "en-US" ? "Pick a date" : "Выберите дату"
-  const formattedDate = date ? formatDate(date, locale) : pickDate
+  const pickDate = locale.code === "en-US" ? "Pick a date" : "Выберите дату"
+  const formattedDate = date ? formatDate(date, locale as Required<Locale>) : pickDate
 
   return (
     <div className={className}>
@@ -58,7 +60,7 @@ export const DatePicker = ({
       </label>
       <Popover onOpenChange={setCalendarOpen} open={isCalendarOpen}>
         <PopoverTrigger
-          className={clsx("btnReset", s.button, error && s.error)}
+          className={clsx(s.button, error && s.error)}
           disabled={disabled}
           id={calendarId}
         >
@@ -67,12 +69,12 @@ export const DatePicker = ({
         </PopoverTrigger>
         <PopoverContent align={"start"}>
           <Calendar
+            autoFocus={autoFocus}
             className={className}
             classNames={classNames}
             defaultMonth={date}
             disabled={disabled}
             id={calendarId}
-            initialFocus={initialFocus}
             locale={locale}
             mode={"single"}
             onSelect={onSelect}

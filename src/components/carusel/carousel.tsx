@@ -30,26 +30,16 @@ export const Carousel = (props: PropType) => {
       <div className={s.viewport} ref={emblaRef}>
         <div className={s.container}>{children}</div>
       </div>
-      <Button
-        className={s.prevButton}
-        disabled={prevBtnDisabled}
-        onClick={onPrevButtonClick}
-        variant={"text"}
-      >
+      <Button className={s.prevButton} disabled={prevBtnDisabled} onClick={onPrevButtonClick}>
         <IconArrowIosBack height={48} width={48} />
       </Button>
-      <Button
-        className={s.nextButton}
-        disabled={nextBtnDisabled}
-        onClick={onNextButtonClick}
-        variant={"text"}
-      >
+      <Button className={s.nextButton} disabled={nextBtnDisabled} onClick={onNextButtonClick}>
         <IconArrowIosForward height={48} width={48} />
       </Button>
       <div className={s.dots}>
         {scrollSnaps.map((_, index) => (
           <button
-            className={clsx("btnReset", s.dot, index === selectedIndex && s.selected)}
+            className={clsx(s.dot, index === selectedIndex && s.selected)}
             key={index}
             onClick={() => onDotButtonClick(index)}
             type={"button"}
