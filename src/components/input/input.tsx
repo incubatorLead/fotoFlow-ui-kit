@@ -1,9 +1,21 @@
-import { type ComponentPropsWithoutRef, type ReactNode, forwardRef, useState } from "react"
+import {
+  type ChangeEvent,
+  type ComponentPropsWithoutRef,
+  type ReactNode,
+  forwardRef,
+  useState
+} from "react"
 
 import clsx from "clsx"
 
 import s from "./input.module.scss"
 
+import {
+  IconClose,
+  IconEyeOffOutline,
+  IconEyeOutline,
+  IconSearch
+} from "../../assets/icons/components"
 import { useGenerateId } from "../../hooks/useGenerateId"
 import { Typography } from "../typography"
 
@@ -11,7 +23,6 @@ export type InputProps = {
   error?: ReactNode
   labelText?: ReactNode
 } & ComponentPropsWithoutRef<"input">
-import { IconEyeOffOutline, IconEyeOutline, IconSearch } from "../../assets/icons/components"
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const {
     className,
@@ -20,6 +31,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     id,
     labelText,
     name,
+    onChange,
     required,
     type = "text",
     ...restProps
@@ -30,6 +42,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const isInputPassword = type === "password"
   const isInputSearch = type === "search"
 
+  const [value, setValue] = useState("")
   const [isPasswordHidden, setPasswordHidden] = useState(isInputPassword)
   const toggleHidePassword = () => setPasswordHidden(!isPasswordHidden)
 
@@ -43,13 +56,24 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     inputType = type
   }
 
+  const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    onChange?.(e)
+    setValue(e.currentTarget.value)
+  }
+
+  const clearInputHandler = () => {
+    setValue("")
+  }
+
   const classNames = {
+    buttonClear: s.clearInputIcon,
     buttonPassword: s.hidePasswordIcon,
     fieldContainer: clsx(s.fieldContainer, className),
     input: clsx(
       s.formControl,
       isInputPassword && s.inputPassword,
       isInputPassword && isPasswordHidden && s.hidePassword,
+      isInputSearch && s.inputSearch,
       error && s.inputError
     ),
     label: clsx(s.label, required && s.labelRequired, disabled && s.disabled)
@@ -66,8 +90,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
           disabled={disabled}
           id={inputId}
           name={name}
+          onChange={changeHandler}
           ref={ref}
           type={inputType}
+          value={value}
           {...restProps}
         />
         {isInputSearch && (
@@ -82,6 +108,16 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
             type={"button"}
           >
             {passwordIcon}
+          </button>
+        )}
+        {isInputSearch && !!value && (
+          <button
+            className={s.clearInputIcon}
+            disabled={disabled}
+            onClick={clearInputHandler}
+            type={"button"}
+          >
+            <IconClose />
           </button>
         )}
       </div>
